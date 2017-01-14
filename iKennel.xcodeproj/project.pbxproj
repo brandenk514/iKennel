@@ -1,0 +1,594 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		11B2C3331F65681A21CCA6C0 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2C9F4BF728D8B2718DF16 /* Client.swift */; };
+		11B2C4620E0DACE2D55E821E /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2C4D2AB345A94A532688A /* Animal.swift */; };
+		11B2C5D991BB19838E4533F5 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2CC91C20C28B3C2E43CF7 /* Reservation.swift */; };
+		53B0C9A21E15BC6100434399 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B0C9A11E15BC6100434399 /* SettingsViewController.swift */; };
+		53FBBD091E1566E400734D66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FBBD081E1566E400734D66 /* AppDelegate.swift */; };
+		53FBBD0B1E1566E400734D66 /* ReservationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FBBD0A1E1566E400734D66 /* ReservationsViewController.swift */; };
+		53FBBD0D1E1566E400734D66 /* ClientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FBBD0C1E1566E400734D66 /* ClientsViewController.swift */; };
+		53FBBD101E1566E400734D66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53FBBD0E1E1566E400734D66 /* Main.storyboard */; };
+		53FBBD121E1566E400734D66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53FBBD111E1566E400734D66 /* Assets.xcassets */; };
+		53FBBD151E1566E400734D66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53FBBD131E1566E400734D66 /* LaunchScreen.storyboard */; };
+		53FBBD201E1566E500734D66 /* iKennelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FBBD1F1E1566E500734D66 /* iKennelTests.swift */; };
+		53FBBD2B1E1566E500734D66 /* iKennelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FBBD2A1E1566E500734D66 /* iKennelUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		53FBBD1C1E1566E500734D66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53FBBCFD1E1566E400734D66 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53FBBD041E1566E400734D66;
+			remoteInfo = iKennel;
+		};
+		53FBBD271E1566E500734D66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53FBBCFD1E1566E400734D66 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 53FBBD041E1566E400734D66;
+			remoteInfo = iKennel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		11B2C4D2AB345A94A532688A /* Animal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
+		11B2C9F4BF728D8B2718DF16 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		11B2CC91C20C28B3C2E43CF7 /* Reservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
+		53B0C9A11E15BC6100434399 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		53FBBD051E1566E400734D66 /* iKennel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iKennel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		53FBBD081E1566E400734D66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		53FBBD0A1E1566E400734D66 /* ReservationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationsViewController.swift; sourceTree = "<group>"; };
+		53FBBD0C1E1566E400734D66 /* ClientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsViewController.swift; sourceTree = "<group>"; };
+		53FBBD0F1E1566E400734D66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		53FBBD111E1566E400734D66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		53FBBD141E1566E400734D66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		53FBBD161E1566E400734D66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53FBBD1B1E1566E500734D66 /* iKennelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iKennelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		53FBBD1F1E1566E500734D66 /* iKennelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iKennelTests.swift; sourceTree = "<group>"; };
+		53FBBD211E1566E500734D66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53FBBD261E1566E500734D66 /* iKennelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iKennelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		53FBBD2A1E1566E500734D66 /* iKennelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iKennelUITests.swift; sourceTree = "<group>"; };
+		53FBBD2C1E1566E500734D66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		53FBBD021E1566E400734D66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53FBBD181E1566E500734D66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53FBBD231E1566E500734D66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		53AC25071E2AA27D00D5D2BD /* models */ = {
+			isa = PBXGroup;
+			children = (
+				11B2C9F4BF728D8B2718DF16 /* Client.swift */,
+				11B2C4D2AB345A94A532688A /* Animal.swift */,
+				11B2CC91C20C28B3C2E43CF7 /* Reservation.swift */,
+			);
+			name = models;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		53AC25081E2AA28C00D5D2BD /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = views;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		53AC250B1E2AA2D600D5D2BD /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				53FBBD0A1E1566E400734D66 /* ReservationsViewController.swift */,
+				53FBBD0C1E1566E400734D66 /* ClientsViewController.swift */,
+				53B0C9A11E15BC6100434399 /* SettingsViewController.swift */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		53AC250C1E2AA34100D5D2BD /* storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				53FBBD0E1E1566E400734D66 /* Main.storyboard */,
+			);
+			name = storyboards;
+			sourceTree = "<group>";
+		};
+		53FBBCFC1E1566E400734D66 = {
+			isa = PBXGroup;
+			children = (
+				53FBBD071E1566E400734D66 /* iKennel */,
+				53FBBD1E1E1566E500734D66 /* iKennelTests */,
+				53FBBD291E1566E500734D66 /* iKennelUITests */,
+				53FBBD061E1566E400734D66 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		53FBBD061E1566E400734D66 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				53FBBD051E1566E400734D66 /* iKennel.app */,
+				53FBBD1B1E1566E500734D66 /* iKennelTests.xctest */,
+				53FBBD261E1566E500734D66 /* iKennelUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		53FBBD071E1566E400734D66 /* iKennel */ = {
+			isa = PBXGroup;
+			children = (
+				53AC25081E2AA28C00D5D2BD /* views */,
+				53AC25071E2AA27D00D5D2BD /* models */,
+				53AC250B1E2AA2D600D5D2BD /* controllers */,
+				53AC250C1E2AA34100D5D2BD /* storyboards */,
+				53FBBD111E1566E400734D66 /* Assets.xcassets */,
+				53FBBD131E1566E400734D66 /* LaunchScreen.storyboard */,
+				53FBBD081E1566E400734D66 /* AppDelegate.swift */,
+				53FBBD161E1566E400734D66 /* Info.plist */,
+			);
+			path = iKennel;
+			sourceTree = "<group>";
+		};
+		53FBBD1E1E1566E500734D66 /* iKennelTests */ = {
+			isa = PBXGroup;
+			children = (
+				53FBBD1F1E1566E500734D66 /* iKennelTests.swift */,
+				53FBBD211E1566E500734D66 /* Info.plist */,
+			);
+			path = iKennelTests;
+			sourceTree = "<group>";
+		};
+		53FBBD291E1566E500734D66 /* iKennelUITests */ = {
+			isa = PBXGroup;
+			children = (
+				53FBBD2A1E1566E500734D66 /* iKennelUITests.swift */,
+				53FBBD2C1E1566E500734D66 /* Info.plist */,
+			);
+			path = iKennelUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		53FBBD041E1566E400734D66 /* iKennel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53FBBD2F1E1566E500734D66 /* Build configuration list for PBXNativeTarget "iKennel" */;
+			buildPhases = (
+				53FBBD011E1566E400734D66 /* Sources */,
+				53FBBD021E1566E400734D66 /* Frameworks */,
+				53FBBD031E1566E400734D66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iKennel;
+			productName = iKennel;
+			productReference = 53FBBD051E1566E400734D66 /* iKennel.app */;
+			productType = "com.apple.product-type.application";
+		};
+		53FBBD1A1E1566E500734D66 /* iKennelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53FBBD321E1566E500734D66 /* Build configuration list for PBXNativeTarget "iKennelTests" */;
+			buildPhases = (
+				53FBBD171E1566E500734D66 /* Sources */,
+				53FBBD181E1566E500734D66 /* Frameworks */,
+				53FBBD191E1566E500734D66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				53FBBD1D1E1566E500734D66 /* PBXTargetDependency */,
+			);
+			name = iKennelTests;
+			productName = iKennelTests;
+			productReference = 53FBBD1B1E1566E500734D66 /* iKennelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		53FBBD251E1566E500734D66 /* iKennelUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 53FBBD351E1566E500734D66 /* Build configuration list for PBXNativeTarget "iKennelUITests" */;
+			buildPhases = (
+				53FBBD221E1566E500734D66 /* Sources */,
+				53FBBD231E1566E500734D66 /* Frameworks */,
+				53FBBD241E1566E500734D66 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				53FBBD281E1566E500734D66 /* PBXTargetDependency */,
+			);
+			name = iKennelUITests;
+			productName = iKennelUITests;
+			productReference = 53FBBD261E1566E500734D66 /* iKennelUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		53FBBCFD1E1566E400734D66 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "BK Development";
+				TargetAttributes = {
+					53FBBD041E1566E400734D66 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 7GH5QURVGL;
+						ProvisioningStyle = Automatic;
+					};
+					53FBBD1A1E1566E500734D66 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 7GH5QURVGL;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 53FBBD041E1566E400734D66;
+					};
+					53FBBD251E1566E500734D66 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 7GH5QURVGL;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 53FBBD041E1566E400734D66;
+					};
+				};
+			};
+			buildConfigurationList = 53FBBD001E1566E400734D66 /* Build configuration list for PBXProject "iKennel" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 53FBBCFC1E1566E400734D66;
+			productRefGroup = 53FBBD061E1566E400734D66 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				53FBBD041E1566E400734D66 /* iKennel */,
+				53FBBD1A1E1566E500734D66 /* iKennelTests */,
+				53FBBD251E1566E500734D66 /* iKennelUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		53FBBD031E1566E400734D66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53FBBD151E1566E400734D66 /* LaunchScreen.storyboard in Resources */,
+				53FBBD121E1566E400734D66 /* Assets.xcassets in Resources */,
+				53FBBD101E1566E400734D66 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53FBBD191E1566E500734D66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53FBBD241E1566E500734D66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		53FBBD011E1566E400734D66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53FBBD0D1E1566E400734D66 /* ClientsViewController.swift in Sources */,
+				53FBBD091E1566E400734D66 /* AppDelegate.swift in Sources */,
+				53FBBD0B1E1566E400734D66 /* ReservationsViewController.swift in Sources */,
+				53B0C9A21E15BC6100434399 /* SettingsViewController.swift in Sources */,
+				11B2C3331F65681A21CCA6C0 /* Client.swift in Sources */,
+				11B2C4620E0DACE2D55E821E /* Animal.swift in Sources */,
+				11B2C5D991BB19838E4533F5 /* Reservation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53FBBD171E1566E500734D66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53FBBD201E1566E500734D66 /* iKennelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53FBBD221E1566E500734D66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53FBBD2B1E1566E500734D66 /* iKennelUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		53FBBD1D1E1566E500734D66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53FBBD041E1566E400734D66 /* iKennel */;
+			targetProxy = 53FBBD1C1E1566E500734D66 /* PBXContainerItemProxy */;
+		};
+		53FBBD281E1566E500734D66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 53FBBD041E1566E400734D66 /* iKennel */;
+			targetProxy = 53FBBD271E1566E500734D66 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		53FBBD0E1E1566E400734D66 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53FBBD0F1E1566E400734D66 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		53FBBD131E1566E400734D66 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				53FBBD141E1566E400734D66 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		53FBBD2D1E1566E500734D66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		53FBBD2E1E1566E500734D66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		53FBBD301E1566E500734D66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7GH5QURVGL;
+				INFOPLIST_FILE = iKennel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bkdevelopment.iKennel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		53FBBD311E1566E500734D66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7GH5QURVGL;
+				INFOPLIST_FILE = iKennel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bkdevelopment.iKennel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		53FBBD331E1566E500734D66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 7GH5QURVGL;
+				INFOPLIST_FILE = iKennelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bkdevelopment.iKennelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iKennel.app/iKennel";
+			};
+			name = Debug;
+		};
+		53FBBD341E1566E500734D66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 7GH5QURVGL;
+				INFOPLIST_FILE = iKennelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bkdevelopment.iKennelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iKennel.app/iKennel";
+			};
+			name = Release;
+		};
+		53FBBD361E1566E500734D66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 7GH5QURVGL;
+				INFOPLIST_FILE = iKennelUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bkdevelopment.iKennelUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = iKennel;
+			};
+			name = Debug;
+		};
+		53FBBD371E1566E500734D66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 7GH5QURVGL;
+				INFOPLIST_FILE = iKennelUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bkdevelopment.iKennelUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = iKennel;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		53FBBD001E1566E400734D66 /* Build configuration list for PBXProject "iKennel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53FBBD2D1E1566E500734D66 /* Debug */,
+				53FBBD2E1E1566E500734D66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53FBBD2F1E1566E500734D66 /* Build configuration list for PBXNativeTarget "iKennel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53FBBD301E1566E500734D66 /* Debug */,
+				53FBBD311E1566E500734D66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53FBBD321E1566E500734D66 /* Build configuration list for PBXNativeTarget "iKennelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53FBBD331E1566E500734D66 /* Debug */,
+				53FBBD341E1566E500734D66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		53FBBD351E1566E500734D66 /* Build configuration list for PBXNativeTarget "iKennelUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				53FBBD361E1566E500734D66 /* Debug */,
+				53FBBD371E1566E500734D66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 53FBBCFD1E1566E400734D66 /* Project object */;
+}
