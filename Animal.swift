@@ -8,7 +8,7 @@ import Foundation
 struct Animal {
     let id: Int
     let name: String
-    let friendly: Bool
+    let social: Bool
     let sex: String
     let breed: String
     let reservation: Reservation
