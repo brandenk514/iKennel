@@ -10,6 +10,8 @@ import UIKit
 
 class ClientsViewController: UIViewController {
 
+    var clients = [Client]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -18,6 +20,13 @@ class ClientsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        clients = Client.loadAllClients()
+        print(clients)
     }
 
 

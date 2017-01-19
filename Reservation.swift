@@ -8,6 +8,6 @@ import Foundation
 struct Reservation {
     let id: Int
     let dateIn: Date
-    let DateOut: Date
-    let CheckedIn: Bool
+    let dateOut: Date
+    let checkedIn: Bool
 }

@@ -6,11 +6,10 @@
 import Foundation
 
 struct Animal {
-    let id: Int
     let name: String
-    let social: Bool
     let sex: String
     let breed: String
+    let social: Bool
     let reservation: Reservation
 
 }
