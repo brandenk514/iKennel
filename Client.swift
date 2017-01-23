@@ -30,13 +30,13 @@ extension Client {
         var sAnimals = [Animal]()
 
         let reserve0 = Reservation(id: 0, dateIn: Date(), dateOut: Date(), checkedIn: false)
-        let animal0 = Animal(name: "Meeko", sex: "male", breed: "German Shepard", social: true, reservation: reserve0)
+        let animal0 = Animal(name: "Meeko", type: "Dog", sex: "male", breed: "German Shepard", social: true, reservation: reserve0, notes: "")
         mAnimals.append(animal0)
 
         let reserve1 = Reservation(id: 1, dateIn: Date(), dateOut: Date(), checkedIn: true)
         let reserve2 = Reservation(id: 2, dateIn: Date(), dateOut: Date(), checkedIn: false)
-        let animal1 = Animal(name: "Prince", sex: "male", breed: "husky", social: false, reservation: reserve1)
-        let animal2 = Animal(name: "lady", sex: "female", breed: "pug", social: true, reservation: reserve2)
+        let animal1 = Animal(name: "Prince", type: "Dog", sex: "male", breed: "husky", social: false, reservation: reserve1, notes: "")
+        let animal2 = Animal(name: "lady", type: "Dog", sex: "female", breed: "pug", social: true, reservation: reserve2, notes: "")
         sAnimals.append(animal1)
         sAnimals.append(animal2)
 

@@ -8,7 +8,8 @@
 
 import UIKit
 
-class ClientsViewController: UIViewController {
+
+class ClientsViewController: UITableViewController {
 
     var clients = [Client]()
 
@@ -24,11 +25,18 @@ class ClientsViewController: UIViewController {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
         clients = Client.loadAllClients()
-        print(clients)
     }
 
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return clients.count
+    }
 
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ClientCell", for: indexPath) as! ClientTableViewCell
+        let client = clients[indexPath.row]
+        cell.nameLabel.text = client.fName + " " + client.lName
+        return cell
+    }
 }
 

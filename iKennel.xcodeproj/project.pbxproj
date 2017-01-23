@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11B2C28F80F03A6E27C2B8B9 /* Vaccine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2CE5F0C975339AC1B411F /* Vaccine.swift */; };
 		11B2C3331F65681A21CCA6C0 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2C9F4BF728D8B2718DF16 /* Client.swift */; };
 		11B2C4620E0DACE2D55E821E /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2C4D2AB345A94A532688A /* Animal.swift */; };
 		11B2C5D991BB19838E4533F5 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2CC91C20C28B3C2E43CF7 /* Reservation.swift */; };
+		532D3A971E369DA000AF2D45 /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 532D3A961E369DA000AF2D45 /* ClientTableViewCell.swift */; };
 		53B0C9A21E15BC6100434399 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B0C9A11E15BC6100434399 /* SettingsViewController.swift */; };
 		53FBBD091E1566E400734D66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FBBD081E1566E400734D66 /* AppDelegate.swift */; };
 		53FBBD0B1E1566E400734D66 /* ReservationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FBBD0A1E1566E400734D66 /* ReservationsViewController.swift */; };
@@ -42,6 +44,8 @@
 		11B2C4D2AB345A94A532688A /* Animal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		11B2C9F4BF728D8B2718DF16 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		11B2CC91C20C28B3C2E43CF7 /* Reservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
+		11B2CE5F0C975339AC1B411F /* Vaccine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vaccine.swift; sourceTree = "<group>"; };
+		532D3A961E369DA000AF2D45 /* ClientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
 		53B0C9A11E15BC6100434399 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		53FBBD051E1566E400734D66 /* iKennel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iKennel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53FBBD081E1566E400734D66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 				11B2C9F4BF728D8B2718DF16 /* Client.swift */,
 				11B2C4D2AB345A94A532688A /* Animal.swift */,
 				11B2CC91C20C28B3C2E43CF7 /* Reservation.swift */,
+				11B2CE5F0C975339AC1B411F /* Vaccine.swift */,
 			);
 			name = models;
 			path = ..;
@@ -98,6 +103,7 @@
 		53AC25081E2AA28C00D5D2BD /* views */ = {
 			isa = PBXGroup;
 			children = (
+				532D3A961E369DA000AF2D45 /* ClientTableViewCell.swift */,
 			);
 			name = views;
 			path = ..;
@@ -317,7 +323,9 @@
 				53B0C9A21E15BC6100434399 /* SettingsViewController.swift in Sources */,
 				11B2C3331F65681A21CCA6C0 /* Client.swift in Sources */,
 				11B2C4620E0DACE2D55E821E /* Animal.swift in Sources */,
+				532D3A971E369DA000AF2D45 /* ClientTableViewCell.swift in Sources */,
 				11B2C5D991BB19838E4533F5 /* Reservation.swift in Sources */,
+				11B2C28F80F03A6E27C2B8B9 /* Vaccine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

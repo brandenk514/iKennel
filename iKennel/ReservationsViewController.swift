@@ -11,9 +11,8 @@
 import UIKit
 
 class ReservationsViewController: UIViewController {
-    
-    @IBOutlet weak var reservationsTable: UITableView!
 
+    @IBOutlet weak var reservationTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
