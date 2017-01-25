@@ -1,5 +1,5 @@
 //
-//  ClientTableViewCell.swift
+//  MainTableViewCell.swift
 //  iKennel
 //
 //  Created by Branden Kaestner on 1/24/17.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ClientTableViewCell: UITableViewCell {
+class MainTableViewCell: UITableViewCell {
 
     @IBOutlet weak var clientName: UILabel!
-    @IBOutlet weak var animalNames: UILabel!
+    @IBOutlet weak var checkedIn: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
