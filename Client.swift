@@ -42,8 +42,10 @@ extension Client {
 
         let client0 = Client(id: 0, fName: "Mark", lName: "Sanchez", address: "123 Wall Street", email: "ms@gmail.com", cellNum: "201-233-1222", animals: mAnimals)
         let client1 = Client(id: 1, fName: "Samantha", lName: "Smith", address: "234 Wall Street", email: "ss@gmail.com", cellNum: "210-453-2211", animals: sAnimals)
+        let client2 = Client(id: 2, fName: "Mary", lName: "Doe", address: "775 Saint Lane", email: "md@gmail.com", cellNum: "122-345-6677", animals: mAnimals)
         clients.append(client0)
         clients.append(client1)
+        clients.append(client2)
 
         return clients
     }
