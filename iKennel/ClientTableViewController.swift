@@ -92,6 +92,15 @@ class ClientTableViewController: UITableViewController {
     @IBAction func cancelNewClient(segue:UIStoryboardSegue) {
         
     }
+    
+    @IBAction func editCurrentClient(segue:UIStoryboardSegue) {
+        
+    }
+    
+    @IBAction func cancelCurrentClient(segue:UIStoryboardSegue) {
+        
+    }
+
 
 /*
  // Override to support conditional editing of the table view.
