@@ -16,7 +16,7 @@ struct Client {
     let address: String
     let email: String
     let cellNum: String
-    let animals: Array<Animal>
+    let animals: Array<Animal>?
 }
 
 extension Client {

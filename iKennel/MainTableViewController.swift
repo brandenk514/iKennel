@@ -52,6 +52,12 @@ class MainTableViewController: UITableViewController {
         return "Section \(section)"
     }
     
+    @IBAction func addNewReservation(segue:UIStoryboardSegue) {
+    }
+    
+    @IBAction func cancelNewReservation(segue:UIStoryboardSegue) {
+    }
+    
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

@@ -11,6 +11,6 @@ struct Animal {
     let sex: String
     let breed: String
     let social: Bool
-    let reservation: Reservation
+    let reservation: Reservation?
     let notes: String
 }

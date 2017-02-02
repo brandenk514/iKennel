@@ -13,76 +13,85 @@ class ClientTableViewController: UITableViewController {
     var clients = Client.loadAllClients()
 
     var last_names = Array<String>()
-    
+
     var contacts = [Character: [Client]]()
-    
+
     var letters: [Character] = []
 
-override func viewDidLoad() {
-    super.viewDidLoad()
-    
-    letters = clients.map { (name) -> Character in
-        return name.lName[name.lName.startIndex]
-    }
-    
-    letters = letters.reduce([], { (list, name) -> [Character] in
-        if !list.contains(name) {
-            return list + [name]
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        letters = clients.map { (name) -> Character in
+            return name.lName[name.lName.startIndex]
         }
-        return list
-    })
-    
-    
-    for c in clients {
-        if contacts[c.lName[c.lName.startIndex]] == nil {
-            contacts[c.lName[c.lName.startIndex]] = [Client]()
-        }
-        
-        contacts[c.lName[c.lName.startIndex]]!.append(c)
-    }
-    
-    for (letter, list) in contacts {
-        contacts[letter] = list.sorted(by: { (client1, client2) -> Bool in
-            client1.lName < client2.lName
+
+        letters = letters.reduce([], { (list, name) -> [Character] in
+            if !list.contains(name) {
+                return list + [name]
+            }
+            return list
         })
+
+
+        for c in clients {
+            if contacts[c.lName[c.lName.startIndex]] == nil {
+                contacts[c.lName[c.lName.startIndex]] = [Client]()
+            }
+
+            contacts[c.lName[c.lName.startIndex]]!.append(c)
+        }
+
+        for (letter, list) in contacts {
+            contacts[letter] = list.sorted(by: { (client1, client2) -> Bool in
+                client1.lName < client2.lName
+            })
+        }
+
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-}
-
-override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-}
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 
 // MARK: - Table view data source
 
-override func numberOfSections(in tableView: UITableView) -> Int {
-    // #warning Incomplete implementation, return the number of sections
-    return letters.count
-}
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return letters.count
+    }
 
-override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    // #warning Incomplete implementation, return the number of rows
-    return contacts[letters[section]]!.count
-}
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return contacts[letters[section]]!.count
+    }
 
-override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "Name", for: indexPath) as! ClientTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Name", for: indexPath) as! ClientTableViewCell
+        
+        cell.clientName?.text = clients[indexPath.row].lName
+        cell.animalNames?.text = clients[indexPath.row].cellNum
+
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return String(Array(letters)[section])
+    }
     
-    cell.clientName?.text = clients[indexPath.row].lName //contacts[letters[indexPath.row]].lName as? String
-    cell.animalNames?.text = clients[indexPath.row].cellNum
+    @IBAction func addNewClient(segue:UIStoryboardSegue) {
+        
+    }
     
-    return cell
-}
-
-override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return String(Array(letters)[section])
-}
+    @IBAction func cancelNewClient(segue:UIStoryboardSegue) {
+        
+    }
 
 /*
  // Override to support conditional editing of the table view.
