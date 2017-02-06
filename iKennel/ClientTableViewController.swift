@@ -17,7 +17,9 @@ class ClientTableViewController: UITableViewController {
     var contacts = [Character: [Client]]()
 
     var letters: [Character] = []
-
+    
+    var selectedClient = Array<String>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -95,13 +97,12 @@ class ClientTableViewController: UITableViewController {
     
     @IBAction func editCurrentClient(segue:UIStoryboardSegue) {
         
+        
     }
     
     @IBAction func cancelCurrentClient(segue:UIStoryboardSegue) {
         
     }
-
-
 
 /*
  // Override to support conditional editing of the table view.
@@ -138,14 +139,23 @@ class ClientTableViewController: UITableViewController {
  }
  */
 
-/*
+
  // MARK: - Navigation
 
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
  // Get the new view controller using segue.destinationViewController.
  // Pass the selected object to the new view controller.
+    let index: Int = (self.tableView.indexPathForSelectedRow?.row)!
+    let clientCurrentVC = segue.destination as! CurrentClientViewController
+    clientCurrentVC.lName = clients[index].lName
+    clientCurrentVC.fName = clients[index].fName
+    clientCurrentVC.address = clients[index].address
+    clientCurrentVC.email = clients[index].email
+    clientCurrentVC.celllNum = clients[index].cellNum
+    
+    
  }
- */
+
 
 }
