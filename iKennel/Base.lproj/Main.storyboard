@@ -431,7 +431,7 @@
         <!--Edit Current Client-->
         <scene sceneID="0b4-YL-2yW">
             <objects>
-                <viewController title="Ediit Current Client" id="rKI-C8-QjK" userLabel="Edit Current Client" sceneMemberID="viewController">
+                <viewController title="Ediit Current Client" id="rKI-C8-QjK" userLabel="Edit Current Client" customClass="EditClientViewController" customModule="iKennel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HpR-8l-4o7"/>
                         <viewControllerLayoutGuide type="bottom" id="QpV-kg-T39"/>
@@ -575,6 +575,13 @@
                             <constraint firstItem="gmc-CL-2DR" firstAttribute="centerX" secondItem="0Ip-hx-hz8" secondAttribute="centerX" id="xMt-rA-J9K"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addressTF" destination="uOH-Rv-ZoK" id="wzt-Zk-P6z"/>
+                        <outlet property="cellNumTF" destination="y0g-W4-S15" id="bKr-HY-lhJ"/>
+                        <outlet property="emailTF" destination="KHr-Nx-aSV" id="Y38-U6-mt1"/>
+                        <outlet property="firstnameTF" destination="bbv-hw-lEl" id="qoH-6I-E5z"/>
+                        <outlet property="lastnameTF" destination="umN-86-j79" id="fkr-bX-3Uf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xuG-rk-xe3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="z7k-jy-8OF" userLabel="Exit" sceneMemberID="exit"/>

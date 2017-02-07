@@ -152,7 +152,7 @@ class ClientTableViewController: UITableViewController {
     clientCurrentVC.fName = clients[index].fName
     clientCurrentVC.address = clients[index].address
     clientCurrentVC.email = clients[index].email
-    clientCurrentVC.celllNum = clients[index].cellNum
+    clientCurrentVC.cellNum = clients[index].cellNum
     
     
  }

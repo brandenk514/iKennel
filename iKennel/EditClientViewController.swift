@@ -1,5 +1,5 @@
 //
-//  CurrentClientViewController.swift
+//  EditClientViewController.swift
 //  iKennel
 //
 //  Created by Branden Kaestner on 2/6/17.
@@ -8,27 +8,30 @@
 
 import UIKit
 
-class CurrentClientViewController: UIViewController {
+class EditClientViewController: UIViewController {
 
-    @IBOutlet weak var clientName: UILabel!
-    @IBOutlet weak var clientPhone: UILabel!
-    @IBOutlet weak var clientEmail: UILabel!
-    @IBOutlet weak var clientAddress: UILabel!
+    
+    @IBOutlet weak var firstnameTF: UITextField!
+    @IBOutlet weak var lastnameTF: UITextField!
+    @IBOutlet weak var cellNumTF: UITextField!
+    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var addressTF: UITextField!
     
     var fName = ""
     var lName = ""
-    var email = ""
     var address = ""
+    var email = ""
     var cellNum = ""
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        clientName.text = fName + " " + lName
-        clientPhone.text = cellNum
-        clientEmail.text = email
-        clientAddress.text = address
+        
+        firstnameTF.text = fName
+        lastnameTF.text = lName
+        addressTF.text = address
+        emailTF.text = email
+        cellNumTF.text = cellNum
 
         // Do any additional setup after loading the view.
     }
@@ -39,22 +42,14 @@ class CurrentClientViewController: UIViewController {
     }
     
 
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let editClientVC = segue.destination as! EditClientViewController
-        editClientVC.lName = self.lName
-        editClientVC.fName = self.fName
-        editClientVC.address = self.address
-        editClientVC.email = self.email
-        editClientVC.cellNum = self.cellNum
-        
-        
     }
-    
-    
+    */
 
 }
