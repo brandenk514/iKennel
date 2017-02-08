@@ -12,14 +12,40 @@ class MainTableViewController: UITableViewController {
     
     var clients = Client.loadAllClients()
     
+    /*var contacts = [Date: [Client]]()
+    
+    var dates: [Date] = []
+    
+    var re*/
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        /*dates = clients.map { (name) -> Date in
+            return name.lName[name.lName.startIndex]
+        }
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        dates = dates.reduce([], { (list, name) -> [Character] in
+            if !list.contains(name) {
+                return list + [name]
+            }
+            return list
+        })
+        
+        
+        for c in clients {
+            if contacts[c.[c.lName.startIndex]] == nil {
+                contacts[c.lName[c.lName.startIndex]] = [Client]()
+            }
+            
+            contacts[c.lName[c.lName.startIndex]]!.append(c)
+        }
+        
+        for (date, list) in contacts {
+            contacts[date] = list.sorted(by: { (client1, client2) -> Bool in
+                client1.lName < client2.lName
+            })
+        }*/
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,7 +69,7 @@ class MainTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Name", for: indexPath) as! MainTableViewCell
         
         cell.clientName?.text = clients[indexPath.row].lName + ", " + clients[indexPath.row].fName
-        cell.checkedIn?.text = "True"
+        cell.animalNames?.text = "Animals: " + clients[indexPath.row].getAnimalNames()
         
         return cell
     }
@@ -59,11 +85,9 @@ class MainTableViewController: UITableViewController {
     }
     
     @IBAction func editCurrentReservation(segue:UIStoryboardSegue) {
-        
     }
     
     @IBAction func cancelCurrentReservation(segue:UIStoryboardSegue) {
-        
     }
     
     /*
@@ -101,14 +125,20 @@ class MainTableViewController: UITableViewController {
      }
      */
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        /* Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        let editClientVC = segue.destination as! EditClientViewController
+        editClientVC.lName = self.lName
+        editClientVC.fName = self.fName
+        editClientVC.address = self.address
+        editClientVC.email = self.email
+        editClientVC.cellNum = self.cellNum
+        */
+        
+    }
     
 }

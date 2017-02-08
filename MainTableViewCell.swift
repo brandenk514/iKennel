@@ -11,7 +11,7 @@ import UIKit
 class MainTableViewCell: UITableViewCell {
 
     @IBOutlet weak var clientName: UILabel!
-    @IBOutlet weak var checkedIn: UILabel!
+    @IBOutlet weak var animalNames: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

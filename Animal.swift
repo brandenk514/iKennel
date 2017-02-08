@@ -13,4 +13,9 @@ struct Animal {
     let social: Bool
     let reservation: Reservation?
     let notes: String
+    
+    
+    func getReservation() -> Reservation {
+        return self.reservation!
+    }
 }

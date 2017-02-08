@@ -17,6 +17,18 @@ struct Client {
     let email: String
     let cellNum: String
     let animals: Array<Animal>?
+    
+    func getAnimals() -> [Animal] {
+        return self.animals!
+    }
+    
+    func getAnimalNames() -> String {
+        var aNames = [String]()
+        for a in self.animals! {
+            aNames.append(a.name)
+        }
+        return aNames.joined(separator: ", ")
+    }
 }
 
 extension Client {
@@ -36,7 +48,7 @@ extension Client {
         let reserve1 = Reservation(id: 1, dateIn: Date(), dateOut: Date(), checkedIn: true)
         let reserve2 = Reservation(id: 2, dateIn: Date(), dateOut: Date(), checkedIn: false)
         let animal1 = Animal(name: "Prince", type: "Dog", sex: "male", breed: "husky", social: false, reservation: reserve1, notes: "")
-        let animal2 = Animal(name: "lady", type: "Dog", sex: "female", breed: "pug", social: true, reservation: reserve2, notes: "")
+        let animal2 = Animal(name: "Lady", type: "Dog", sex: "female", breed: "pug", social: true, reservation: reserve2, notes: "")
         sAnimals.append(animal1)
         sAnimals.append(animal2)
 
