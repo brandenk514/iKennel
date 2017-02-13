@@ -44,11 +44,6 @@ class ClientTableViewController: UITableViewController {
             })
         }
         
-        print(contacts)
-        print(contacts.count)
-        print(clients)
-        print(clients.count)
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -75,9 +70,10 @@ class ClientTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Name", for: indexPath) as! ClientTableViewCell
+        let c = contacts[letters[indexPath.section]]?[indexPath.row]
+        cell.clientName?.text = (c?.lName)! + ", " + (c?.fName)!
+        cell.animalNames?.text = c?.cellNum
         
-        cell.clientName?.text = clients[indexPath.row].lName //contacts[letters[indexPath.row]]?[indexPath.row].lName
-        cell.animalNames?.text = clients[indexPath.row].cellNum
         
         return cell
     }
@@ -149,12 +145,13 @@ class ClientTableViewController: UITableViewController {
         if segue.identifier == "currentClient"
         {
             let index: Int = (self.tableView.indexPathForSelectedRow?.row)!
+            let section: Int = (self.tableView.indexPathForSelectedRow?.section)!
             let clientCurrentVC = segue.destination as! CurrentClientViewController
-            clientCurrentVC.lName = clients[index].lName
-            clientCurrentVC.fName = clients[index].fName
-            clientCurrentVC.address = clients[index].address
-            clientCurrentVC.email = clients[index].email
-            clientCurrentVC.cellNum = clients[index].cellNum
+            clientCurrentVC.lName = (contacts[letters[section]]?[index].lName)!
+            clientCurrentVC.fName = (contacts[letters[section]]?[index].fName)!
+            clientCurrentVC.address = (contacts[letters[section]]?[index].address)!
+            clientCurrentVC.email = (contacts[letters[section]]?[index].email)!
+            clientCurrentVC.cellNum = (contacts[letters[section]]?[index].cellNum)!
         }
         
     }
