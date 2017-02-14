@@ -16,6 +16,25 @@ class ClientTableViewController: UITableViewController {
     
     var letters: [Character] = []
     
+    var fName = ""
+    var lName = ""
+    var email = ""
+    var address = ""
+    var cellNum = ""
+    
+    var animalArray = [Animal]()
+    
+    var animalName = ""
+    var type = ""
+    var breed = ""
+    var sex = ""
+    var social = ""
+    var notes = ""
+    
+    var resDateIn = Date()
+    var resDateOut = Date()
+    var checkedIn = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -73,8 +92,6 @@ class ClientTableViewController: UITableViewController {
         let c = contacts[letters[indexPath.section]]?[indexPath.row]
         cell.clientName?.text = (c?.lName)! + ", " + (c?.fName)!
         cell.animalNames?.text = c?.cellNum
-        
-        
         return cell
     }
     
@@ -86,18 +103,13 @@ class ClientTableViewController: UITableViewController {
         
     }
     
-    @IBAction func cancelNewClient(segue:UIStoryboardSegue) {
-        
-    }
+    @IBAction func cancelNewClient(segue:UIStoryboardSegue) {}
     
     @IBAction func editCurrentClient(segue:UIStoryboardSegue) {
         
-        
     }
     
-    @IBAction func cancelCurrentClient(segue:UIStoryboardSegue) {
-        
-    }
+    @IBAction func cancelCurrentClient(segue:UIStoryboardSegue) {}
     
     /*
      // Override to support conditional editing of the table view.

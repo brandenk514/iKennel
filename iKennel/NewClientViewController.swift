@@ -9,13 +9,25 @@
 import UIKit
 
 class NewClientViewController: UIViewController {
-    
-    
 
+    @IBOutlet weak var firstname: UIStackView!
+    @IBOutlet weak var lastname: UIStackView!
+    @IBOutlet weak var address: UIStackView!
+    @IBOutlet weak var email: UIStackView!
+    @IBOutlet weak var cellnum: UIStackView!
+    
+    @IBOutlet weak var aName: UIStackView!
+    @IBOutlet weak var aType: UIStackView!
+    @IBOutlet weak var aBreed: UIStackView!
+    @IBOutlet weak var aSex: UIStackView!
+    @IBOutlet weak var aSocial: UIStackView!
+    @IBOutlet weak var aNotes: UIStackView!
+    
     @IBOutlet weak var dateIn: UIButton!
     @IBOutlet weak var dateOut: UIButton!
+    @IBOutlet weak var checked: UIStackView!
+    
     @IBOutlet weak var addAnimalsButton: UIButton!
-    @IBOutlet weak var fullStackView: UIStackView!
     
     var inDate = "Date In"
     var outDate = "Date Out"
@@ -32,21 +44,13 @@ class NewClientViewController: UIViewController {
     }
     
 
-    @IBAction func addInDate(segue:UIStoryboardSegue) {
-        dateIn.setTitle(inDate, for:.normal)
-    }
+    @IBAction func addInDate(segue:UIStoryboardSegue) {dateIn.setTitle(inDate, for:.normal)}
     
-    @IBAction func cancelInDate(segue:UIStoryboardSegue) {
-        
-    }
+    @IBAction func cancelInDate(segue:UIStoryboardSegue) {}
     
-    @IBAction func addOutDate(segue:UIStoryboardSegue) {
-        dateOut.setTitle(outDate, for:.normal)
-    }
+    @IBAction func addOutDate(segue:UIStoryboardSegue) {dateOut.setTitle(outDate, for:.normal)}
     
-    @IBAction func cancelOutDate(segue:UIStoryboardSegue) {
-        
-    }
+    @IBAction func cancelOutDate(segue:UIStoryboardSegue) {}
     
     /*
      Adds UI components for more animals in new Client modal
@@ -165,14 +169,15 @@ class NewClientViewController: UIViewController {
         self.view.addSubview(stackView)
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        // let clientTableVC = segue.destination as! ClientTableViewController
+        
     }
-    */
 
 }
