@@ -14,6 +14,9 @@
 		5373AB151E490C3000912CD0 /* CurrentClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5373AB141E490C3000912CD0 /* CurrentClientViewController.swift */; };
 		5373AB171E4948FF00912CD0 /* EditClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5373AB161E4948FF00912CD0 /* EditClientViewController.swift */; };
 		5373AB191E49522100912CD0 /* CurrentReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5373AB181E49522100912CD0 /* CurrentReservationViewController.swift */; };
+		5398B5701E52680500F5D384 /* InDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5398B56F1E52680500F5D384 /* InDateViewController.swift */; };
+		5398B5721E526C2000F5D384 /* NewClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5398B5711E526C2000F5D384 /* NewClientViewController.swift */; };
+		5398B5741E528C1E00F5D384 /* OutDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5398B5731E528C1E00F5D384 /* OutDateViewController.swift */; };
 		53B130651E38306E00268193 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B130641E38306E00268193 /* MainTableViewCell.swift */; };
 		53B130671E38382700268193 /* ClientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B130661E38382700268193 /* ClientTableViewController.swift */; };
 		53B130691E38384F00268193 /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B130681E38384F00268193 /* ClientTableViewCell.swift */; };
@@ -51,6 +54,9 @@
 		5373AB141E490C3000912CD0 /* CurrentClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentClientViewController.swift; sourceTree = "<group>"; };
 		5373AB161E4948FF00912CD0 /* EditClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditClientViewController.swift; sourceTree = "<group>"; };
 		5373AB181E49522100912CD0 /* CurrentReservationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentReservationViewController.swift; sourceTree = "<group>"; };
+		5398B56F1E52680500F5D384 /* InDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InDateViewController.swift; sourceTree = "<group>"; };
+		5398B5711E526C2000F5D384 /* NewClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewClientViewController.swift; sourceTree = "<group>"; };
+		5398B5731E528C1E00F5D384 /* OutDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutDateViewController.swift; sourceTree = "<group>"; };
 		53B130641E38306E00268193 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		53B130661E38382700268193 /* ClientTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTableViewController.swift; sourceTree = "<group>"; };
 		53B130681E38384F00268193 /* ClientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
@@ -119,6 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				53FF969D1E3827DE00B79A65 /* MainTableViewController.swift */,
+				5398B5711E526C2000F5D384 /* NewClientViewController.swift */,
+				5398B56F1E52680500F5D384 /* InDateViewController.swift */,
+				5398B5731E528C1E00F5D384 /* OutDateViewController.swift */,
 				536C5E5A1E4023E9001C7A2D /* SettingsTableViewController.swift */,
 				53B130661E38382700268193 /* ClientTableViewController.swift */,
 				5373AB141E490C3000912CD0 /* CurrentClientViewController.swift */,
@@ -326,6 +335,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5398B5741E528C1E00F5D384 /* OutDateViewController.swift in Sources */,
+				5398B5701E52680500F5D384 /* InDateViewController.swift in Sources */,
 				53B130671E38382700268193 /* ClientTableViewController.swift in Sources */,
 				53FBBD091E1566E400734D66 /* AppDelegate.swift in Sources */,
 				5373AB191E49522100912CD0 /* CurrentReservationViewController.swift in Sources */,
@@ -337,6 +348,7 @@
 				536C5E5B1E4023E9001C7A2D /* SettingsTableViewController.swift in Sources */,
 				5373AB171E4948FF00912CD0 /* EditClientViewController.swift in Sources */,
 				53FF969E1E3827DE00B79A65 /* MainTableViewController.swift in Sources */,
+				5398B5721E526C2000F5D384 /* NewClientViewController.swift in Sources */,
 				53B130691E38384F00268193 /* ClientTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
