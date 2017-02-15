@@ -40,6 +40,7 @@ class InDateViewController: UIViewController {
         // Pass the selected object to the new view controller.
         let newClientVC = segue.destination as! NewClientViewController
         newClientVC.inDate = formatDate(cDate: resDate.date)
+        newClientVC.inDat = resDate.date
     }
  
 

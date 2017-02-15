@@ -29,7 +29,7 @@ struct Client {
         return aNames.joined(separator: ", ")
     }
 
-    mutating func addNewAnimal(aName:String, aType: String, aSex: String, aBreed:String, aSocial: Bool, aNotes:String, aDateIn: Date, aDateOut: Date, checked: Bool) {
+    mutating func addNewAnimal(aName:String, aType: String, aSex: String, aBreed:String, aSocial: Float, aNotes:String, aDateIn: Date, aDateOut: Date, checked: Bool) {
         let r = Reservation(dateIn: aDateIn, dateOut: aDateOut, checkedIn: checked)
         let a = Animal(name: aName, type: aType, sex: aSex, breed: aBreed, social: aSocial, reservation: r, notes: aNotes)
         animals?.append(a)
@@ -47,13 +47,13 @@ extension Client {
         var sAnimals = [Animal]()
 
         let reserve0 = Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false)
-        let animal0 = Animal(name: "Meeko", type: "Dog", sex: "male", breed: "German Shepard", social: true, reservation: reserve0, notes: "")
+        let animal0 = Animal(name: "Meeko", type: "Dog", sex: "male", breed: "German Shepard", social: 0, reservation: reserve0, notes: "")
         mAnimals.append(animal0)
 
         let reserve1 = Reservation(dateIn: Date(), dateOut: Date(), checkedIn: true)
         let reserve2 = Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false)
-        let animal1 = Animal(name: "Prince", type: "Dog", sex: "male", breed: "husky", social: false, reservation: reserve1, notes: "")
-        let animal2 = Animal(name: "Lady", type: "Dog", sex: "female", breed: "pug", social: true, reservation: reserve2, notes: "")
+        let animal1 = Animal(name: "Prince", type: "Dog", sex: "male", breed: "husky", social: 1, reservation: reserve1, notes: "")
+        let animal2 = Animal(name: "Lady", type: "Dog", sex: "female", breed: "pug", social: 1, reservation: reserve2, notes: "")
         sAnimals.append(animal1)
         sAnimals.append(animal2)
 

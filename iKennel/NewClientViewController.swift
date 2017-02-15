@@ -9,28 +9,30 @@
 import UIKit
 
 class NewClientViewController: UIViewController {
-
-    @IBOutlet weak var firstname: UIStackView!
-    @IBOutlet weak var lastname: UIStackView!
-    @IBOutlet weak var address: UIStackView!
-    @IBOutlet weak var email: UIStackView!
-    @IBOutlet weak var cellnum: UIStackView!
     
-    @IBOutlet weak var aName: UIStackView!
-    @IBOutlet weak var aType: UIStackView!
-    @IBOutlet weak var aBreed: UIStackView!
-    @IBOutlet weak var aSex: UIStackView!
-    @IBOutlet weak var aSocial: UIStackView!
-    @IBOutlet weak var aNotes: UIStackView!
+    @IBOutlet weak var firstname: UITextField!
+    @IBOutlet weak var lastname: UITextField!
+    @IBOutlet weak var address: UITextField!
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var cellnum: UITextField!
+
+    @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var type: UISegmentedControl!
+    @IBOutlet weak var breed: UITextField!
+    @IBOutlet weak var sex: UISegmentedControl!
+    @IBOutlet weak var socialSlider: UISlider!
+    @IBOutlet weak var notes: UITextField!
     
     @IBOutlet weak var dateIn: UIButton!
     @IBOutlet weak var dateOut: UIButton!
-    @IBOutlet weak var checked: UIStackView!
+    @IBOutlet weak var checkedInSwitch: UISwitch!
     
     @IBOutlet weak var addAnimalsButton: UIButton!
     
     var inDate = "Date In"
     var outDate = "Date Out"
+    var inDat = Date()
+    var outDat = Date()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -144,7 +146,7 @@ class NewClientViewController: UIViewController {
         checkStack.alignment = .fill
 
         let addButton = UIButton()
-        addButton.setTitle("Add anothr animal...", for: .normal)
+        addButton.setTitle("Add another animal...", for: .normal)
         
         UIArray.append(aLabel)
         UIArray.append(nameField)
@@ -176,7 +178,21 @@ class NewClientViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        // let clientTableVC = segue.destination as! ClientTableViewController
+        let clientTableVC = segue.destination as! ClientTableViewController
+        clientTableVC.fName = firstname.text!
+        clientTableVC.lName = lastname.text!
+        clientTableVC.address = address.text!
+        clientTableVC.email = email.text!
+        clientTableVC.cellNum = cellnum.text!
+        clientTableVC.animalName = name.text!
+        clientTableVC.type = type.titleForSegment(at: type.selectedSegmentIndex)!
+        clientTableVC.breed = breed.text!
+        clientTableVC.sex = sex.titleForSegment(at: sex.selectedSegmentIndex)!
+        clientTableVC.social = socialSlider.value
+        clientTableVC.notes = notes.text!
+        clientTableVC.resDateIn = inDat
+        clientTableVC.resDateOut = outDat
+        clientTableVC.checkedIn = checkedInSwitch.isOn
         
     }
 

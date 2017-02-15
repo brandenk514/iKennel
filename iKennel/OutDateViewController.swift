@@ -41,6 +41,7 @@ class OutDateViewController: UIViewController {
         // Pass the selected object to the new view controller.
         let newClientVC = segue.destination as! NewClientViewController
         newClientVC.outDate = formatDate(cDate: resDate.date)
+        newClientVC.outDat = resDate.date
     }
     
     

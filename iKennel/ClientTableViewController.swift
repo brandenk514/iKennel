@@ -28,7 +28,7 @@ class ClientTableViewController: UITableViewController {
     var type = ""
     var breed = ""
     var sex = ""
-    var social = ""
+    var social = Float(0.00)
     var notes = ""
     
     var resDateIn = Date()
@@ -99,6 +99,16 @@ class ClientTableViewController: UITableViewController {
         return String(Array(letters)[section])
     }
     
+    func addNewClient(cFirst: String, cLast:String, cAddress:String, cEmail:String, cCell:String, aName:String, aType:String, aSex:String, aBreed:String, aSocial:Float, aNotes:String, date1: Date, date2:Date, checked:Bool) -> Client
+    {
+        var aArray = [Animal]()
+        let r = Reservation(dateIn: date1, dateOut: date2, checkedIn: checked)
+        let a0 = Animal(name: aName, type: aType, sex: aSex, breed: aBreed, social: aSocial, reservation: r, notes: aNotes)
+        aArray.append(a0)
+        let c = Client(fName: cFirst, lName: cLast, address: cAddress, email: cEmail, cellNum: cCell, animals: aArray)
+        return c
+    }
+    
     @IBAction func addNewClient(segue:UIStoryboardSegue) {
         
     }
@@ -164,6 +174,9 @@ class ClientTableViewController: UITableViewController {
             clientCurrentVC.address = (contacts[letters[section]]?[index].address)!
             clientCurrentVC.email = (contacts[letters[section]]?[index].email)!
             clientCurrentVC.cellNum = (contacts[letters[section]]?[index].cellNum)!
+        } else {
+            print(fName)
+            print(lName)
         }
         
     }

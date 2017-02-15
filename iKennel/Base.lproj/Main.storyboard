@@ -404,21 +404,21 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="aBreed" destination="MOP-1w-s3O" id="ra1-0s-Ede"/>
-                        <outlet property="aName" destination="EFv-2m-9Uq" id="61s-fR-yf1"/>
-                        <outlet property="aNotes" destination="MOP-1w-s3O" id="Xv3-ve-f3b"/>
-                        <outlet property="aSex" destination="MOP-1w-s3O" id="QW2-as-9Fn"/>
-                        <outlet property="aSocial" destination="MOP-1w-s3O" id="vky-AX-sXA"/>
-                        <outlet property="aType" destination="EFv-2m-9Uq" id="gPA-Tf-Ms2"/>
                         <outlet property="addAnimalsButton" destination="2LK-XN-hFe" id="qcY-e9-lY4"/>
-                        <outlet property="address" destination="EFv-2m-9Uq" id="RaI-MC-ddM"/>
-                        <outlet property="cellnum" destination="EFv-2m-9Uq" id="Ifa-dF-wIz"/>
-                        <outlet property="checked" destination="MOP-1w-s3O" id="r3G-5i-57b"/>
+                        <outlet property="address" destination="yxj-5H-hTP" id="FuZ-o8-ykI"/>
+                        <outlet property="breed" destination="vQb-Kj-d9q" id="2iH-oK-XCG"/>
+                        <outlet property="cellnum" destination="6AB-oH-KTQ" id="LLR-FD-D36"/>
+                        <outlet property="checkedInSwitch" destination="0LW-Tw-gI6" id="ZgA-IE-quY"/>
                         <outlet property="dateIn" destination="MBZ-Cs-Erp" id="iL2-GZ-Kpa"/>
                         <outlet property="dateOut" destination="e6V-NO-zaO" id="VUQ-XS-EAX"/>
-                        <outlet property="email" destination="EFv-2m-9Uq" id="vpQ-sS-iv4"/>
-                        <outlet property="firstname" destination="EFv-2m-9Uq" id="Kb3-ol-QxO"/>
-                        <outlet property="lastname" destination="EFv-2m-9Uq" id="97g-xr-i92"/>
+                        <outlet property="email" destination="lxj-tR-3GT" id="0ig-X6-Jqp"/>
+                        <outlet property="firstname" destination="yl5-zO-8Ga" id="5ZJ-6m-5uD"/>
+                        <outlet property="lastname" destination="7fD-mO-Mc8" id="rBY-Re-B16"/>
+                        <outlet property="name" destination="rmu-P5-uk8" id="6HF-N7-NMJ"/>
+                        <outlet property="notes" destination="ILx-5D-O4x" id="tph-B0-00P"/>
+                        <outlet property="sex" destination="h6h-La-Uqv" id="mWM-3C-1nd"/>
+                        <outlet property="socialSlider" destination="jl3-3s-RHj" id="tmu-fv-BCJ"/>
+                        <outlet property="type" destination="auL-zF-odb" id="g9s-xC-9OD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dej-Uo-iWW" userLabel="First Responder" sceneMemberID="firstResponder"/>

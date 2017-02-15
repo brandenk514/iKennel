@@ -10,7 +10,7 @@ struct Animal {
     let type: String
     let sex: String
     let breed: String
-    let social: Bool
+    let social: Float
     let reservation: Reservation?
     let notes: String
     
