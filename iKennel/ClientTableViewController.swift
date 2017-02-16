@@ -16,20 +16,18 @@ class ClientTableViewController: UITableViewController {
     
     var letters: [Character] = []
     
-    var fName = ""
-    var lName = ""
-    var email = ""
-    var address = ""
-    var cellNum = ""
-    
-    var animalArray = [Animal]()
+    var cFirst = ""
+    var cLast = ""
+    var cEmail = ""
+    var cAddress = ""
+    var cCellNum = ""
     
     var animalName = ""
-    var type = ""
-    var breed = ""
-    var sex = ""
-    var social = Float(0.00)
-    var notes = ""
+    var aType = ""
+    var aBreed = ""
+    var aSex = ""
+    var aSocial = Float(0.00)
+    var aNotes = ""
     
     var resDateIn = Date()
     var resDateOut = Date()
@@ -57,11 +55,15 @@ class ClientTableViewController: UITableViewController {
             contacts[c.lName[c.lName.startIndex]]!.append(c)
         }
         
+        letters.sort()
+        
         for (letter, list) in contacts {
             contacts[letter] = list.sorted(by: { (client1, client2) -> Bool in
                 client1.lName < client2.lName
             })
         }
+        
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -99,18 +101,32 @@ class ClientTableViewController: UITableViewController {
         return String(Array(letters)[section])
     }
     
-    func addNewClient(cFirst: String, cLast:String, cAddress:String, cEmail:String, cCell:String, aName:String, aType:String, aSex:String, aBreed:String, aSocial:Float, aNotes:String, date1: Date, date2:Date, checked:Bool) -> Client
+    func charToString(c:[Character]) -> [String] {
+        var s = [String]()
+        for i in c {
+            s.append(String(i))
+        }
+        return s
+    }
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return charToString(c: letters)
+    }
+    
+    func addNewClientData() -> Client
     {
         var aArray = [Animal]()
-        let r = Reservation(dateIn: date1, dateOut: date2, checkedIn: checked)
-        let a0 = Animal(name: aName, type: aType, sex: aSex, breed: aBreed, social: aSocial, reservation: r, notes: aNotes)
+        let r = Reservation(dateIn: resDateIn, dateOut: resDateOut, checkedIn: checkedIn)
+        let a0 = Animal(name: animalName, type: aType, sex: aSex, breed: aBreed, social: aSocial, reservation: r, notes: aNotes)
         aArray.append(a0)
-        let c = Client(fName: cFirst, lName: cLast, address: cAddress, email: cEmail, cellNum: cCell, animals: aArray)
+        let c = Client(fName: cFirst, lName: cLast, address: cAddress, email: cEmail, cellNum: cCellNum, animals: aArray)
+        print(c)
         return c
     }
     
     @IBAction func addNewClient(segue:UIStoryboardSegue) {
-        
+        clients.append(addNewClientData())
+        self.tableView.reloadData()
     }
     
     @IBAction func cancelNewClient(segue:UIStoryboardSegue) {}
@@ -121,41 +137,6 @@ class ClientTableViewController: UITableViewController {
     
     @IBAction func cancelCurrentClient(segue:UIStoryboardSegue) {}
     
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
     
     // MARK: - Navigation
     
@@ -163,9 +144,7 @@ class ClientTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
-        if segue.identifier == "currentClient"
-        {
+        if segue.identifier == "currentClient" {
             let index: Int = (self.tableView.indexPathForSelectedRow?.row)!
             let section: Int = (self.tableView.indexPathForSelectedRow?.section)!
             let clientCurrentVC = segue.destination as! CurrentClientViewController
@@ -174,11 +153,8 @@ class ClientTableViewController: UITableViewController {
             clientCurrentVC.address = (contacts[letters[section]]?[index].address)!
             clientCurrentVC.email = (contacts[letters[section]]?[index].email)!
             clientCurrentVC.cellNum = (contacts[letters[section]]?[index].cellNum)!
-        } else {
-            print(fName)
-            print(lName)
+            clientCurrentVC.animals = (contacts[letters[section]]?[index].animals)!
         }
-        
     }
     
     

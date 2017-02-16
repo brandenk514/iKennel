@@ -28,12 +28,6 @@ struct Client {
         }
         return aNames.joined(separator: ", ")
     }
-
-    mutating func addNewAnimal(aName:String, aType: String, aSex: String, aBreed:String, aSocial: Float, aNotes:String, aDateIn: Date, aDateOut: Date, checked: Bool) {
-        let r = Reservation(dateIn: aDateIn, dateOut: aDateOut, checkedIn: checked)
-        let a = Animal(name: aName, type: aType, sex: aSex, breed: aBreed, social: aSocial, reservation: r, notes: aNotes)
-        animals?.append(a)
-    }
 }
 
 extension Client {

@@ -23,16 +23,11 @@ class NewClientViewController: UIViewController {
     @IBOutlet weak var socialSlider: UISlider!
     @IBOutlet weak var notes: UITextField!
     
-    @IBOutlet weak var dateIn: UIButton!
-    @IBOutlet weak var dateOut: UIButton!
+    @IBOutlet weak var dateIn: UITextField!
+    @IBOutlet weak var dateOut: UITextField!
     @IBOutlet weak var checkedInSwitch: UISwitch!
     
     @IBOutlet weak var addAnimalsButton: UIButton!
-    
-    var inDate = "Date In"
-    var outDate = "Date Out"
-    var inDat = Date()
-    var outDat = Date()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,14 +40,17 @@ class NewClientViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    @IBAction func addInDate(segue:UIStoryboardSegue) {dateIn.setTitle(inDate, for:.normal)}
+    func formatDate(cDate:Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        return dateFormatter.string(from: cDate)
+    }
     
-    @IBAction func cancelInDate(segue:UIStoryboardSegue) {}
-    
-    @IBAction func addOutDate(segue:UIStoryboardSegue) {dateOut.setTitle(outDate, for:.normal)}
-    
-    @IBAction func cancelOutDate(segue:UIStoryboardSegue) {}
+    func stringToDate(dateString:String) -> Date {
+        let f = DateFormatter()
+        return f.date(from: dateString)!
+    }
     
     /*
      Adds UI components for more animals in new Client modal
@@ -171,7 +169,6 @@ class NewClientViewController: UIViewController {
         self.view.addSubview(stackView)
     }
 
-    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -179,19 +176,19 @@ class NewClientViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         let clientTableVC = segue.destination as! ClientTableViewController
-        clientTableVC.fName = firstname.text!
-        clientTableVC.lName = lastname.text!
-        clientTableVC.address = address.text!
-        clientTableVC.email = email.text!
-        clientTableVC.cellNum = cellnum.text!
+        clientTableVC.cFirst = firstname.text!
+        clientTableVC.cLast = lastname.text!
+        clientTableVC.cAddress = address.text!
+        clientTableVC.cEmail = email.text!
+        clientTableVC.cCellNum = cellnum.text!
         clientTableVC.animalName = name.text!
-        clientTableVC.type = type.titleForSegment(at: type.selectedSegmentIndex)!
-        clientTableVC.breed = breed.text!
-        clientTableVC.sex = sex.titleForSegment(at: sex.selectedSegmentIndex)!
-        clientTableVC.social = socialSlider.value
-        clientTableVC.notes = notes.text!
-        clientTableVC.resDateIn = inDat
-        clientTableVC.resDateOut = outDat
+        clientTableVC.aType = type.titleForSegment(at: type.selectedSegmentIndex)!
+        clientTableVC.aBreed = breed.text!
+        clientTableVC.aSex = sex.titleForSegment(at: sex.selectedSegmentIndex)!
+        clientTableVC.aSocial = socialSlider.value
+        clientTableVC.aNotes = notes.text!
+        clientTableVC.resDateIn = stringToDate(dateString: dateIn.text!)
+        clientTableVC.resDateOut = stringToDate(dateString: dateOut.text!)
         clientTableVC.checkedIn = checkedInSwitch.isOn
         
     }

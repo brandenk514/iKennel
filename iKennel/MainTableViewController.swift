@@ -12,37 +12,45 @@ class MainTableViewController: UITableViewController {
     
     var clients = Client.loadAllClients()
     
-    /*var contacts = [Date: [Client]]()
+    var animals = [Animal]()
     
-    var dates: [Date] = []
+    var contacts = [String: [Client]]()
     
-    var re*/
+    var dates: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*dates = clients.map { (name) -> Date in
-            return name.lName[name.lName.startIndex]
+        for c in clients {
+            for a in c.animals! {
+                animals.append(a)
+            }
         }
-        
-        dates = dates.reduce([], { (list, name) -> [Character] in
+
+        dates = clients.map { (name) -> String in
+            return getDMY(d:name.animals![0].getReservation().getDateIn())
+        }
+        //print(dates)
+        dates = dates.reduce([], { (list, name) -> [String] in
             if !list.contains(name) {
                 return list + [name]
             }
             return list
         })
+        //print(dates)
         
-        
-        for c in clients {
-            if contacts[c.[c.lName.startIndex]] == nil {
+        /*for c in clients {
+            if contacts[getDMY(d:c.animals![0].getReservation().getDateIn())[getDMY(d:c.animals![0].getReservation().getDateIn()).startIndex]] == nil {
                 contacts[c.lName[c.lName.startIndex]] = [Client]()
             }
             
             contacts[c.lName[c.lName.startIndex]]!.append(c)
         }
         
-        for (date, list) in contacts {
-            contacts[date] = list.sorted(by: { (client1, client2) -> Bool in
+        dates.sort()
+        
+        for (letter, list) in contacts {
+            contacts[letter] = list.sorted(by: { (client1, client2) -> Bool in
                 client1.lName < client2.lName
             })
         }*/
@@ -57,7 +65,7 @@ class MainTableViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return clients.count
+        return dates.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,13 +77,13 @@ class MainTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Name", for: indexPath) as! MainTableViewCell
         
         cell.clientName?.text = clients[indexPath.row].lName + ", " + clients[indexPath.row].fName
-        cell.animalNames?.text = "Animals: " + clients[indexPath.row].getAnimalNames()
+        cell.animalNames?.text = "Pets: " + clients[indexPath.row].getAnimalNames()
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Section \(section)"
+        return String(Array(dates)[section])
     }
     
     @IBAction func addNewReservation(segue:UIStoryboardSegue) {
@@ -88,6 +96,12 @@ class MainTableViewController: UITableViewController {
     }
     
     @IBAction func cancelCurrentReservation(segue:UIStoryboardSegue) {
+    }
+    
+    func getDMY(d:Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        return dateFormatter.string(from: d)
     }
     
     /*

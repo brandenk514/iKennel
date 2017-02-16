@@ -31,18 +31,18 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="URW-9N-X9a" id="amw-8Z-m3P">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iVL-lp-MJf">
-                                            <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WIn-yA-riU">
-                                            <rect key="frame" x="15" y="25.5" width="33" height="14.5"/>
+                                            <rect key="frame" x="15" y="25" width="33" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
@@ -65,7 +65,7 @@
                     <navigationItem key="navigationItem" title="Clients" id="Eve-lK-ggC">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xDz-90-q3m">
                             <connections>
-                                <segue destination="FXb-Fi-nAv" kind="showDetail" id="CRj-8I-MnS"/>
+                                <segue destination="FXb-Fi-nAv" kind="showDetail" identifier="newClient" id="CRj-8I-MnS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -107,7 +107,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wiL-dc-oPb" userLabel="VStack View">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wiL-dc-oPb" userLabel="ClientInfo Stack View">
                                 <rect key="frame" x="30" y="110" width="325" height="270"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Client's Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wm-3Q-tyz">
@@ -175,14 +175,34 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ecZ-Wk-MkJ" userLabel="AnimalTable Stack View">
+                                <rect key="frame" x="16" y="388" width="349" height="44.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVP-HA-jtv">
+                                        <rect key="frame" x="0.0" y="0.0" width="349" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animal1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0H-t2-4Nc">
+                                        <rect key="frame" x="0.0" y="24" width="349" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="7ks-5b-sBP" firstAttribute="top" secondItem="NAO-Jg-jIQ" secondAttribute="bottom" constant="8" symbolic="YES" id="1iL-aX-NZ5"/>
                             <constraint firstItem="wiL-dc-oPb" firstAttribute="top" secondItem="RQN-RS-3gx" secondAttribute="top" constant="110" id="4QV-sL-RNO"/>
+                            <constraint firstAttribute="trailing" secondItem="ecZ-Wk-MkJ" secondAttribute="trailing" constant="10" id="9ab-LJ-kR5"/>
                             <constraint firstAttribute="trailing" secondItem="wiL-dc-oPb" secondAttribute="trailing" constant="20" id="GEE-Vh-bew"/>
+                            <constraint firstItem="ecZ-Wk-MkJ" firstAttribute="top" secondItem="wiL-dc-oPb" secondAttribute="bottom" constant="8" symbolic="YES" id="PgB-9K-F1z"/>
                             <constraint firstItem="7ks-5b-sBP" firstAttribute="leading" secondItem="RQN-RS-3gx" secondAttribute="leadingMargin" constant="4" id="S2Q-un-ENW"/>
                             <constraint firstItem="wiL-dc-oPb" firstAttribute="top" secondItem="7ks-5b-sBP" secondAttribute="bottom" constant="7" id="TVk-vl-f4s"/>
+                            <constraint firstItem="ecZ-Wk-MkJ" firstAttribute="leading" secondItem="RQN-RS-3gx" secondAttribute="leading" constant="16" id="Y0q-0F-0vl"/>
                             <constraint firstItem="wiL-dc-oPb" firstAttribute="leading" secondItem="RQN-RS-3gx" secondAttribute="leading" constant="30" id="dT1-2G-fs5"/>
                         </constraints>
                     </view>
@@ -194,6 +214,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="animalNames" destination="V0H-t2-4Nc" id="FIU-Jd-wOQ"/>
                         <outlet property="clientAddress" destination="dAq-lx-VVB" id="sJ6-FX-pBO"/>
                         <outlet property="clientEmail" destination="1Fs-XM-Jww" id="4qh-iI-y2w"/>
                         <outlet property="clientName" destination="0Wm-3Q-tyz" id="YyU-uw-J2P"/>
@@ -223,12 +244,13 @@
                                     <navigationItem title="New Client" id="3a9-cT-vdU">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="2SX-Hl-fOL">
                                             <connections>
-                                                <segue destination="r0Q-9o-axm" kind="unwind" unwindAction="cancelNewClientWithSegue:" id="aaq-kM-2Mg"/>
+                                                <segue destination="r0Q-9o-axm" kind="unwind" unwindAction="cancelNewClientWithSegue:" id="k6c-Cl-TJf"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="u5x-8u-jBL">
                                             <connections>
-                                                <segue destination="r0Q-9o-axm" kind="unwind" unwindAction="addNewClientWithSegue:" id="bce-Vy-zBT"/>
+                                                <action selector="addNewClient:" destination="FXb-Fi-nAv" id="NP0-YD-D7x"/>
+                                                <segue destination="r0Q-9o-axm" kind="unwind" unwindAction="addNewClientWithSegue:" id="shT-du-idK"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -342,13 +364,12 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MBZ-Cs-Erp">
-                                                        <rect key="frame" x="306" y="0.0" width="49" height="20.5"/>
-                                                        <state key="normal" title="Date In"/>
-                                                        <connections>
-                                                            <segue destination="DaU-lj-1Oh" kind="presentation" id="6kl-fG-GBY"/>
-                                                        </connections>
-                                                    </button>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DD/MM/YY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZwS-hh-RSd">
+                                                        <rect key="frame" x="262.5" y="0.0" width="92.5" height="20.5"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                                    </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="QiH-hO-Ga8" userLabel="Date Out Stack View">
@@ -360,13 +381,12 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e6V-NO-zaO">
-                                                        <rect key="frame" x="293" y="0.0" width="62" height="20.5"/>
-                                                        <state key="normal" title="Date Out"/>
-                                                        <connections>
-                                                            <segue destination="0oi-Ex-cqg" kind="presentation" id="Cob-mi-2Fq"/>
-                                                        </connections>
-                                                    </button>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="DD/MM/YY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LHr-1g-WBc">
+                                                        <rect key="frame" x="262.5" y="0.0" width="92.5" height="20.5"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                    </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3Uf-Cg-vNX" userLabel="Checked In Stack View">
@@ -409,8 +429,8 @@
                         <outlet property="breed" destination="vQb-Kj-d9q" id="2iH-oK-XCG"/>
                         <outlet property="cellnum" destination="6AB-oH-KTQ" id="LLR-FD-D36"/>
                         <outlet property="checkedInSwitch" destination="0LW-Tw-gI6" id="ZgA-IE-quY"/>
-                        <outlet property="dateIn" destination="MBZ-Cs-Erp" id="iL2-GZ-Kpa"/>
-                        <outlet property="dateOut" destination="e6V-NO-zaO" id="VUQ-XS-EAX"/>
+                        <outlet property="dateIn" destination="ZwS-hh-RSd" id="yDG-Zz-9gF"/>
+                        <outlet property="dateOut" destination="LHr-1g-WBc" id="3ZY-or-atW"/>
                         <outlet property="email" destination="lxj-tR-3GT" id="0ig-X6-Jqp"/>
                         <outlet property="firstname" destination="yl5-zO-8Ga" id="5ZJ-6m-5uD"/>
                         <outlet property="lastname" destination="7fD-mO-Mc8" id="rBY-Re-B16"/>
@@ -424,129 +444,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dej-Uo-iWW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="r0Q-9o-axm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4287.1999999999998" y="-1920.9895052473764"/>
-        </scene>
-        <!--Date Out Picker-->
-        <scene sceneID="H0a-gU-c9E">
-            <objects>
-                <viewController id="0oi-Ex-cqg" userLabel="Date Out Picker" customClass="OutDateViewController" customModule="iKennel" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="xfO-Q1-nAn"/>
-                        <viewControllerLayoutGuide type="bottom" id="57T-sL-4c0"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3A6-JU-cF2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ucf-Ny-mA8">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Choose a Date" id="aFS-Id-VCo">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ufp-jW-ihz">
-                                            <connections>
-                                                <segue destination="wk4-1t-ecc" kind="unwind" unwindAction="cancelOutDateWithSegue:" id="4PS-mi-jan"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="akX-yo-sVj">
-                                <rect key="frame" x="10" y="75" width="355" height="242"/>
-                                <subviews>
-                                    <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="rCU-Zb-GaR">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="212"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="508725992.32723498">
-                                            <!--2017-02-14 00:46:32 +0000-->
-                                        </date>
-                                    </datePicker>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2Y-89-ivu">
-                                        <rect key="frame" x="0.0" y="212" width="355" height="30"/>
-                                        <state key="normal" title="Done"/>
-                                        <connections>
-                                            <segue destination="wk4-1t-ecc" kind="unwind" unwindAction="addOutDateWithSegue:" id="PNH-UH-MSg"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="akX-yo-sVj" firstAttribute="leading" secondItem="3A6-JU-cF2" secondAttribute="leading" constant="10" id="7zk-Dr-dJM"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="akX-yo-sVj" secondAttribute="bottom" constant="350" id="Crx-Sn-TuN"/>
-                            <constraint firstItem="akX-yo-sVj" firstAttribute="top" secondItem="3A6-JU-cF2" secondAttribute="topMargin" constant="75" id="eEW-eb-ZM8"/>
-                            <constraint firstAttribute="trailing" secondItem="akX-yo-sVj" secondAttribute="trailing" constant="10" id="x6V-Ls-wWC"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="resDate" destination="rCU-Zb-GaR" id="cX3-3m-21Q"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="M5I-xk-h0q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="wk4-1t-ecc" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="5222" y="-2692"/>
-        </scene>
-        <!--Date In Picker-->
-        <scene sceneID="km4-US-SX3">
-            <objects>
-                <viewController id="DaU-lj-1Oh" userLabel="Date In Picker" customClass="InDateViewController" customModule="iKennel" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="i2j-e4-Vmx"/>
-                        <viewControllerLayoutGuide type="bottom" id="G1C-hi-ugA"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="GV9-MD-YE8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ni1-b5-Zx0">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Choose a Date" id="2ul-of-VOw">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="PQp-KO-SQ8">
-                                            <connections>
-                                                <segue destination="LQg-zi-va7" kind="unwind" unwindAction="cancelInDateWithSegue:" id="PHC-xf-czb"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="1no-LR-HBZ">
-                                <rect key="frame" x="10" y="75" width="355" height="242"/>
-                                <subviews>
-                                    <datePicker contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="7es-wg-5gX">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="212"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="508716553.40871799">
-                                            <!--2017-02-13 22:09:13 +0000-->
-                                        </date>
-                                    </datePicker>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6cX-56-2wr">
-                                        <rect key="frame" x="0.0" y="212" width="355" height="30"/>
-                                        <state key="normal" title="Done"/>
-                                        <connections>
-                                            <segue destination="LQg-zi-va7" kind="unwind" unwindAction="addInDateWithSegue:" id="qNH-Ij-jwh"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="1no-LR-HBZ" firstAttribute="leading" secondItem="GV9-MD-YE8" secondAttribute="leading" constant="10" id="3Um-VR-A9d"/>
-                            <constraint firstAttribute="trailing" secondItem="1no-LR-HBZ" secondAttribute="trailing" constant="10" id="kEH-14-pn4"/>
-                            <constraint firstItem="1no-LR-HBZ" firstAttribute="top" secondItem="GV9-MD-YE8" secondAttribute="topMargin" constant="75" id="tEx-rY-lLF"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="1no-LR-HBZ" secondAttribute="bottom" constant="350" id="uh6-BB-gk5"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="resDate" destination="7es-wg-5gX" id="g1M-2r-H3I"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7nf-Uk-t5R" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="LQg-zi-va7" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="5223" y="-2038"/>
+            <point key="canvasLocation" x="4319" y="-1897"/>
         </scene>
         <!--Edit Current Client-->
         <scene sceneID="0b4-YL-2yW">
@@ -729,18 +627,18 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ogf-9G-gJQ" id="If4-kB-jty">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WMo-tX-aFx">
-                                            <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PXU-ta-BQC">
-                                            <rect key="frame" x="15" y="25.5" width="33" height="14.5"/>
+                                            <rect key="frame" x="15" y="25" width="33" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -1129,11 +1027,11 @@
                                         <rect key="frame" x="0.0" y="35" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f1F-Pe-Evw" id="R5k-g9-ehI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Toggle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yxm-Gy-EEd">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
@@ -1153,11 +1051,11 @@
                                         <rect key="frame" x="0.0" y="79" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sgE-I9-KZg" id="wYl-W1-iDf">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Stepper switch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3In-A6-1G6">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
@@ -1177,11 +1075,11 @@
                                         <rect key="frame" x="0.0" y="123" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ALs-6o-Y3r" id="Iar-gs-XPr">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EUZ-19-PRL">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
