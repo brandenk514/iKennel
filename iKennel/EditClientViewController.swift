@@ -17,21 +17,17 @@ class EditClientViewController: UIViewController {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var addressTF: UITextField!
     
-    var fName = ""
-    var lName = ""
-    var address = ""
-    var email = ""
-    var cellNum = ""
+    var cur_client = Client(fName: "", lName: "", address: "", email: "", cellNum: "", animals: [Animal]())
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        firstnameTF.text = fName
-        lastnameTF.text = lName
-        addressTF.text = address
-        emailTF.text = email
-        cellNumTF.text = cellNum
+        firstnameTF.text = cur_client.fName
+        lastnameTF.text = cur_client.lName
+        addressTF.text = cur_client.address
+        emailTF.text = cur_client.email
+        cellNumTF.text = cur_client.cellNum
 
         // Do any additional setup after loading the view.
     }

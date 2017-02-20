@@ -20,7 +20,7 @@ class NewClientViewController: UIViewController {
     @IBOutlet weak var type: UISegmentedControl!
     @IBOutlet weak var breed: UITextField!
     @IBOutlet weak var sex: UISegmentedControl!
-    @IBOutlet weak var socialSlider: UISlider!
+    @IBOutlet weak var socialSwitch: UISwitch!
     @IBOutlet weak var notes: UITextField!
     
     @IBOutlet weak var dateIn: UITextField!
@@ -185,7 +185,7 @@ class NewClientViewController: UIViewController {
         clientTableVC.aType = type.titleForSegment(at: type.selectedSegmentIndex)!
         clientTableVC.aBreed = breed.text!
         clientTableVC.aSex = sex.titleForSegment(at: sex.selectedSegmentIndex)!
-        clientTableVC.aSocial = socialSlider.value
+        clientTableVC.aSocial = socialSwitch.isOn
         clientTableVC.aNotes = notes.text!
         clientTableVC.resDateIn = stringToDate(dateString: dateIn.text!)
         clientTableVC.resDateOut = stringToDate(dateString: dateOut.text!)

@@ -26,7 +26,7 @@ class ClientTableViewController: UITableViewController {
     var aType = ""
     var aBreed = ""
     var aSex = ""
-    var aSocial = Float(0.00)
+    var aSocial = true
     var aNotes = ""
     
     var resDateIn = Date()
@@ -62,8 +62,6 @@ class ClientTableViewController: UITableViewController {
                 client1.lName < client2.lName
             })
         }
-        
-        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -148,12 +146,7 @@ class ClientTableViewController: UITableViewController {
             let index: Int = (self.tableView.indexPathForSelectedRow?.row)!
             let section: Int = (self.tableView.indexPathForSelectedRow?.section)!
             let clientCurrentVC = segue.destination as! CurrentClientViewController
-            clientCurrentVC.lName = (contacts[letters[section]]?[index].lName)!
-            clientCurrentVC.fName = (contacts[letters[section]]?[index].fName)!
-            clientCurrentVC.address = (contacts[letters[section]]?[index].address)!
-            clientCurrentVC.email = (contacts[letters[section]]?[index].email)!
-            clientCurrentVC.cellNum = (contacts[letters[section]]?[index].cellNum)!
-            clientCurrentVC.animals = (contacts[letters[section]]?[index].animals)!
+            clientCurrentVC.cur_client = (contacts[letters[section]]?[index])!
         }
     }
     
