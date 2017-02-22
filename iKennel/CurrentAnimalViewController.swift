@@ -11,6 +11,8 @@ import UIKit
 class CurrentAnimalViewController: UIViewController {
     
     var selected_animal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
+    
+    var current_client = Client(fName: "", lName: "", address: "", email: "", cellNum: "", animals: [Animal]())
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
@@ -39,7 +41,7 @@ class CurrentAnimalViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -61,14 +63,18 @@ class CurrentAnimalViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "editClientfromAnimal" {
+            let editClientVC = segue.destination as! EditClientViewController
+            editClientVC.cur_client = current_client
+        }
     }
-    */
+ 
 
 }
