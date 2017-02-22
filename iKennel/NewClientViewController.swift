@@ -8,14 +8,14 @@
 
 import UIKit
 
-class NewClientViewController: UIViewController {
+class NewClientViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var firstname: UITextField!
     @IBOutlet weak var lastname: UITextField!
     @IBOutlet weak var address: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var cellnum: UITextField!
-
+    
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var type: UISegmentedControl!
     @IBOutlet weak var breed: UITextField!
@@ -23,19 +23,21 @@ class NewClientViewController: UIViewController {
     @IBOutlet weak var socialSwitch: UISwitch!
     @IBOutlet weak var notes: UITextField!
     
-    @IBOutlet weak var dateIn: UITextField!
-    @IBOutlet weak var dateOut: UITextField!
+    @IBOutlet weak var dateIn: UITextField! { didSet { dateIn.delegate = self } }
+    @IBOutlet weak var dateOut: UITextField! { didSet { dateOut.delegate = self } }
     @IBOutlet weak var checkedInSwitch: UISwitch!
     
     @IBOutlet weak var animalStackView: UIStackView!
     @IBOutlet weak var addAnimalsButton: UIButton!
-
+    
+    var dateFormat = Bool()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -50,12 +52,52 @@ class NewClientViewController: UIViewController {
     
     func stringToDate(dateString:String) -> Date {
         let f = DateFormatter()
+        f.dateFormat = "dd/mm/yy"
         return f.date(from: dateString)!
     }
-    
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print("Running")
+        if textField.tag == 1 || textField.tag == 2 {
+            let numbersOnly = NSCharacterSet(charactersIn: "123456789-")
+            let characterSetFromTextField = NSCharacterSet(charactersIn: string)
+            
+            let Validate:Bool = numbersOnly .isSuperset(of: characterSetFromTextField as CharacterSet)
+            if !Validate {
+                return false;
+            }
+            if range.length + range.location > (textField.text?.characters.count)! {
+                return false
+            }
+            let newLength = (textField.text?.characters.count)! + string.characters.count - range.length
+            if newLength == 3 || newLength == 6 {
+                let  char = string.cString(using: String.Encoding.utf8)!
+                let isBackSpace = strcmp(char, "\\b")
+                
+                if (isBackSpace == -92) {
+                    dateFormat = false
+                }else{
+                    dateFormat = true
+                }
+                
+                if dateFormat {
+                    let textContent:String!
+                    textContent = textField.text
+                    //3.Here we add '-' on overself.
+                    let textWithHifen:NSString = "\(textContent)-" as NSString
+                    textField.text = textWithHifen as String
+                    dateFormat = false
+                }
+            }
+            //4. this one helps to make sure only 8 character is added in textfield .(ie: dd-mm-yy)
+            return newLength <= 8;
+        }
+        return true
+    }
+
     /*
      Adds UI components for more animals in new Client modal
-    */
+     */
     
     @IBAction func addPressed(_ sender: Any) {
         print("Pressed")
@@ -143,7 +185,7 @@ class NewClientViewController: UIViewController {
         checkStack.axis = .horizontal
         checkStack.distribution = .equalCentering
         checkStack.alignment = .fill
-
+        
         let addButton = UIButton()
         addButton.setTitle("Add another animal...", for: .normal)
         
@@ -166,12 +208,12 @@ class NewClientViewController: UIViewController {
         stackView.alignment = .fill
         stackView.spacing = 5
         stackView.translatesAutoresizingMaskIntoConstraints = false
-    
+        
         self.view.addSubview(stackView)
     }
-
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -188,10 +230,9 @@ class NewClientViewController: UIViewController {
         clientTableVC.aSex = sex.titleForSegment(at: sex.selectedSegmentIndex)!
         clientTableVC.aSocial = socialSwitch.isOn
         clientTableVC.aNotes = notes.text!
-        clientTableVC.resDateIn = stringToDate(dateString: dateIn.text!)
-        clientTableVC.resDateOut = stringToDate(dateString: dateOut.text!)
+        clientTableVC.resDateIn = Date()
+        clientTableVC.resDateOut = Date()
         clientTableVC.checkedIn = checkedInSwitch.isOn
-        
     }
-
+    
 }
