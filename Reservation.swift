@@ -10,16 +10,4 @@ struct Reservation {
     let dateIn: Date
     let dateOut: Date
     let checkedIn: Bool
-    
-    func getDateIn() -> Date{
-        return self.dateIn
-    }
-    
-    func getDateOut() -> Date{
-        return self.dateOut
-    }
-    
-    func isCheckedIn() -> Bool {
-        return checkedIn
-    }
 }

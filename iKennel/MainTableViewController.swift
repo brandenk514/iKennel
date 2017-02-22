@@ -28,7 +28,7 @@ class MainTableViewController: UITableViewController {
         }
 
         dates = clients.map { (name) -> String in
-            return getDMY(d:name.animals![0].getReservation().getDateIn())
+            return getDMY(d:name.animals![0].getReservation().dateIn)
         }
         //print(dates)
         dates = dates.reduce([], { (list, name) -> [String] in

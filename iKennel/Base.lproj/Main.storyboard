@@ -164,22 +164,38 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jf-7e-n8L">
                                                 <rect key="frame" x="0.0" y="0.0" width="54" height="30"/>
                                                 <state key="normal" title="animal0"/>
+                                                <connections>
+                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="VNx-gH-ZMc"/>
+                                                    <segue destination="H8L-dw-z9c" kind="show" identifier="showAnimalInfo" id="eRy-Dl-hC8"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PeK-JE-Mc4">
                                                 <rect key="frame" x="76.5" y="0.0" width="52" height="30"/>
                                                 <state key="normal" title="animal1"/>
+                                                <connections>
+                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="GcQ-5w-Eb3"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J5N-Ih-6Kz">
                                                 <rect key="frame" x="150.5" y="0.0" width="54" height="30"/>
                                                 <state key="normal" title="animal2"/>
+                                                <connections>
+                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="zXN-mv-bKI"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZ3-cC-j9a">
                                                 <rect key="frame" x="226" y="0.0" width="54" height="30"/>
                                                 <state key="normal" title="animal3"/>
+                                                <connections>
+                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="zq1-kN-4cT"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UaL-3l-Ssn">
                                                 <rect key="frame" x="301" y="0.0" width="54" height="30"/>
                                                 <state key="normal" title="animal4"/>
+                                                <connections>
+                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="F1R-nz-srT"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -189,22 +205,37 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TbL-Ct-Oja">
                                                 <rect key="frame" x="0.0" y="0.0" width="54" height="30"/>
                                                 <state key="normal" title="animal5"/>
+                                                <connections>
+                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="Bnk-g1-GAB"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzV-XC-h5E">
                                                 <rect key="frame" x="75.5" y="0.0" width="54" height="30"/>
                                                 <state key="normal" title="animal6"/>
+                                                <connections>
+                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="rzG-XO-ehR"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wmn-2h-eR9">
                                                 <rect key="frame" x="151" y="0.0" width="53" height="30"/>
                                                 <state key="normal" title="animal7"/>
+                                                <connections>
+                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="0ij-f7-K36"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilp-3x-vYD">
                                                 <rect key="frame" x="226" y="0.0" width="54" height="30"/>
                                                 <state key="normal" title="animal8"/>
+                                                <connections>
+                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="9GI-xr-aUt"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f00-lf-Ano">
                                                 <rect key="frame" x="301" y="0.0" width="54" height="30"/>
                                                 <state key="normal" title="animal9"/>
+                                                <connections>
+                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="ZnX-nY-APo"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -232,7 +263,6 @@
                         <outlet property="clientName" destination="xBO-JM-Vzg" id="S6g-jZ-555"/>
                         <outlet property="clientPhone" destination="MsN-pp-Ol9" id="d2r-4n-yQP"/>
                         <outlet property="clientStackView" destination="wiL-dc-oPb" id="tnL-ut-Nuz"/>
-                        <outletCollection property="animalButtons" destination="9jf-7e-n8L" collectionClass="NSMutableArray" id="9KY-XW-CyH"/>
                         <outletCollection property="animalButtons" destination="PeK-JE-Mc4" collectionClass="NSMutableArray" id="4RS-tJ-cgK"/>
                         <outletCollection property="animalButtons" destination="J5N-Ih-6Kz" collectionClass="NSMutableArray" id="UPm-ie-kMe"/>
                         <outletCollection property="animalButtons" destination="dZ3-cC-j9a" collectionClass="NSMutableArray" id="xiM-gD-bYR"/>
@@ -242,6 +272,7 @@
                         <outletCollection property="animalButtons" destination="Wmn-2h-eR9" collectionClass="NSMutableArray" id="fKY-bH-tqc"/>
                         <outletCollection property="animalButtons" destination="ilp-3x-vYD" collectionClass="NSMutableArray" id="cQa-9T-HrO"/>
                         <outletCollection property="animalButtons" destination="f00-lf-Ano" collectionClass="NSMutableArray" id="U9m-OF-53F"/>
+                        <outletCollection property="animalButtons" destination="9jf-7e-n8L" collectionClass="NSMutableArray" id="dnk-iG-JVz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p69-PH-SVk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -473,7 +504,7 @@
         <!--Animal Information-->
         <scene sceneID="BCm-nf-cMj">
             <objects>
-                <viewController id="H8L-dw-z9c" userLabel="Animal Information" sceneMemberID="viewController">
+                <viewController id="H8L-dw-z9c" userLabel="Animal Information" customClass="CurrentAnimalViewController" customModule="iKennel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kGl-XP-FJp"/>
                         <viewControllerLayoutGuide type="bottom" id="h45-JS-EYv"/>
@@ -657,6 +688,17 @@
                             <constraint firstItem="qoX-h4-QS7" firstAttribute="leading" secondItem="eeG-Pv-9hC" secondAttribute="leading" constant="10" id="xfd-FN-97S"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="breedLabel" destination="PAW-ME-lgf" id="t15-hh-Rqi"/>
+                        <outlet property="checkedInLabel" destination="wen-BN-9Ql" id="hHg-uy-uln"/>
+                        <outlet property="dateInLabel" destination="0fX-q7-ZOJ" id="QgG-wD-h70"/>
+                        <outlet property="dateOutLabel" destination="DhD-Qi-OSf" id="aQi-JZ-lF2"/>
+                        <outlet property="nameLabel" destination="xYB-cb-FcF" id="4gL-HV-ral"/>
+                        <outlet property="notesLabel" destination="eEO-0U-U2i" id="QeZ-H6-biU"/>
+                        <outlet property="sexLabel" destination="Is8-Lp-zU1" id="yMw-a6-OpB"/>
+                        <outlet property="socialLabel" destination="uCa-90-tgm" id="hTl-qT-MhK"/>
+                        <outlet property="typeLabel" destination="g1k-U0-q6h" id="rnf-fc-BI2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNN-vT-OrZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1422,6 +1464,6 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qpo-Vs-wOx"/>
+        <segue reference="obL-kv-9gA"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -18,6 +18,9 @@ class CurrentClientViewController: UIViewController {
     @IBOutlet var animalButtons: [UIButton]!
     @IBOutlet weak var clientStackView: UIStackView!
     
+    var selected_button = ""
+    var sel_animal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
+    
     var cur_client = Client(fName: "", lName: "", address: "", email: "", cellNum: "", animals: [Animal]())
     
     override func viewDidLoad() {
@@ -37,10 +40,20 @@ class CurrentClientViewController: UIViewController {
             }
         }
         
-        // list all buttons individually, then add to array and loop through with names
-        
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func animalPressed(_ sender: UIButton) {
+        selected_button = (sender.titleLabel?.text)!
+        for a in cur_client.animals! {
+            if (a.name == selected_button) {
+                sel_animal = a // need error check for empty
+                break
+            }
+        }
+        performSegue(withIdentifier: "showAnimalInfo", sender: sender)
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -56,6 +69,10 @@ class CurrentClientViewController: UIViewController {
         if segue.identifier == "editClient" {
             let editClientVC = segue.destination as! EditClientViewController
             editClientVC.cur_client = cur_client
+        }
+        if segue.identifier == "showAnimalInfo" {
+            let cur_animalVC = segue.destination as! CurrentAnimalViewController
+            cur_animalVC.selected_animal = sel_animal
         }
     }
 }
