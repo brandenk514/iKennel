@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -148,6 +148,7 @@
 				53FBBD061E1566E400734D66 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		53FBBD061E1566E400734D66 /* Products */ = {
 			isa = PBXGroup;
@@ -278,7 +279,7 @@
 				};
 			};
 			buildConfigurationList = 53FBBD001E1566E400734D66 /* Build configuration list for PBXProject "iKennel" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (

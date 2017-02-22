@@ -27,6 +27,7 @@ class NewClientViewController: UIViewController {
     @IBOutlet weak var dateOut: UITextField!
     @IBOutlet weak var checkedInSwitch: UISwitch!
     
+    @IBOutlet weak var animalStackView: UIStackView!
     @IBOutlet weak var addAnimalsButton: UIButton!
 
     override func viewDidLoad() {
