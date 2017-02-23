@@ -347,7 +347,7 @@
                                             </textField>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MOP-1w-s3O" userLabel="Animal Stack View">
+                                    <stackView opaque="NO" tag="1" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MOP-1w-s3O" userLabel="Animal Stack View">
                                         <rect key="frame" x="0.0" y="159" width="355" height="392"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animal:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfR-e0-dqv">
@@ -391,7 +391,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DYn-0b-WXP">
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DYn-0b-WXP">
                                                         <rect key="frame" x="306" y="0.0" width="51" height="26"/>
                                                     </switch>
                                                 </subviews>
@@ -417,12 +417,14 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM/DD/YY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZwS-hh-RSd">
-                                                        <rect key="frame" x="262.5" y="0.0" width="92.5" height="20.5"/>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
-                                                    </textField>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UhQ-t1-yhS">
+                                                        <rect key="frame" x="306" y="0.0" width="49" height="20.5"/>
+                                                        <state key="normal" title="Date In"/>
+                                                        <connections>
+                                                            <action selector="dateButtonPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="mLZ-xX-nIu"/>
+                                                            <segue destination="DHm-fY-B1T" kind="presentation" identifier="pickDate" id="eWw-BC-ii5"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="QiH-hO-Ga8" userLabel="Date Out Stack View">
@@ -434,12 +436,13 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM/DD/YY" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LHr-1g-WBc">
-                                                        <rect key="frame" x="262.5" y="0.0" width="92.5" height="20.5"/>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                    </textField>
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6l-gN-mMe">
+                                                        <rect key="frame" x="293" y="0.0" width="62" height="20.5"/>
+                                                        <state key="normal" title="Date Out"/>
+                                                        <connections>
+                                                            <action selector="dateButtonPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="zds-fA-1tW"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3Uf-Cg-vNX" userLabel="Checked In Stack View">
@@ -451,7 +454,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0LW-Tw-gI6">
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0LW-Tw-gI6">
                                                         <rect key="frame" x="306" y="0.0" width="51" height="31"/>
                                                     </switch>
                                                 </subviews>
@@ -483,8 +486,8 @@
                         <outlet property="breed" destination="vQb-Kj-d9q" id="2iH-oK-XCG"/>
                         <outlet property="cellnum" destination="6AB-oH-KTQ" id="LLR-FD-D36"/>
                         <outlet property="checkedInSwitch" destination="0LW-Tw-gI6" id="ZgA-IE-quY"/>
-                        <outlet property="dateIn" destination="ZwS-hh-RSd" id="yDG-Zz-9gF"/>
-                        <outlet property="dateOut" destination="LHr-1g-WBc" id="3ZY-or-atW"/>
+                        <outlet property="dateInButton" destination="UhQ-t1-yhS" id="cTA-dM-U4m"/>
+                        <outlet property="dateOutButton" destination="c6l-gN-mMe" id="zvl-ji-Vu1"/>
                         <outlet property="email" destination="lxj-tR-3GT" id="0ig-X6-Jqp"/>
                         <outlet property="firstname" destination="yl5-zO-8Ga" id="5ZJ-6m-5uD"/>
                         <outlet property="lastname" destination="7fD-mO-Mc8" id="rBY-Re-B16"/>
@@ -499,6 +502,68 @@
                 <exit id="r0Q-9o-axm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4319" y="-1897"/>
+        </scene>
+        <!--Date Picker View Controller-->
+        <scene sceneID="Our-XN-ZCP">
+            <objects>
+                <viewController id="DHm-fY-B1T" customClass="DatePickerViewController" customModule="iKennel" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="D01-YV-rF5"/>
+                        <viewControllerLayoutGuide type="bottom" id="CIo-pa-SxF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OlM-vc-R9n">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uow-gn-Vqy">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Choose a Date" id="w7s-JL-9NG">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="bfO-YU-rzR">
+                                            <connections>
+                                                <segue destination="zxT-UW-oY2" kind="unwind" unwindAction="cancelDatePickerWithSegue:" id="QQ7-pv-Hsb"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="m8g-Z2-3Ca">
+                                <rect key="frame" x="10" y="70" width="355" height="247"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Mgk-NI-nei">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="212"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="509503864.77086902">
+                                            <!--2017-02-23 00:51:04 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uel-6B-fvP">
+                                        <rect key="frame" x="0.0" y="212" width="355" height="35"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="OK"/>
+                                        <connections>
+                                            <segue destination="zxT-UW-oY2" kind="unwind" unwindAction="addDatePickerWithSegue:" id="5pf-ub-1vI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="m8g-Z2-3Ca" firstAttribute="top" secondItem="OlM-vc-R9n" secondAttribute="topMargin" constant="70" id="Dxa-zK-R70"/>
+                            <constraint firstItem="m8g-Z2-3Ca" firstAttribute="leading" secondItem="OlM-vc-R9n" secondAttribute="leading" constant="10" id="H34-2z-QCc"/>
+                            <constraint firstAttribute="trailing" secondItem="m8g-Z2-3Ca" secondAttribute="trailing" constant="10" id="cQA-d4-cL2"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="m8g-Z2-3Ca" secondAttribute="bottom" constant="350" id="fSS-PB-UWv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="Mgk-NI-nei" id="OCw-rg-ytn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nj0-Vd-Mh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zxT-UW-oY2" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="5074" y="-2112"/>
         </scene>
         <!--Animal Information-->
         <scene sceneID="BCm-nf-cMj">

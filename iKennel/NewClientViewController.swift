@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewClientViewController: UIViewController, UITextFieldDelegate {
+class NewClientViewController: UIViewController {
     
     @IBOutlet weak var firstname: UITextField!
     @IBOutlet weak var lastname: UITextField!
@@ -23,14 +23,20 @@ class NewClientViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var socialSwitch: UISwitch!
     @IBOutlet weak var notes: UITextField!
     
-    @IBOutlet weak var dateIn: UITextField! { didSet { dateIn.delegate = self } }
-    @IBOutlet weak var dateOut: UITextField! { didSet { dateOut.delegate = self } }
+    @IBOutlet weak var dateInButton: UIButton!
+    @IBOutlet weak var dateOutButton: UIButton!
     @IBOutlet weak var checkedInSwitch: UISwitch!
     
     @IBOutlet weak var animalStackView: UIStackView!
     @IBOutlet weak var addAnimalsButton: UIButton!
     
-    var dateFormat = Bool()
+    var dateIn = Date()
+    var dateOut = Date()
+    
+    var dateIn_string = "Date In"
+    var dateOut_string = "Date Out"
+    
+    var dateTag = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,58 +49,20 @@ class NewClientViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func formatDate(cDate:Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .short
-        return dateFormatter.string(from: cDate)
-    }
-    
-    func stringToDate(dateString:String) -> Date {
-        let f = DateFormatter()
-        f.dateFormat = "dd/mm/yy"
-        return f.date(from: dateString)!
+    @IBAction func cancelDatePicker(segue:UIStoryboardSegue) { }
+    @IBAction func addDatePicker(segue:UIStoryboardSegue) {
+        dateInButton.setTitle(dateIn_string, for: .normal)
+        dateOutButton.setTitle(dateOut_string, for: .normal)
     }
 
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        print("Running")
-        if textField.tag == 1 || textField.tag == 2 {
-            let numbersOnly = NSCharacterSet(charactersIn: "123456789-")
-            let characterSetFromTextField = NSCharacterSet(charactersIn: string)
-            
-            let Validate:Bool = numbersOnly .isSuperset(of: characterSetFromTextField as CharacterSet)
-            if !Validate {
-                return false;
-            }
-            if range.length + range.location > (textField.text?.characters.count)! {
-                return false
-            }
-            let newLength = (textField.text?.characters.count)! + string.characters.count - range.length
-            if newLength == 3 || newLength == 6 {
-                let  char = string.cString(using: String.Encoding.utf8)!
-                let isBackSpace = strcmp(char, "\\b")
-                
-                if (isBackSpace == -92) {
-                    dateFormat = false
-                }else{
-                    dateFormat = true
-                }
-                
-                if dateFormat {
-                    let textContent:String!
-                    textContent = textField.text
-                    //3.Here we add '-' on overself.
-                    let textWithHifen:NSString = "\(textContent)-" as NSString
-                    textField.text = textWithHifen as String
-                    dateFormat = false
-                }
-            }
-            //4. this one helps to make sure only 8 character is added in textfield .(ie: dd-mm-yy)
-            return newLength <= 8;
+    @IBAction func dateButtonPressed(_ sender: UIButton) {
+        if sender.tag == dateInButton.tag {
+            dateTag = dateInButton.tag
+        } else {
+            dateTag = dateOutButton.tag
+            performSegue(withIdentifier: "pickDate", sender: sender)
         }
-        return true
     }
-
     /*
      Adds UI components for more animals in new Client modal
      */
@@ -218,21 +186,27 @@ class NewClientViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let clientTableVC = segue.destination as! ClientTableViewController
-        clientTableVC.cFirst = firstname.text!
-        clientTableVC.cLast = lastname.text!
-        clientTableVC.cAddress = address.text!
-        clientTableVC.cEmail = email.text!
-        clientTableVC.cCellNum = cellnum.text!
-        clientTableVC.animalName = name.text!
-        clientTableVC.aType = type.titleForSegment(at: type.selectedSegmentIndex)!
-        clientTableVC.aBreed = breed.text!
-        clientTableVC.aSex = sex.titleForSegment(at: sex.selectedSegmentIndex)!
-        clientTableVC.aSocial = socialSwitch.isOn
-        clientTableVC.aNotes = notes.text!
-        clientTableVC.resDateIn = Date()
-        clientTableVC.resDateOut = Date()
-        clientTableVC.checkedIn = checkedInSwitch.isOn
+        if segue.identifier == "pickDate" {
+            let datePickerVC = segue.destination as! DatePickerViewController
+            datePickerVC.dateTag = dateTag
+        } else {
+            let clientTableVC = segue.destination as! ClientTableViewController
+            clientTableVC.cFirst = firstname.text!
+            clientTableVC.cLast = lastname.text!
+            clientTableVC.cAddress = address.text!
+            clientTableVC.cEmail = email.text!
+            clientTableVC.cCellNum = cellnum.text!
+            clientTableVC.animalName = name.text!
+            clientTableVC.aType = type.titleForSegment(at: type.selectedSegmentIndex)!
+            clientTableVC.aBreed = breed.text!
+            clientTableVC.aSex = sex.titleForSegment(at: sex.selectedSegmentIndex)!
+            clientTableVC.aSocial = socialSwitch.isOn
+            clientTableVC.aNotes = notes.text!
+            clientTableVC.resDateIn = dateIn
+            clientTableVC.resDateOut = dateOut
+            clientTableVC.checkedIn = checkedInSwitch.isOn
+        }
+        
     }
     
 }
