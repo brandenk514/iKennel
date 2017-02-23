@@ -36,32 +36,7 @@ class ClientTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        letters = clients.map { (name) -> Character in
-            return name.lName[name.lName.startIndex]
-        }
-        
-        letters = letters.reduce([], { (list, name) -> [Character] in
-            if !list.contains(name) {
-                return list + [name]
-            }
-            return list
-        })
-        
-        for c in clients {
-            if contacts[c.lName[c.lName.startIndex]] == nil {
-                contacts[c.lName[c.lName.startIndex]] = [Client]()
-            }
-            
-            contacts[c.lName[c.lName.startIndex]]!.append(c)
-        }
-        
-        letters.sort()
-        
-        for (letter, list) in contacts {
-            contacts[letter] = list.sorted(by: { (client1, client2) -> Bool in
-                client1.lName < client2.lName
-            })
-        }
+        indexClients()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -99,16 +74,45 @@ class ClientTableViewController: UITableViewController {
         return String(Array(letters)[section])
     }
     
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return charToString(c: letters)
+    }
+    
+    func indexClients() {
+        letters = clients.map { (name) -> Character in
+            return name.lName[name.lName.startIndex]
+        }
+        
+        letters = letters.reduce([], { (list, name) -> [Character] in
+            if !list.contains(name) {
+                return list + [name]
+            }
+            return list
+        })
+        
+        for c in clients {
+            if contacts[c.lName[c.lName.startIndex]] == nil {
+                contacts[c.lName[c.lName.startIndex]] = [Client]()
+            }
+            
+            contacts[c.lName[c.lName.startIndex]]!.append(c)
+        }
+        
+        letters.sort()
+        
+        for (letter, list) in contacts {
+            contacts[letter] = list.sorted(by: { (client1, client2) -> Bool in
+                client1.lName < client2.lName
+            })
+        }
+    }
+    
     func charToString(c:[Character]) -> [String] {
         var s = [String]()
         for i in c {
             s.append(String(i))
         }
         return s
-    }
-    
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return charToString(c: letters)
     }
     
     func addNewClientData() -> Client
@@ -124,16 +128,16 @@ class ClientTableViewController: UITableViewController {
     
     @IBAction func addNewClient(segue:UIStoryboardSegue) {
         clients.append(addNewClientData())
-        self.tableView.reloadData()
+        self.tableView.beginUpdates()
+        self.tableView.insertRows(at: [IndexPath.init(row: contacts.count - 1, section: contacts.count)], with: .automatic)
+        self.tableView.endUpdates()
     }
     
-    @IBAction func cancelNewClient(segue:UIStoryboardSegue) {}
+    @IBAction func editCurrentClient(segue:UIStoryboardSegue) { }
     
-    @IBAction func editCurrentClient(segue:UIStoryboardSegue) {
-        
-    }
+    @IBAction func cancelNewClient(segue:UIStoryboardSegue) { }
     
-    @IBAction func cancelCurrentClient(segue:UIStoryboardSegue) {}
+    @IBAction func cancelCurrentClient(segue:UIStoryboardSegue) { }
     
     
     // MARK: - Navigation
@@ -149,6 +153,4 @@ class ClientTableViewController: UITableViewController {
             clientCurrentVC.cur_client = (contacts[letters[section]]?[index])!
         }
     }
-    
-    
 }
