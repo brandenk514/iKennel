@@ -8,52 +8,20 @@
 
 import UIKit
 
-class MainTableViewController: UITableViewController {
+class ReservationTableViewController: UITableViewController {
     
     var clients = Client.loadAllClients()
     
     var animals = [Animal]()
     
-    var contacts = [String: [Client]]()
+    var contacts = [String: [Animal]]()
     
     var dates: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for c in clients {
-            for a in c.animals! {
-                animals.append(a)
-            }
-        }
-
-        dates = clients.map { (name) -> String in
-            return getDMY(d:name.animals![0].getReservation().dateIn)
-        }
-        //print(dates)
-        dates = dates.reduce([], { (list, name) -> [String] in
-            if !list.contains(name) {
-                return list + [name]
-            }
-            return list
-        })
-        //print(dates)
-        
-        /*for c in clients {
-            if contacts[getDMY(d:c.animals![0].getReservation().getDateIn())[getDMY(d:c.animals![0].getReservation().getDateIn()).startIndex]] == nil {
-                contacts[c.lName[c.lName.startIndex]] = [Client]()
-            }
-            
-            contacts[c.lName[c.lName.startIndex]]!.append(c)
-        }
-        
-        dates.sort()
-        
-        for (letter, list) in contacts {
-            contacts[letter] = list.sorted(by: { (client1, client2) -> Bool in
-                client1.lName < client2.lName
-            })
-        }*/
+        indexReservations()
     }
     
     override func didReceiveMemoryWarning() {
@@ -74,7 +42,7 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Name", for: indexPath) as! MainTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reservation", for: indexPath) as! ReservationTableViewCell
         
         cell.clientName?.text = clients[indexPath.row].lName + ", " + clients[indexPath.row].fName
         cell.animalNames?.text = "Pets: " + clients[indexPath.row].getAnimalNames()
@@ -102,6 +70,37 @@ class MainTableViewController: UITableViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         return dateFormatter.string(from: d)
+    }
+    
+    func indexReservations() {
+        for c in clients {
+            for a in c.animals! {
+                animals.append(a)
+            }
+        }
+        
+        dates = animals.map { (name) -> String in
+            return getDMY(d:name.getReservation().dateIn)
+        }
+        
+        dates = dates.reduce([], { (list, name) -> [String] in
+            if !list.contains(name) {
+                return list + [name]
+            }
+            return list
+        })
+        
+        /*for a in animals {
+            if contacts[getDMY(d:a.getReservation().dateIn)[getDMY(d:a.getReservation().dateIn).startIndex]] == nil {
+                contacts[a.name[a.name.startIndex]] = [Animal]()
+            }
+            
+            contacts[a.name[a.name.startIndex]]!.append(a)
+        }
+        
+        dates.sort()
+        print(dates)
+        print(contacts)*/
     }
     
     /*

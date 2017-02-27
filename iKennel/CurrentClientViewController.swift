@@ -54,6 +54,10 @@ class CurrentClientViewController: UIViewController {
     
     @IBAction func cancelCurrentAnimal(segue:UIStoryboardSegue) { }
     
+    @IBAction func cancelCurrentClient(segue:UIStoryboardSegue) { }
+    
+    @IBAction func editCurrentClient(segue:UIStoryboardSegue) { }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -94,7 +94,6 @@ class ClientTableViewController: UITableViewController {
             if contacts[c.lName[c.lName.startIndex]] == nil {
                 contacts[c.lName[c.lName.startIndex]] = [Client]()
             }
-            
             contacts[c.lName[c.lName.startIndex]]!.append(c)
         }
         
@@ -115,6 +114,10 @@ class ClientTableViewController: UITableViewController {
         return s
     }
     
+    func getFirstLetter(s:String) -> Character {
+        return s.characters[s.startIndex]
+    }
+    
     func addNewClientData() -> Client
     {
         var aArray = [Animal]()
@@ -122,22 +125,33 @@ class ClientTableViewController: UITableViewController {
         let a0 = Animal(name: animalName, type: aType, sex: aSex, breed: aBreed, social: aSocial, reservation: r, notes: aNotes)
         aArray.append(a0)
         let c = Client(fName: cFirst, lName: cLast, address: cAddress, email: cEmail, cellNum: cCellNum, animals: aArray)
-        print(c)
         return c
     }
     
     @IBAction func addNewClient(segue:UIStoryboardSegue) {
-        clients.append(addNewClientData())
-        self.tableView.beginUpdates()
-        self.tableView.insertRows(at: [IndexPath.init(row: contacts.count - 1, section: contacts.count)], with: .automatic)
-        self.tableView.endUpdates()
+        let newClient = addNewClientData()
+        clients.append(newClient)
+        print(newClient)
+        let lName = newClient.lName
+        let firstLetter = getFirstLetter(s: lName.capitalized)
+        var index = 0
+        if contacts[lName[lName.startIndex]] == nil {
+            contacts[lName[lName.startIndex]] = [Client]()
+            letters.append(firstLetter)
+            letters.sort()
+        }
+        contacts[lName[lName.startIndex]]!.append(newClient)
+        index = letters.index(of: firstLetter)!
+        let clientIndex = contacts[lName[lName.startIndex]]?.count
+        print(index)
+        print(clientIndex!)
+        print(letters)
+        /*self.tableView.beginUpdates()
+        self.tableView.insertRows(at: [IndexPath.init(row: clientIndex!, section: index)], with: .automatic)
+        self.tableView.endUpdates()*/
     }
     
-    @IBAction func editCurrentClient(segue:UIStoryboardSegue) { }
-    
     @IBAction func cancelNewClient(segue:UIStoryboardSegue) { }
-    
-    @IBAction func cancelCurrentClient(segue:UIStoryboardSegue) { }
     
     
     // MARK: - Navigation
