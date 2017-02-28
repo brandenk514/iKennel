@@ -56,12 +56,8 @@ class NewClientViewController: UIViewController {
     }
 
     @IBAction func dateButtonPressed(_ sender: UIButton) {
-        if sender.tag == dateInButton.tag {
-            dateTag = dateInButton.tag
-        } else {
-            dateTag = dateOutButton.tag
-            performSegue(withIdentifier: "pickDate", sender: sender)
-        }
+        dateTag = sender.tag
+        performSegue(withIdentifier: "pickDate", sender: sender)
     }
     /*
      Adds UI components for more animals in new Client modal

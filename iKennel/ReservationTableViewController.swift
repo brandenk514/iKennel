@@ -38,38 +38,29 @@ class ReservationTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return clients.count
+        let datekey = dates[section]
+        if let dateValues = contacts[datekey] {
+            return dateValues.count
+        }
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reservation", for: indexPath) as! ReservationTableViewCell
-        
-        cell.clientName?.text = clients[indexPath.row].lName + ", " + clients[indexPath.row].fName
-        cell.animalNames?.text = "Pets: " + clients[indexPath.row].getAnimalNames()
-        
+        let selected = contacts[dates[indexPath.section]]?[indexPath.row]
+        cell.clientName.text = selected?.name
+        cell.animalNames.text = selected?.convertBoolToText()
         return cell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return String(Array(dates)[section])
+        return dates[section]
     }
     
     @IBAction func addNewReservation(segue:UIStoryboardSegue) {
     }
     
     @IBAction func cancelNewReservation(segue:UIStoryboardSegue) {
-    }
-    
-    @IBAction func editCurrentReservation(segue:UIStoryboardSegue) {
-    }
-    
-    @IBAction func cancelCurrentReservation(segue:UIStoryboardSegue) {
-    }
-    
-    func getDMY(d:Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        return dateFormatter.string(from: d)
     }
     
     func indexReservations() {
@@ -79,28 +70,20 @@ class ReservationTableViewController: UITableViewController {
             }
         }
         
-        dates = animals.map { (name) -> String in
-            return getDMY(d:name.getReservation().dateIn)
-        }
-        
-        dates = dates.reduce([], { (list, name) -> [String] in
-            if !list.contains(name) {
-                return list + [name]
-            }
-            return list
-        })
-        
-        /*for a in animals {
-            if contacts[getDMY(d:a.getReservation().dateIn)[getDMY(d:a.getReservation().dateIn).startIndex]] == nil {
-                contacts[a.name[a.name.startIndex]] = [Animal]()
-            }
+        for a in animals {
+            let key = "\(a.getDMY(d: (a.reservation?.dateIn)!))"
+            let upper = key.uppercased()
             
-            contacts[a.name[a.name.startIndex]]!.append(a)
+            if var dateValues = contacts[upper] {
+                dateValues.append(a)
+                contacts[upper] = dateValues
+            } else {
+                contacts[upper] = [a]
+            }
         }
         
+        dates = [String](contacts.keys)
         dates.sort()
-        print(dates)
-        print(contacts)*/
     }
     
     /*
@@ -142,16 +125,14 @@ class ReservationTableViewController: UITableViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        /* Get the new view controller using segue.destinationViewController.
+        // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let editClientVC = segue.destination as! EditClientViewController
-        editClientVC.lName = self.lName
-        editClientVC.fName = self.fName
-        editClientVC.address = self.address
-        editClientVC.email = self.email
-        editClientVC.cellNum = self.cellNum
-        */
-        
+        if segue.identifier == "currentReservation" {
+            let currentReservationVC = segue.destination as! CurrentReservationViewController
+            let index: Int = (self.tableView.indexPathForSelectedRow?.row)!
+            let section: Int = (self.tableView.indexPathForSelectedRow?.section)!
+            currentReservationVC.cur_animal = (contacts[dates[section]]?[index])!
+        }
     }
     
 }

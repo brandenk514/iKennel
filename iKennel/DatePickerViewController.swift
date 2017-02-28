@@ -44,6 +44,15 @@ class DatePickerViewController: UIViewController {
         } else if dateTag == 2 {
             newClientVC.dateOut = datePicker.date
             newClientVC.dateOut_string = formatDateToString(cDate: datePicker.date)
+        } else if dateTag > 2 {
+            let editReservVC = segue.destination as! EditReservationViewController
+            if dateTag == 3 {
+                editReservVC.dateIn = datePicker.date
+                editReservVC.dateIn_string = formatDateToString(cDate: datePicker.date)
+            } else {
+                editReservVC.dateOut = datePicker.date
+                editReservVC.dateOut_string = formatDateToString(cDate: datePicker.date)
+            }
         } else {
             print("No date selected")
         }

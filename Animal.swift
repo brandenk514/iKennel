@@ -18,4 +18,25 @@ struct Animal {
     func getReservation() -> Reservation {
         return self.reservation!
     }
+    
+    func convertBoolToText() -> String {
+        if social {
+            return "Yes"
+        } else {
+            return"No"
+        }
+    }
+    
+    func getDMY(d:Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        return dateFormatter.string(from: d)
+    }
+    
+    func getDMY_time(d:Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        return dateFormatter.string(from: d)
+    }
 }
