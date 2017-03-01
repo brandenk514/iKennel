@@ -1,14 +1,14 @@
 //
-//  DatePickerViewController.swift
+//  ReservDatePickerViewController.swift
 //  iKennel
 //
-//  Created by Branden Kaestner on 2/22/17.
+//  Created by Branden Kaestner on 3/1/17.
 //  Copyright © 2017 BK Development. All rights reserved.
 //
 
 import UIKit
 
-class DatePickerViewController: UIViewController {
+class ReservDatePickerViewController: UIViewController {
 
     @IBOutlet weak var datePicker: UIDatePicker!
     
@@ -16,6 +16,7 @@ class DatePickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
 
@@ -37,18 +38,17 @@ class DatePickerViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let newClientVC = segue.destination as! NewClientViewController
+        let editReservVC = segue.destination as! EditReservationViewController
         if dateTag == 1 {
-            newClientVC.dateIn = datePicker.date
-            newClientVC.dateIn_string = formatDateToString(cDate: datePicker.date)
+            editReservVC.dateIn = datePicker.date
+            editReservVC.dateIn_string = formatDateToString(cDate: datePicker.date)
         } else if dateTag == 2 {
-            newClientVC.dateOut = datePicker.date
-            newClientVC.dateOut_string = formatDateToString(cDate: datePicker.date)
+            editReservVC.dateOut = datePicker.date
+            editReservVC.dateOut_string = formatDateToString(cDate: datePicker.date)
         } else {
             print("No date selected")
         }
-        
     }
- 
+    
 
 }

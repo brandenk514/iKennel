@@ -28,16 +28,19 @@ class EditReservationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dateIn_string = current_animal.getDMY_time(d: current_animal.getReservation().dateIn)
+        dateOut_string = current_animal.getDMY_time(d: current_animal.getReservation().dateOut)
+        
         animal_nameLabel.text = current_animal.name
-        animal_DateIn.setTitle(current_animal.getDMY_time(d: current_animal.getReservation().dateIn), for: .normal)
-        animal_DateOut.setTitle(current_animal.getDMY_time(d: current_animal.getReservation().dateOut), for: .normal)
+        animal_DateIn.setTitle(dateIn_string, for: .normal)
+        animal_DateOut.setTitle(dateOut_string, for: .normal)
         animal_checkedIn.isOn = current_animal.getReservation().checkedIn
 
         // Do any additional setup after loading the view.
     }
     @IBAction func addNewDate(_ sender: UIButton) {
         dateTag = sender.tag
-        performSegue(withIdentifier: "pickDate", sender: sender)
+        performSegue(withIdentifier: "reservDatePicker", sender: sender)
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,15 +48,25 @@ class EditReservationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func cancelEditReservDate(segue:UIStoryboardSegue) { }
+    
+    @IBAction func saveEditReservDate(segue:UIStoryboardSegue) {
+        animal_DateIn.setTitle(dateIn_string, for: .normal)
+        animal_DateOut.setTitle(dateOut_string, for: .normal)
+    }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "reservDatePicker" {
+            let datePickerVC = segue.destination as! ReservDatePickerViewController
+            datePickerVC.dateTag = dateTag
+        }
     }
-    */
+    
 
 }
