@@ -38,11 +38,7 @@ class ReservationTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        let datekey = dates[section]
-        if let dateValues = contacts[datekey] {
-            return dateValues.count
-        }
-        return 0
+        return contacts[dates[section]]!.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

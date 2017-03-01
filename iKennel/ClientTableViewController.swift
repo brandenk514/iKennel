@@ -12,9 +12,9 @@ class ClientTableViewController: UITableViewController {
     
     var clients = Client.loadAllClients()
     
-    var contacts = [Character: [Client]]()
+    var contacts = [String: [Client]]()
     
-    var letters: [Character] = []
+    var letters: [String] = []
     
     var cFirst = ""
     var cLast = ""
@@ -35,9 +35,7 @@ class ClientTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         indexClients()
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -75,45 +73,32 @@ class ClientTableViewController: UITableViewController {
     }
     
     override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return charToString(c: letters)
+        return letters
     }
     
     func indexClients() {
-        letters = clients.map { (name) -> Character in
-            return name.lName[name.lName.startIndex]
-        }
-        
-        letters = letters.reduce([], { (list, name) -> [Character] in
-            if !list.contains(name) {
-                return list + [name]
-            }
-            return list
-        })
-        
         for c in clients {
-            if contacts[c.lName[c.lName.startIndex]] == nil {
-                contacts[c.lName[c.lName.startIndex]] = [Client]()
+            let key = "\(c.lName[c.lName.startIndex])".uppercased()
+
+            if var letterValues = contacts[key] {
+                letterValues.append(c)
+                contacts[key] = letterValues
+            } else {
+                contacts[key] = [c]
             }
-            contacts[c.lName[c.lName.startIndex]]!.append(c)
         }
-        
+        letters = [String](contacts.keys)
         letters.sort()
-        
-        for (letter, list) in contacts {
-            contacts[letter] = list.sorted(by: { (client1, client2) -> Bool in
-                client1.lName < client2.lName
-            })
-        }
     }
-    
-    func charToString(c:[Character]) -> [String] {
+
+    func charToString(c:[Character]) -> String {
         var s = [String]()
         for i in c {
             s.append(String(i))
         }
-        return s
+        return s[0]
     }
-    
+
     func getFirstLetter(s:String) -> Character {
         return s.characters[s.startIndex]
     }
@@ -121,33 +106,23 @@ class ClientTableViewController: UITableViewController {
     func addNewClientData() -> Client
     {
         var aArray = [Animal]()
-        let r = Reservation(dateIn: resDateIn, dateOut: resDateOut, checkedIn: checkedIn)
-        let a0 = Animal(name: animalName, type: aType, sex: aSex, breed: aBreed, social: aSocial, reservation: r, notes: aNotes)
+        let a0 = Animal(name: animalName, type: aType, sex: aSex, breed: aBreed, social: aSocial, reservation: Reservation(dateIn: resDateIn, dateOut: resDateOut, checkedIn: checkedIn), notes: aNotes)
         aArray.append(a0)
-        let c = Client(fName: cFirst, lName: cLast, address: cAddress, email: cEmail, cellNum: cCellNum, animals: aArray)
-        return c
+        return Client(fName: cFirst, lName: cLast, address: cAddress, email: cEmail, cellNum: cCellNum, animals: aArray)
     }
     
     @IBAction func addNewClient(segue:UIStoryboardSegue) {
         let newClient = addNewClientData()
         clients.append(newClient)
-        print(newClient)
-        let lName = newClient.lName
-        let firstLetter = getFirstLetter(s: lName.capitalized)
-        var index = 0
-        if contacts[lName[lName.startIndex]] == nil {
-            contacts[lName[lName.startIndex]] = [Client]()
-            letters.append(firstLetter)
-            letters.sort()
+        let firstLetter = charToString(c: [getFirstLetter(s: newClient.lName)])
+        if !letters.contains(firstLetter) {
+            contacts[firstLetter] = [Client]()
+            //contacts[firstLetter].append(newClient)
         }
-        contacts[lName[lName.startIndex]]!.append(newClient)
-        index = letters.index(of: firstLetter)!
-        let clientIndex = contacts[lName[lName.startIndex]]?.count
+        let index = letters.index(of: firstLetter)
         print(index)
-        print(clientIndex!)
-        print(letters)
         /*self.tableView.beginUpdates()
-        self.tableView.insertRows(at: [IndexPath.init(row: clientIndex!, section: index)], with: .automatic)
+        //self.tableView.insertRows(at: [IndexPath.init(row: clientIndex!, section: index)], with: .automatic)
         self.tableView.endUpdates()*/
     }
     
