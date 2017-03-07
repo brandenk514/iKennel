@@ -37,17 +37,17 @@ class DatePickerViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let newClientVC = segue.destination as! NewClientViewController
+        let addAnimalVC = segue.destination as! AddAnimalViewController
         if dateTag == 1 {
-            newClientVC.dateIn = datePicker.date
-            newClientVC.dateIn_string = formatDateToString(cDate: datePicker.date)
+            addAnimalVC.dateIn = datePicker.date
+            addAnimalVC.dateIn_string = formatDateToString(cDate: datePicker.date)
         } else if dateTag == 2 {
-            newClientVC.dateOut = datePicker.date
-            newClientVC.dateOut_string = formatDateToString(cDate: datePicker.date)
+            addAnimalVC.dateOut = datePicker.date
+            addAnimalVC.dateOut_string = formatDateToString(cDate: datePicker.date)
         } else {
             print("No date selected")
         }
-        
+        print(dateTag)
     }
  
 

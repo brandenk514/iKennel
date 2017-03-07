@@ -17,6 +17,7 @@ class CurrentClientViewController: UIViewController {
 
     @IBOutlet var animalButtons: [UIButton]!
     @IBOutlet weak var clientStackView: UIStackView!
+    @IBOutlet weak var secondAnimalStack: UIStackView!
     
     var sel_animal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
     
@@ -37,6 +38,9 @@ class CurrentClientViewController: UIViewController {
             } else {
                 b.isHidden = true
             }
+        }
+        if  (cur_client.animals?.count)! < 5 {
+            secondAnimalStack.isHidden = true
         }
         
         // Do any additional setup after loading the view.

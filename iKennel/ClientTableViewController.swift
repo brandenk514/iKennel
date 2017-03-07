@@ -21,17 +21,8 @@ class ClientTableViewController: UITableViewController {
     var cEmail = ""
     var cAddress = ""
     var cCellNum = ""
-    
-    var animalName = ""
-    var aType = ""
-    var aBreed = ""
-    var aSex = ""
-    var aSocial = true
-    var aNotes = ""
-    
-    var resDateIn = Date()
-    var resDateOut = Date()
-    var checkedIn = false
+
+    var animalArray = [Animal]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,24 +96,28 @@ class ClientTableViewController: UITableViewController {
     
     func addNewClientData() -> Client
     {
-        var aArray = [Animal]()
-        let a0 = Animal(name: animalName, type: aType, sex: aSex, breed: aBreed, social: aSocial, reservation: Reservation(dateIn: resDateIn, dateOut: resDateOut, checkedIn: checkedIn), notes: aNotes)
-        aArray.append(a0)
-        return Client(fName: cFirst, lName: cLast, address: cAddress, email: cEmail, cellNum: cCellNum, animals: aArray)
+        return Client(fName: cFirst, lName: cLast, address: cAddress, email: cEmail, cellNum: cCellNum, animals: animalArray)
     }
     
     @IBAction func addNewClient(segue:UIStoryboardSegue) {
         let newClient = addNewClientData()
         clients.append(newClient)
-        let firstLetter = charToString(c: [getFirstLetter(s: newClient.lName)])
+        print(newClient)
+
+        /*let firstLetter = charToString(c: [getFirstLetter(s: newClient.lName)]).capitalized
+
         if !letters.contains(firstLetter) {
+            letters.append(firstLetter)
             contacts[firstLetter] = [Client]()
-            //contacts[firstLetter].append(newClient)
         }
-        let index = letters.index(of: firstLetter)
-        print(index)
-        /*self.tableView.beginUpdates()
-        //self.tableView.insertRows(at: [IndexPath.init(row: clientIndex!, section: index)], with: .automatic)
+        contacts[firstLetter]!.append(newClient)
+
+        let sectionIndex = Int(letters.index(of: firstLetter)!)
+
+        let clientIndex = contacts[firstLetter]!.count
+
+        self.tableView.beginUpdates()
+        self.tableView.insertRows(at: [IndexPath.init(row: clientIndex, section: sectionIndex)], with: .automatic)
         self.tableView.endUpdates()*/
     }
     

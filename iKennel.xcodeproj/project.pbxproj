@@ -7,28 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11B2C1751726C43F4A3193BD /* ReservDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2C2D38FBD479F5EE3F735 /* ReservDatePickerViewController.swift */; };
+		11B2C18020B4785D24398759 /* CurrentReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2C0D856DFD23218011739 /* CurrentReservationViewController.swift */; };
 		11B2C3331F65681A21CCA6C0 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2C9F4BF728D8B2718DF16 /* Client.swift */; };
+		11B2C45217A97EFE5E20D5FF /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2C932DDA6ADD19D1B2E4E /* DatePickerViewController.swift */; };
 		11B2C4620E0DACE2D55E821E /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2C4D2AB345A94A532688A /* Animal.swift */; };
 		11B2C5D991BB19838E4533F5 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2CC91C20C28B3C2E43CF7 /* Reservation.swift */; };
-		53239E061E5E6604001A1BA3 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53239E051E5E6604001A1BA3 /* DatePickerViewController.swift */; };
+		11B2C80BA10CDBAE2DF003FD /* NewClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2CC5309697507C3B83432 /* NewClientViewController.swift */; };
+		11B2C8C9DB3AF4DC75C0CC5E /* CurrentClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2CB2639BC3494D0238C13 /* CurrentClientViewController.swift */; };
+		11B2CBC82F6A776FE5C66C59 /* EditReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2C02CF73BD74C4D1276D6 /* EditReservationViewController.swift */; };
+		11B2CE154EACF5C6005AB669 /* ClientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2C6924647838DECAFA18E /* ClientTableViewController.swift */; };
+		11B2CEC785F9143025742205 /* ReservationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2C6856FCF824D70B3D739 /* ReservationTableViewController.swift */; };
+		11B2CF979DC51BFEDFAB1280 /* EditClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B2CF5C34274A6A45B8D1DE /* EditClientViewController.swift */; };
 		53444C391E5E182200E8A7FA /* CurrentAnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53444C381E5E182200E8A7FA /* CurrentAnimalViewController.swift */; };
-		535994BC1E650B1500C5B71C /* EditReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535994BB1E650B1500C5B71C /* EditReservationViewController.swift */; };
+		534716D61E6E550C003B3596 /* AddAnimalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534716D51E6E550C003B3596 /* AddAnimalViewController.swift */; };
 		536C5E5B1E4023E9001C7A2D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536C5E5A1E4023E9001C7A2D /* SettingsTableViewController.swift */; };
-		5373AB151E490C3000912CD0 /* CurrentClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5373AB141E490C3000912CD0 /* CurrentClientViewController.swift */; };
-		5373AB171E4948FF00912CD0 /* EditClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5373AB161E4948FF00912CD0 /* EditClientViewController.swift */; };
-		5373AB191E49522100912CD0 /* CurrentReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5373AB181E49522100912CD0 /* CurrentReservationViewController.swift */; };
-		5398B5721E526C2000F5D384 /* NewClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5398B5711E526C2000F5D384 /* NewClientViewController.swift */; };
 		53B130651E38306E00268193 /* ReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B130641E38306E00268193 /* ReservationTableViewCell.swift */; };
-		53B130671E38382700268193 /* ClientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B130661E38382700268193 /* ClientTableViewController.swift */; };
 		53B130691E38384F00268193 /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B130681E38384F00268193 /* ClientTableViewCell.swift */; };
-		53E943941E67299D003A5A82 /* ReservDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E943931E67299D003A5A82 /* ReservDatePickerViewController.swift */; };
 		53FBBD091E1566E400734D66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FBBD081E1566E400734D66 /* AppDelegate.swift */; };
 		53FBBD101E1566E400734D66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53FBBD0E1E1566E400734D66 /* Main.storyboard */; };
 		53FBBD121E1566E400734D66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53FBBD111E1566E400734D66 /* Assets.xcassets */; };
 		53FBBD151E1566E400734D66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53FBBD131E1566E400734D66 /* LaunchScreen.storyboard */; };
 		53FBBD201E1566E500734D66 /* iKennelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FBBD1F1E1566E500734D66 /* iKennelTests.swift */; };
 		53FBBD2B1E1566E500734D66 /* iKennelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FBBD2A1E1566E500734D66 /* iKennelUITests.swift */; };
-		53FF969E1E3827DE00B79A65 /* ReservationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FF969D1E3827DE00B79A65 /* ReservationTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,21 +50,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11B2C02CF73BD74C4D1276D6 /* EditReservationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditReservationViewController.swift; sourceTree = "<group>"; };
+		11B2C0D856DFD23218011739 /* CurrentReservationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentReservationViewController.swift; sourceTree = "<group>"; };
+		11B2C2D38FBD479F5EE3F735 /* ReservDatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservDatePickerViewController.swift; sourceTree = "<group>"; };
 		11B2C4D2AB345A94A532688A /* Animal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
+		11B2C6856FCF824D70B3D739 /* ReservationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationTableViewController.swift; sourceTree = "<group>"; };
+		11B2C6924647838DECAFA18E /* ClientTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTableViewController.swift; sourceTree = "<group>"; };
+		11B2C932DDA6ADD19D1B2E4E /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		11B2C9F4BF728D8B2718DF16 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		11B2CB2639BC3494D0238C13 /* CurrentClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentClientViewController.swift; sourceTree = "<group>"; };
+		11B2CC5309697507C3B83432 /* NewClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewClientViewController.swift; sourceTree = "<group>"; };
 		11B2CC91C20C28B3C2E43CF7 /* Reservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
-		53239E051E5E6604001A1BA3 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		11B2CF5C34274A6A45B8D1DE /* EditClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditClientViewController.swift; sourceTree = "<group>"; };
 		53444C381E5E182200E8A7FA /* CurrentAnimalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentAnimalViewController.swift; sourceTree = "<group>"; };
-		535994BB1E650B1500C5B71C /* EditReservationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditReservationViewController.swift; sourceTree = "<group>"; };
+		534716D51E6E550C003B3596 /* AddAnimalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAnimalViewController.swift; sourceTree = "<group>"; };
 		536C5E5A1E4023E9001C7A2D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		5373AB141E490C3000912CD0 /* CurrentClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentClientViewController.swift; sourceTree = "<group>"; };
-		5373AB161E4948FF00912CD0 /* EditClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditClientViewController.swift; sourceTree = "<group>"; };
-		5373AB181E49522100912CD0 /* CurrentReservationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentReservationViewController.swift; sourceTree = "<group>"; };
-		5398B5711E526C2000F5D384 /* NewClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewClientViewController.swift; sourceTree = "<group>"; };
 		53B130641E38306E00268193 /* ReservationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationTableViewCell.swift; sourceTree = "<group>"; };
-		53B130661E38382700268193 /* ClientTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTableViewController.swift; sourceTree = "<group>"; };
 		53B130681E38384F00268193 /* ClientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
-		53E943931E67299D003A5A82 /* ReservDatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservDatePickerViewController.swift; sourceTree = "<group>"; };
 		53FBBD051E1566E400734D66 /* iKennel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iKennel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53FBBD081E1566E400734D66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53FBBD0F1E1566E400734D66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,7 +79,6 @@
 		53FBBD261E1566E500734D66 /* iKennelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iKennelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53FBBD2A1E1566E500734D66 /* iKennelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iKennelUITests.swift; sourceTree = "<group>"; };
 		53FBBD2C1E1566E500734D66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		53FF969D1E3827DE00B79A65 /* ReservationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11B2C31C6B7F92ADD62C4E78 /* Client ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				11B2C6924647838DECAFA18E /* ClientTableViewController.swift */,
+				11B2CB2639BC3494D0238C13 /* CurrentClientViewController.swift */,
+				11B2C0D856DFD23218011739 /* CurrentReservationViewController.swift */,
+				11B2CF5C34274A6A45B8D1DE /* EditClientViewController.swift */,
+				11B2CC5309697507C3B83432 /* NewClientViewController.swift */,
+				11B2C932DDA6ADD19D1B2E4E /* DatePickerViewController.swift */,
+				534716D51E6E550C003B3596 /* AddAnimalViewController.swift */,
+			);
+			name = "Client ViewControllers";
+			sourceTree = "<group>";
+		};
+		11B2CF18D4057D53277D805C /* Reservation ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				11B2C02CF73BD74C4D1276D6 /* EditReservationViewController.swift */,
+				11B2C6856FCF824D70B3D739 /* ReservationTableViewController.swift */,
+				11B2C2D38FBD479F5EE3F735 /* ReservDatePickerViewController.swift */,
+			);
+			name = "Reservation ViewControllers";
+			sourceTree = "<group>";
+		};
 		53AC25071E2AA27D00D5D2BD /* models */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,17 +154,10 @@
 		53AC250B1E2AA2D600D5D2BD /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				53FF969D1E3827DE00B79A65 /* ReservationTableViewController.swift */,
-				5398B5711E526C2000F5D384 /* NewClientViewController.swift */,
-				53239E051E5E6604001A1BA3 /* DatePickerViewController.swift */,
 				536C5E5A1E4023E9001C7A2D /* SettingsTableViewController.swift */,
-				53B130661E38382700268193 /* ClientTableViewController.swift */,
-				5373AB141E490C3000912CD0 /* CurrentClientViewController.swift */,
 				53444C381E5E182200E8A7FA /* CurrentAnimalViewController.swift */,
-				5373AB161E4948FF00912CD0 /* EditClientViewController.swift */,
-				5373AB181E49522100912CD0 /* CurrentReservationViewController.swift */,
-				535994BB1E650B1500C5B71C /* EditReservationViewController.swift */,
-				53E943931E67299D003A5A82 /* ReservDatePickerViewController.swift */,
+				11B2C31C6B7F92ADD62C4E78 /* Client ViewControllers */,
+				11B2CF18D4057D53277D805C /* Reservation ViewControllers */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -342,23 +361,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53B130671E38382700268193 /* ClientTableViewController.swift in Sources */,
 				53FBBD091E1566E400734D66 /* AppDelegate.swift in Sources */,
-				5373AB191E49522100912CD0 /* CurrentReservationViewController.swift in Sources */,
 				11B2C3331F65681A21CCA6C0 /* Client.swift in Sources */,
-				5373AB151E490C3000912CD0 /* CurrentClientViewController.swift in Sources */,
 				11B2C4620E0DACE2D55E821E /* Animal.swift in Sources */,
 				53B130651E38306E00268193 /* ReservationTableViewCell.swift in Sources */,
 				11B2C5D991BB19838E4533F5 /* Reservation.swift in Sources */,
-				53E943941E67299D003A5A82 /* ReservDatePickerViewController.swift in Sources */,
 				53444C391E5E182200E8A7FA /* CurrentAnimalViewController.swift in Sources */,
 				536C5E5B1E4023E9001C7A2D /* SettingsTableViewController.swift in Sources */,
-				5373AB171E4948FF00912CD0 /* EditClientViewController.swift in Sources */,
-				53239E061E5E6604001A1BA3 /* DatePickerViewController.swift in Sources */,
-				53FF969E1E3827DE00B79A65 /* ReservationTableViewController.swift in Sources */,
-				535994BC1E650B1500C5B71C /* EditReservationViewController.swift in Sources */,
-				5398B5721E526C2000F5D384 /* NewClientViewController.swift in Sources */,
 				53B130691E38384F00268193 /* ClientTableViewCell.swift in Sources */,
+				534716D61E6E550C003B3596 /* AddAnimalViewController.swift in Sources */,
+				11B2CE154EACF5C6005AB669 /* ClientTableViewController.swift in Sources */,
+				11B2C8C9DB3AF4DC75C0CC5E /* CurrentClientViewController.swift in Sources */,
+				11B2C18020B4785D24398759 /* CurrentReservationViewController.swift in Sources */,
+				11B2CF979DC51BFEDFAB1280 /* EditClientViewController.swift in Sources */,
+				11B2C80BA10CDBAE2DF003FD /* NewClientViewController.swift in Sources */,
+				11B2CBC82F6A776FE5C66C59 /* EditReservationViewController.swift in Sources */,
+				11B2CEC785F9143025742205 /* ReservationTableViewController.swift in Sources */,
+				11B2C1751726C43F4A3193BD /* ReservDatePickerViewController.swift in Sources */,
+				11B2C45217A97EFE5E20D5FF /* DatePickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

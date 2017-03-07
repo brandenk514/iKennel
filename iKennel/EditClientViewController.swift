@@ -16,26 +16,29 @@ class EditClientViewController: UIViewController {
     @IBOutlet weak var cellNumTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var addressTF: UITextField!
+    @IBOutlet weak var clientStackView: UIStackView!
+    @IBOutlet weak var animalLabel: UILabel!
+    @IBOutlet weak var editScrollView: UIScrollView!
     
     var cur_client = Client(fName: "", lName: "", address: "", email: "", cellNum: "", animals: [Animal]())
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Do any additional setup after loading the view.
         firstnameTF.text = cur_client.fName
         lastnameTF.text = cur_client.lName
         addressTF.text = cur_client.address
         emailTF.text = cur_client.email
         cellNumTF.text = cur_client.cellNum
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+
     
 
     /*
