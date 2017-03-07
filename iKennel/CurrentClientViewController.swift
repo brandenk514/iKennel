@@ -55,7 +55,7 @@ class CurrentClientViewController: UIViewController {
         }
         performSegue(withIdentifier: "showAnimalInfo", sender: sender)
     }
-    
+
     @IBAction func cancelCurrentAnimal(segue:UIStoryboardSegue) { }
     
     @IBAction func cancelCurrentClient(segue:UIStoryboardSegue) { }
@@ -81,7 +81,6 @@ class CurrentClientViewController: UIViewController {
         if segue.identifier == "showAnimalInfo" {
             let cur_animalVC = segue.destination as! CurrentAnimalViewController
             cur_animalVC.selected_animal = sel_animal
-            cur_animalVC.current_client = cur_client
         }
     }
 }

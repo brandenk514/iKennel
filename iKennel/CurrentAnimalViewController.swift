@@ -32,11 +32,11 @@ class CurrentAnimalViewController: UIViewController {
         typeLabel.text = selected_animal.type
         sexLabel.text = selected_animal.sex
         breedLabel.text = selected_animal.breed
-        socialLabel.text = boolToString(b: selected_animal.social)
+        socialLabel.text = selected_animal.convertBoolToText()
         notesLabel.text = selected_animal.notes
-        dateInLabel.text = formatDate(cDate: (selected_animal.reservation?.dateIn)!)
-        dateOutLabel.text = formatDate(cDate: (selected_animal.reservation?.dateOut)!)
-        checkedInLabel.text = boolToString(b: (selected_animal.reservation?.checkedIn)!)
+        dateInLabel.text = selected_animal.getDMY_time(d: (selected_animal.reservation?.dateIn)!)
+        dateOutLabel.text = selected_animal.getDMY_time(d: (selected_animal.reservation?.dateOut)!)
+        checkedInLabel.text = selected_animal.checkedInToText()
         
         
         // Do any additional setup after loading the view.
@@ -46,23 +46,10 @@ class CurrentAnimalViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func boolToString(b: Bool) -> String {
-        if b {
-            return "Yes"
-        } else {
-            return "No"
-        }
-    }
-    
-    func formatDate(cDate:Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        dateFormatter.timeStyle = .short
-        return dateFormatter.string(from: cDate)
-    }
-    
 
+    @IBAction func cancelEditAnimal(segue:UIStoryboardSegue) { }
+
+    @IBAction func saveEditAnimal(segue:UIStoryboardSegue) { }
     
     // MARK: - Navigation
 
@@ -70,9 +57,9 @@ class CurrentAnimalViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "editClientfromAnimal" {
-            let editClientVC = segue.destination as! EditClientViewController
-            editClientVC.cur_client = current_client
+        if segue.identifier == "editAnimal" {
+            let editAnimalVC = segue.destination as! EditAnimalViewController
+            editAnimalVC.sel_animal = selected_animal
         }
     }
  
