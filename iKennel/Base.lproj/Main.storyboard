@@ -1067,38 +1067,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SLV-D8-Fl1" userLabel="Client Info Stack View">
-                                <rect key="frame" x="10" y="75" width="355" height="392"/>
+                                <rect key="frame" x="10" y="75" width="355" height="342"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Firstname" borderStyle="roundedRect" placeholder="Firstname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bbv-hw-lEl">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="70.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="48.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Lastname" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="umN-86-j79">
-                                        <rect key="frame" x="0.0" y="80.5" width="355" height="70.5"/>
+                                        <rect key="frame" x="0.0" y="58.5" width="355" height="49"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="cell number" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y0g-W4-S15">
-                                        <rect key="frame" x="0.0" y="161" width="355" height="70"/>
+                                        <rect key="frame" x="0.0" y="117.5" width="355" height="48.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="email" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KHr-Nx-aSV">
-                                        <rect key="frame" x="0.0" y="241" width="355" height="70.5"/>
+                                        <rect key="frame" x="0.0" y="176" width="355" height="48.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="address" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uOH-Rv-ZoK">
-                                        <rect key="frame" x="0.0" y="321.5" width="355" height="70.5"/>
+                                        <rect key="frame" x="0.0" y="234.5" width="355" height="49"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To edit an animal, select an animal then press &quot;edit&quot;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJJ-hz-RLa">
+                                        <rect key="frame" x="0.0" y="293.5" width="355" height="48.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gmc-CL-2DR">
@@ -1122,7 +1128,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="SLV-D8-Fl1" secondAttribute="bottom" constant="200" id="8S9-08-aaK"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="SLV-D8-Fl1" secondAttribute="bottom" constant="250" id="8S9-08-aaK"/>
                             <constraint firstAttribute="trailing" secondItem="SLV-D8-Fl1" secondAttribute="trailing" constant="10" id="EXz-dP-QuL"/>
                             <constraint firstItem="SLV-D8-Fl1" firstAttribute="top" secondItem="81P-uS-mZc" secondAttribute="topMargin" constant="75" id="F9C-BR-jC1"/>
                             <constraint firstItem="SLV-D8-Fl1" firstAttribute="leading" secondItem="81P-uS-mZc" secondAttribute="leading" constant="10" id="VPu-Dl-mn8"/>

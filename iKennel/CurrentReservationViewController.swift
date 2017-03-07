@@ -24,7 +24,7 @@ class CurrentReservationViewController: UIViewController {
         animalnameLabel.text = cur_animal.name
         animalDateInLabel.text = cur_animal.getDMY_time(d: cur_animal.getReservation().dateIn)
         animalDateOutLabel.text = cur_animal.getDMY_time(d: cur_animal.getReservation().dateOut)
-        animalCheckedInLabel.text = cur_animal.convertBoolToText()
+        animalCheckedInLabel.text = cur_animal.checkedInToText()
 
         // Do any additional setup after loading the view.
     }
