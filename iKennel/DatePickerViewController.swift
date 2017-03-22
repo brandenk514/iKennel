@@ -47,7 +47,6 @@ class DatePickerViewController: UIViewController {
         } else {
             print("No date selected")
         }
-        print(dateTag)
     }
  
 

@@ -18,11 +18,14 @@ class CurrentClientViewController: UIViewController {
     @IBOutlet var animalButtons: [UIButton]!
     @IBOutlet weak var clientStackView: UIStackView!
     @IBOutlet weak var secondAnimalStack: UIStackView!
+    @IBOutlet weak var deleteButton: UIButton!
     
     var sel_animal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
     
     var cur_client = Client(fName: "", lName: "", address: "", email: "", cellNum: "", animals: [Animal]())
-    
+
+    var clientTableView: ClientTableViewController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
