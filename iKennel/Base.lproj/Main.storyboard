@@ -1052,44 +1052,132 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SLV-D8-Fl1" userLabel="Client Info Stack View">
-                                <rect key="frame" x="10" y="75" width="355" height="342"/>
+                                <rect key="frame" x="10" y="75" width="355" height="367"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Firstname" borderStyle="roundedRect" placeholder="Firstname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bbv-hw-lEl">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="48.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="37"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Lastname" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="umN-86-j79">
-                                        <rect key="frame" x="0.0" y="58.5" width="355" height="49"/>
+                                        <rect key="frame" x="0.0" y="47" width="355" height="37.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="cell number" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y0g-W4-S15">
-                                        <rect key="frame" x="0.0" y="117.5" width="355" height="48.5"/>
+                                        <rect key="frame" x="0.0" y="94.5" width="355" height="37"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="email" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KHr-Nx-aSV">
-                                        <rect key="frame" x="0.0" y="176" width="355" height="48.5"/>
+                                        <rect key="frame" x="0.0" y="141.5" width="355" height="37"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="address" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uOH-Rv-ZoK">
-                                        <rect key="frame" x="0.0" y="234.5" width="355" height="49"/>
+                                        <rect key="frame" x="0.0" y="188.5" width="355" height="37"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To edit an animal, select an animal then press &quot;edit&quot;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" enabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJJ-hz-RLa">
-                                        <rect key="frame" x="0.0" y="293.5" width="355" height="48.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0Z2-60-Oy4" userLabel="Animal0 Stack View">
+                                        <rect key="frame" x="0.0" y="235.5" width="355" height="37.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2nw-Ch-4eZ">
+                                                <rect key="frame" x="0.0" y="3.5" width="71" height="30"/>
+                                                <state key="normal" title="animal0"/>
+                                                <connections>
+                                                    <action selector="animalPressed:" destination="rKI-C8-QjK" eventType="touchUpInside" id="hrA-BQ-FCu"/>
+                                                    <segue destination="9xV-Iu-Svg" kind="presentation" identifier="edita" id="62n-qZ-QCw"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qnf-Jr-hWU">
+                                                <rect key="frame" x="71" y="3.5" width="71" height="30"/>
+                                                <state key="normal" title="animal1"/>
+                                                <connections>
+                                                    <action selector="animalPressed:" destination="rKI-C8-QjK" eventType="touchUpInside" id="jJR-EF-blX"/>
+                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="phX-zf-kC3"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRa-Jb-Maa">
+                                                <rect key="frame" x="142" y="3.5" width="71" height="30"/>
+                                                <state key="normal" title="animal2"/>
+                                                <connections>
+                                                    <action selector="animalPressed:" destination="rKI-C8-QjK" eventType="touchUpInside" id="3hr-ye-2HS"/>
+                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="L29-W4-N6Q"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mA5-n3-Z7T">
+                                                <rect key="frame" x="213" y="3.5" width="71" height="30"/>
+                                                <state key="normal" title="animal3"/>
+                                                <connections>
+                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="PQG-09-Twc"/>
+                                                    <action selector="animalPressed:" destination="rKI-C8-QjK" eventType="touchUpInside" id="tO7-9D-Lg6"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJI-tn-AiX">
+                                                <rect key="frame" x="284" y="3.5" width="71" height="30"/>
+                                                <state key="normal" title="animal4"/>
+                                                <connections>
+                                                    <action selector="animalPressed:" destination="rKI-C8-QjK" eventType="touchUpInside" id="TRK-4L-XIc"/>
+                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="vyI-S9-lPt"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9TK-ij-gNg" userLabel="Animal1 Stack View">
+                                        <rect key="frame" x="0.0" y="283" width="355" height="37"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5b-dF-vE1">
+                                                <rect key="frame" x="0.0" y="3.5" width="71" height="30"/>
+                                                <state key="normal" title="animal5"/>
+                                                <connections>
+                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="1k9-nc-4Do"/>
+                                                    <action selector="animalPressed:" destination="rKI-C8-QjK" eventType="touchUpInside" id="50W-IW-0BB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbQ-Hz-htM">
+                                                <rect key="frame" x="71" y="3.5" width="71" height="30"/>
+                                                <state key="normal" title="animal6"/>
+                                                <connections>
+                                                    <action selector="animalPressed:" destination="rKI-C8-QjK" eventType="touchUpInside" id="Isj-10-6Ch"/>
+                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="kus-qd-9FZ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLA-PM-4dJ">
+                                                <rect key="frame" x="142" y="3.5" width="71" height="30"/>
+                                                <state key="normal" title="animal7"/>
+                                                <connections>
+                                                    <action selector="animalPressed:" destination="rKI-C8-QjK" eventType="touchUpInside" id="X0I-NN-8Am"/>
+                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="edQ-i7-Rnj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vh7-pB-Pk6">
+                                                <rect key="frame" x="213" y="3.5" width="71" height="30"/>
+                                                <state key="normal" title="animal8"/>
+                                                <connections>
+                                                    <action selector="animalPressed:" destination="rKI-C8-QjK" eventType="touchUpInside" id="TkV-F4-sZ9"/>
+                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="cm7-jY-KAU"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nip-3c-6wf">
+                                                <rect key="frame" x="284" y="3.5" width="71" height="30"/>
+                                                <state key="normal" title="animal9"/>
+                                                <connections>
+                                                    <action selector="animalPressed:" destination="rKI-C8-QjK" eventType="touchUpInside" id="R2j-j4-6FF"/>
+                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="UON-vC-dA6"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSF-VS-O20">
+                                        <rect key="frame" x="0.0" y="330" width="355" height="37"/>
+                                        <state key="normal" title="+ Animal"/>
+                                    </button>
                                 </subviews>
                             </stackView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gmc-CL-2DR">
@@ -1113,7 +1201,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="SLV-D8-Fl1" secondAttribute="bottom" constant="250" id="8S9-08-aaK"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="SLV-D8-Fl1" secondAttribute="bottom" constant="225" id="8S9-08-aaK"/>
                             <constraint firstAttribute="trailing" secondItem="SLV-D8-Fl1" secondAttribute="trailing" constant="10" id="EXz-dP-QuL"/>
                             <constraint firstItem="SLV-D8-Fl1" firstAttribute="top" secondItem="81P-uS-mZc" secondAttribute="topMargin" constant="75" id="F9C-BR-jC1"/>
                             <constraint firstItem="SLV-D8-Fl1" firstAttribute="leading" secondItem="81P-uS-mZc" secondAttribute="leading" constant="10" id="VPu-Dl-mn8"/>
@@ -1125,6 +1213,16 @@
                         <outlet property="emailTF" destination="KHr-Nx-aSV" id="Y38-U6-mt1"/>
                         <outlet property="firstnameTF" destination="bbv-hw-lEl" id="qoH-6I-E5z"/>
                         <outlet property="lastnameTF" destination="umN-86-j79" id="fkr-bX-3Uf"/>
+                        <outletCollection property="animalButtons" destination="2nw-Ch-4eZ" collectionClass="NSMutableArray" id="8hZ-4a-vnP"/>
+                        <outletCollection property="animalButtons" destination="qnf-Jr-hWU" collectionClass="NSMutableArray" id="L4O-WG-TOt"/>
+                        <outletCollection property="animalButtons" destination="gbQ-Hz-htM" collectionClass="NSMutableArray" id="RoH-NR-sJE"/>
+                        <outletCollection property="animalButtons" destination="kRa-Jb-Maa" collectionClass="NSMutableArray" id="qVa-3G-lyq"/>
+                        <outletCollection property="animalButtons" destination="mA5-n3-Z7T" collectionClass="NSMutableArray" id="hwo-do-u2e"/>
+                        <outletCollection property="animalButtons" destination="xJI-tn-AiX" collectionClass="NSMutableArray" id="FY7-rs-dES"/>
+                        <outletCollection property="animalButtons" destination="A5b-dF-vE1" collectionClass="NSMutableArray" id="ajS-WL-g9J"/>
+                        <outletCollection property="animalButtons" destination="SLA-PM-4dJ" collectionClass="NSMutableArray" id="urh-vZ-EVH"/>
+                        <outletCollection property="animalButtons" destination="Vh7-pB-Pk6" collectionClass="NSMutableArray" id="9z1-n7-rm9"/>
+                        <outletCollection property="animalButtons" destination="nip-3c-6wf" collectionClass="NSMutableArray" id="Dd1-I5-bY7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xuG-rk-xe3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1804,4 +1902,7 @@
     <resources>
         <image name="first" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="62n-qZ-QCw"/>
+    </inferredMetricsTieBreakers>
 </document>
