@@ -23,18 +23,18 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="URW-9N-X9a" id="amw-8Z-m3P">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iVL-lp-MJf" userLabel="Client Lastname">
-                                            <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WIn-yA-riU">
-                                            <rect key="frame" x="15" y="25.5" width="33" height="14.5"/>
+                                            <rect key="frame" x="15" y="25" width="33" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
@@ -1059,30 +1059,45 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="firstNameDidChange:" destination="rKI-C8-QjK" eventType="editingChanged" id="Qoq-oT-ito"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Lastname" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="umN-86-j79">
                                         <rect key="frame" x="0.0" y="47" width="355" height="37.5"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="lastNameDidChange:" destination="rKI-C8-QjK" eventType="editingChanged" id="KHI-hj-dAI"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="cell number" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y0g-W4-S15">
                                         <rect key="frame" x="0.0" y="94.5" width="355" height="37"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="cellNumDidChange:" destination="rKI-C8-QjK" eventType="editingChanged" id="YQg-Wq-bLW"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="email" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KHr-Nx-aSV">
                                         <rect key="frame" x="0.0" y="141.5" width="355" height="37"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="emailDidChange:" destination="rKI-C8-QjK" eventType="editingChanged" id="eu4-5l-6d3"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="address" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uOH-Rv-ZoK">
                                         <rect key="frame" x="0.0" y="188.5" width="355" height="37"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="addressDidChange:" destination="rKI-C8-QjK" eventType="editingChanged" id="zYh-dN-T8c"/>
+                                        </connections>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0Z2-60-Oy4" userLabel="Animal0 Stack View">
                                         <rect key="frame" x="0.0" y="235.5" width="355" height="37.5"/>
@@ -1100,7 +1115,6 @@
                                                 <state key="normal" title="animal1"/>
                                                 <connections>
                                                     <action selector="animalPressed:" destination="rKI-C8-QjK" eventType="touchUpInside" id="jJR-EF-blX"/>
-                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="phX-zf-kC3"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRa-Jb-Maa">
@@ -1108,14 +1122,12 @@
                                                 <state key="normal" title="animal2"/>
                                                 <connections>
                                                     <action selector="animalPressed:" destination="rKI-C8-QjK" eventType="touchUpInside" id="3hr-ye-2HS"/>
-                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="L29-W4-N6Q"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mA5-n3-Z7T">
                                                 <rect key="frame" x="213" y="3.5" width="71" height="30"/>
                                                 <state key="normal" title="animal3"/>
                                                 <connections>
-                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="PQG-09-Twc"/>
                                                     <action selector="animalPressed:" destination="rKI-C8-QjK" eventType="touchUpInside" id="tO7-9D-Lg6"/>
                                                 </connections>
                                             </button>
@@ -1124,7 +1136,6 @@
                                                 <state key="normal" title="animal4"/>
                                                 <connections>
                                                     <action selector="animalPressed:" destination="rKI-C8-QjK" eventType="touchUpInside" id="TRK-4L-XIc"/>
-                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="vyI-S9-lPt"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1136,7 +1147,6 @@
                                                 <rect key="frame" x="0.0" y="3.5" width="71" height="30"/>
                                                 <state key="normal" title="animal5"/>
                                                 <connections>
-                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="1k9-nc-4Do"/>
                                                     <action selector="animalPressed:" destination="rKI-C8-QjK" eventType="touchUpInside" id="50W-IW-0BB"/>
                                                 </connections>
                                             </button>
@@ -1145,7 +1155,6 @@
                                                 <state key="normal" title="animal6"/>
                                                 <connections>
                                                     <action selector="animalPressed:" destination="rKI-C8-QjK" eventType="touchUpInside" id="Isj-10-6Ch"/>
-                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="kus-qd-9FZ"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLA-PM-4dJ">
@@ -1153,7 +1162,6 @@
                                                 <state key="normal" title="animal7"/>
                                                 <connections>
                                                     <action selector="animalPressed:" destination="rKI-C8-QjK" eventType="touchUpInside" id="X0I-NN-8Am"/>
-                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="edQ-i7-Rnj"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vh7-pB-Pk6">
@@ -1161,7 +1169,6 @@
                                                 <state key="normal" title="animal8"/>
                                                 <connections>
                                                     <action selector="animalPressed:" destination="rKI-C8-QjK" eventType="touchUpInside" id="TkV-F4-sZ9"/>
-                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="cm7-jY-KAU"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nip-3c-6wf">
@@ -1169,7 +1176,6 @@
                                                 <state key="normal" title="animal9"/>
                                                 <connections>
                                                     <action selector="animalPressed:" destination="rKI-C8-QjK" eventType="touchUpInside" id="R2j-j4-6FF"/>
-                                                    <action selector="animalPressed:" destination="cQ6-HS-u2i" eventType="touchUpInside" id="UON-vC-dA6"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1214,8 +1220,8 @@
                         <outlet property="addressTF" destination="uOH-Rv-ZoK" id="wzt-Zk-P6z"/>
                         <outlet property="cellNumTF" destination="y0g-W4-S15" id="bKr-HY-lhJ"/>
                         <outlet property="emailTF" destination="KHr-Nx-aSV" id="Y38-U6-mt1"/>
-                        <outlet property="firstnameTF" destination="bbv-hw-lEl" id="qoH-6I-E5z"/>
-                        <outlet property="lastnameTF" destination="umN-86-j79" id="fkr-bX-3Uf"/>
+                        <outlet property="firstNameTF" destination="bbv-hw-lEl" id="jMq-Tk-Fqc"/>
+                        <outlet property="lastNameTF" destination="umN-86-j79" id="QwN-IF-1Ur"/>
                         <outletCollection property="animalButtons" destination="2nw-Ch-4eZ" collectionClass="NSMutableArray" id="8hZ-4a-vnP"/>
                         <outletCollection property="animalButtons" destination="qnf-Jr-hWU" collectionClass="NSMutableArray" id="L4O-WG-TOt"/>
                         <outletCollection property="animalButtons" destination="gbQ-Hz-htM" collectionClass="NSMutableArray" id="RoH-NR-sJE"/>
@@ -1392,18 +1398,18 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ogf-9G-gJQ" id="If4-kB-jty">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WMo-tX-aFx">
-                                            <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PXU-ta-BQC">
-                                            <rect key="frame" x="15" y="25.5" width="33" height="14.5"/>
+                                            <rect key="frame" x="15" y="25" width="33" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -1867,11 +1873,11 @@
                                         <rect key="frame" x="0.0" y="35" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f1F-Pe-Evw" id="R5k-g9-ehI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Toggle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yxm-Gy-EEd">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
@@ -1891,11 +1897,11 @@
                                         <rect key="frame" x="0.0" y="79" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sgE-I9-KZg" id="wYl-W1-iDf">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Stepper switch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3In-A6-1G6">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
@@ -1915,11 +1921,11 @@
                                         <rect key="frame" x="0.0" y="123" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ALs-6o-Y3r" id="Iar-gs-XPr">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EUZ-19-PRL">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>

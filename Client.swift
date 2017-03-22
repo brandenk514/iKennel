@@ -10,11 +10,11 @@ import Foundation
 
 struct Client {
 
-    let fName: String
-    let lName: String
-    let address: String
-    let email: String
-    let cellNum: String
+    var fName: String
+    var lName: String
+    var address: String
+    var email: String
+    var cellNum: String
     var animals: Array<Animal>?
     
     func getAnimals() -> [Animal] {

@@ -27,13 +27,15 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         indexClients()
+        configureSearchController()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        configureSearchController()
     }
 
     override func didReceiveMemoryWarning() {
@@ -212,6 +214,8 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
             let section: Int = (self.tableView.indexPathForSelectedRow?.section)!
             let clientCurrentVC = segue.destination as! CurrentClientViewController
             clientCurrentVC.cur_client = (contacts[letters[section]]?[index])!
+            clientCurrentVC.currentClientIndex = index
+            clientCurrentVC.currentClientSection = section
         }
     }
 }

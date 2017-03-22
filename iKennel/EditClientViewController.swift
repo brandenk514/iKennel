@@ -10,8 +10,9 @@ import UIKit
 
 class EditClientViewController: UIViewController {
 
-    @IBOutlet weak var firstnameTF: UITextField!
-    @IBOutlet weak var lastnameTF: UITextField!
+    
+    @IBOutlet weak var firstNameTF: UITextField!
+    @IBOutlet weak var lastNameTF: UITextField!
     @IBOutlet weak var cellNumTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var addressTF: UITextField!
@@ -25,8 +26,8 @@ class EditClientViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        firstnameTF.text = cur_client.fName
-        lastnameTF.text = cur_client.lName
+        firstNameTF.text = cur_client.fName
+        lastNameTF.text = cur_client.lName
         addressTF.text = cur_client.address
         emailTF.text = cur_client.email
         cellNumTF.text = cur_client.cellNum
@@ -39,6 +40,7 @@ class EditClientViewController: UIViewController {
                 b.isHidden = true
             }
         }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,6 +64,36 @@ class EditClientViewController: UIViewController {
     @IBAction func saveNewAnimal(segue: UIStoryboardSegue) {
     }
 
+    @IBAction func firstNameDidChange(_ sender: UITextField) {
+        if firstNameTF.text! != cur_client.fName {
+            cur_client.fName = firstNameTF.text!
+        }
+    }
+    
+    @IBAction func lastNameDidChange(_ sender: UITextField) {
+        if lastNameTF.text! != cur_client.lName {
+            cur_client.lName = lastNameTF.text!
+        }
+    }
+    
+    @IBAction func cellNumDidChange(_ sender: UITextField) {
+        if cellNumTF.text! != cur_client.cellNum {
+            cur_client.cellNum = cellNumTF.text!
+        }
+    }
+    
+    @IBAction func emailDidChange(_ sender: UITextField) {
+        if emailTF.text! != cur_client.email {
+            cur_client.email = emailTF.text!
+        }
+    }
+    
+    @IBAction func addressDidChange(_ sender: UITextField) {
+        if addressTF.text! != cur_client.address {
+            cur_client.address = addressTF.text!
+        }
+    }
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -71,8 +103,10 @@ class EditClientViewController: UIViewController {
         if segue.identifier == "editAnimal" {
             let editAnimalVC = segue.destination as! EditAnimalViewController
             editAnimalVC.sel_animal = selected_animal
+        } else {
+            let curClientVC = segue.destination as! CurrentClientViewController
+            curClientVC.cur_client = cur_client
         }
-
     }
 
 

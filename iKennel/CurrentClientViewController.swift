@@ -23,12 +23,14 @@ class CurrentClientViewController: UIViewController {
     var sel_animal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
     
     var cur_client = Client(fName: "", lName: "", address: "", email: "", cellNum: "", animals: [Animal]())
-
-    var clientTableView: ClientTableViewController?
+    
+    var currentClientIndex = 0
+    var currentClientSection = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Do any additional setup after loading the view.
+
         clientName.text = cur_client.fName + " " + cur_client.lName
         clientPhone.text = cur_client.cellNum
         clientEmail.text = cur_client.email
@@ -45,8 +47,13 @@ class CurrentClientViewController: UIViewController {
         if  (cur_client.animals?.count)! < 5 {
             secondAnimalStack.isHidden = true
         }
-        
-        // Do any additional setup after loading the view.
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        clientName.text = cur_client.fName + " " + cur_client.lName
+        clientPhone.text = cur_client.cellNum
+        clientEmail.text = cur_client.email
+        clientAddress.text = cur_client.address
     }
     
     @IBAction func animalPressed(_ sender: UIButton) {
@@ -63,8 +70,10 @@ class CurrentClientViewController: UIViewController {
     
     @IBAction func cancelCurrentClient(segue:UIStoryboardSegue) { }
     
-    @IBAction func editCurrentClient(segue:UIStoryboardSegue) { }
-    
+    @IBAction func editCurrentClient(segue:UIStoryboardSegue) {
+        
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
