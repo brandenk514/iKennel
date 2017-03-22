@@ -9,9 +9,9 @@
 import UIKit
 
 class CurrentAnimalViewController: UIViewController {
-    
+
     var selected_animal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
-    
+
     var current_client = Client(fName: "", lName: "", address: "", email: "", cellNum: "", animals: [Animal]())
 
     @IBOutlet weak var nameLabel: UILabel!
@@ -23,11 +23,11 @@ class CurrentAnimalViewController: UIViewController {
     @IBOutlet weak var dateInLabel: UILabel!
     @IBOutlet weak var dateOutLabel: UILabel!
     @IBOutlet weak var checkedInLabel: UILabel!
-    
-    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         nameLabel.text = selected_animal.name
         typeLabel.text = selected_animal.type
         sexLabel.text = selected_animal.sex
@@ -37,20 +37,22 @@ class CurrentAnimalViewController: UIViewController {
         dateInLabel.text = selected_animal.getDMY_time(d: (selected_animal.reservation?.dateIn)!)
         dateOutLabel.text = selected_animal.getDMY_time(d: (selected_animal.reservation?.dateOut)!)
         checkedInLabel.text = selected_animal.checkedInToText()
-        
-        
+
+
         // Do any additional setup after loading the view.
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func cancelEditAnimal(segue:UIStoryboardSegue) { }
+    @IBAction func cancelEditAnimal(segue: UIStoryboardSegue) {
+    }
 
-    @IBAction func saveEditAnimal(segue:UIStoryboardSegue) { }
-    
+    @IBAction func saveEditAnimal(segue: UIStoryboardSegue) {
+    }
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -62,6 +64,6 @@ class CurrentAnimalViewController: UIViewController {
             editAnimalVC.sel_animal = selected_animal
         }
     }
- 
+
 
 }

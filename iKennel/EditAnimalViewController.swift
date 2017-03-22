@@ -37,8 +37,6 @@ class EditAnimalViewController: UIViewController {
         dateInButton.setTitle(sel_animal.getDMY_time(d: sel_animal.getReservation().dateIn), for: .normal)
         dateOutButton.setTitle(sel_animal.getDMY_time(d: sel_animal.getReservation().dateOut), for: .normal)
         checkedInSwitch.isOn = sel_animal.getReservation().checkedIn
-        
-        //print(sel_animal)
 
         // Do any additional setup after loading the view.
     }
