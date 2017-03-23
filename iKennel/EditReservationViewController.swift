@@ -3,8 +3,7 @@
 //  iKennel
 //
 //  Created by Branden Kaestner on 2/27/17.
-//  Copyright © 2017 BK Development. All rights reserved.
-//
+//  Copyright © 2017 BK Development. All rights reservevar//
 
 import UIKit
 
@@ -38,9 +37,16 @@ class EditReservationViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
     @IBAction func addNewDate(_ sender: UIButton) {
         dateTag = sender.tag
         performSegue(withIdentifier: "reservDatePicker", sender: sender)
+        if dateIn != current_animal.getReservation().dateIn { // Conditions are wrong need to fixed
+            current_animal.reservation?.dateIn = dateIn
+        }
+        if dateOut != current_animal.getReservation().dateOut {
+            current_animal.reservation?.dateOut = dateOut
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,7 +61,9 @@ class EditReservationViewController: UIViewController {
         animal_DateOut.setTitle(dateOut_string, for: .normal)
     }
 
-    
+    @IBAction func didCheckInChange(_ sender: UISwitch) {
+        current_animal.reservation?.checkedIn = sender.isOn
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -65,6 +73,10 @@ class EditReservationViewController: UIViewController {
         if segue.identifier == "reservDatePicker" {
             let datePickerVC = segue.destination as! ReservDatePickerViewController
             datePickerVC.dateTag = dateTag
+        } else {
+            let currentReservVC = segue.destination as! CurrentReservationViewController
+            currentReservVC.cur_animal = current_animal
+            print(current_animal)
         }
     }
     

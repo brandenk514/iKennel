@@ -1184,7 +1184,7 @@
                                         <rect key="frame" x="0.0" y="330" width="355" height="37"/>
                                         <state key="normal" title="+ Animal"/>
                                         <connections>
-                                            <segue destination="1UK-da-Ao5" kind="presentation" id="3Vn-IK-2Aa"/>
+                                            <segue destination="1UK-da-Ao5" kind="presentation" identifier="newAnimal" id="3Vn-IK-2Aa"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1694,26 +1694,26 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="twV-uC-IUR" userLabel="Vertical Stack View">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="twV-uC-IUR" userLabel="Vertical Stack View">
                                 <rect key="frame" x="10" y="75" width="355" height="204"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animal Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3A-og-ZQo">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="27.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="xw7-Bg-jpR">
-                                        <rect key="frame" x="0.0" y="53.5" width="355" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="57" width="355" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date In:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAV-Sg-Ktx">
-                                                <rect key="frame" x="0.0" y="0.0" width="59" height="43.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="59" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXC-JS-lVe">
-                                                <rect key="frame" x="316" y="0.0" width="39" height="43.5"/>
+                                                <rect key="frame" x="316" y="0.0" width="39" height="30"/>
                                                 <state key="normal" title="Date1"/>
                                                 <connections>
                                                     <action selector="addNewDate:" destination="mxz-Ff-tmi" eventType="touchUpInside" id="H9K-Ao-PFn"/>
@@ -1723,16 +1723,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="miz-Ei-zcy">
-                                        <rect key="frame" x="0.0" y="107" width="355" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="115.5" width="355" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Out:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqe-ZL-NRI">
-                                                <rect key="frame" x="0.0" y="0.0" width="73.5" height="43.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="73.5" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chc-ZE-OO3">
-                                                <rect key="frame" x="314" y="0.0" width="41" height="43.5"/>
+                                                <rect key="frame" x="314" y="0.0" width="41" height="30"/>
                                                 <state key="normal" title="Date2"/>
                                                 <connections>
                                                     <action selector="addNewDate:" destination="mxz-Ff-tmi" eventType="touchUpInside" id="yvc-7z-Cj8"/>
@@ -1740,17 +1740,20 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="c7P-lj-hpv">
-                                        <rect key="frame" x="0.0" y="160.5" width="355" height="43.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7P-lj-hpv">
+                                        <rect key="frame" x="0.0" y="173" width="355" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checked In:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eY1-qw-SLK">
-                                                <rect key="frame" x="0.0" y="0.0" width="90.5" height="43.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="306" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="icc-66-LWe">
-                                                <rect key="frame" x="306" y="0.0" width="51" height="43.5"/>
+                                                <rect key="frame" x="306" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="didCheckInChange:" destination="mxz-Ff-tmi" eventType="touchDragInside" id="fza-81-gQ7"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>

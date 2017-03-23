@@ -34,6 +34,13 @@ class CurrentReservationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        animalnameLabel.text = cur_animal.name
+        animalDateInLabel.text = cur_animal.getDMY_time(d: cur_animal.getReservation().dateIn)
+        animalDateOutLabel.text = cur_animal.getDMY_time(d: cur_animal.getReservation().dateOut)
+        animalCheckedInLabel.text = cur_animal.checkedInToText()
+    }
+    
     @IBAction func edittingCurrentReservation(segue:UIStoryboardSegue) { }
     
     @IBAction func cancelEdittingCurrentReservation(segue:UIStoryboardSegue) { }
