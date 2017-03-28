@@ -66,9 +66,15 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "clientID", for: indexPath) as! ClientTableViewCell
-        let c = contacts[indexPath.section].clients[indexPath.row]
-        cell.clientName?.text = (c.lName) + ", " + (c.fName)
-        cell.animalNames?.text = c.cellNum
+        if shouldShowSearchResults {
+            let c = filteredClients[indexPath.row]
+            cell.clientName?.text = (c.lName) + ", " + (c.fName)
+            cell.animalNames?.text = c.cellNum
+        } else {
+            let c = contacts[indexPath.section].clients[indexPath.row]
+            cell.clientName?.text = (c.lName) + ", " + (c.fName)
+            cell.animalNames?.text = c.cellNum
+        }
 
         return cell
     }
@@ -184,7 +190,11 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
             let index: Int = (self.tableView.indexPathForSelectedRow?.row)!
             let section: Int = (self.tableView.indexPathForSelectedRow?.section)!
             let clientCurrentVC = segue.destination as! CurrentClientViewController
-            clientCurrentVC.cur_client = contacts[section].clients[index]
+            if shouldShowSearchResults {
+                clientCurrentVC.cur_client = filteredClients[index]
+            } else {
+                clientCurrentVC.cur_client = contacts[section].clients[index]
+            }
         }
     }
 }
