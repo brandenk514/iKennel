@@ -28,15 +28,27 @@ struct Client {
         }
         return aNames.joined(separator: ", ")
     }
+    
+    func getFirstLetter(s:String) -> Character {
+        return s.characters[s.startIndex]
+    }
+    
+    func charToString(c:[Character]) -> String {
+        var s = [String]()
+        for i in c {
+            s.append(String(i))
+        }
+        return s[0]
+    }
 }
 
 extension Client {
-    static func loadAllClients() -> [Client] {
+    static func loadAllClients() -> [Contact] {
         return loadAllClientsForTest()
     }
 
-    static func loadAllClientsForTest() -> [Client] {
-        var clients = [Client]()
+    static func loadAllClientsForTest() -> [Contact] {
+        var contactArray = [Contact]()
         var mAnimals = [Animal]()
         var sAnimals = [Animal]()
         var m2animals = [Animal]()
@@ -69,11 +81,13 @@ extension Client {
         let client0 = Client(fName: "Mark", lName: "Sanchez", address: "123 Wall Street", email: "ms@gmail.com", cellNum: "201-233-1222", animals: mAnimals)
         let client1 = Client(fName: "Samantha", lName: "Smith", address: "234 Wall Street", email: "ss@gmail.com", cellNum: "210-453-2211", animals: sAnimals)
         let client2 = Client(fName: "Mary", lName: "Doe", address: "775 Saint Lane", email: "md@gmail.com", cellNum: "122-345-6677", animals: m2animals)
-        clients.append(client0)
-        clients.append(client1)
-        clients.append(client2)
-
-        return clients
+        
+        var contact0 = Contact(letter: client0.charToString(c:[client0.getFirstLetter(s: client0.lName)]), clients: [client0])
+        contact0.add(client: client1)
+        let contact1 = Contact(letter: client2.charToString(c:[client2.getFirstLetter(s: client2.lName)]), clients: [client2])
+        contactArray.append(contact0)
+        contactArray.append(contact1)
+        return contactArray
     }
 }
 

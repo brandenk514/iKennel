@@ -10,9 +10,10 @@ import UIKit
 
 class ClientTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
     
-    var clients = Client.loadAllClients()
-    var contacts = [String: [Client]]()
-    var letters: [String] = []
+    var contacts = Client.loadAllClients()
+    var letters = [String]()
+    var filteredClients = [Client]()
+
     var animalArray = [Animal]()
     
     var cFirst = ""
@@ -21,16 +22,15 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
     var cAddress = ""
     var cCellNum = ""
 
-    var filteredClients = [Client]()
     var shouldShowSearchResults = false
     var searchController : UISearchController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         indexClients()
         configureSearchController()
-        
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -60,23 +60,15 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
         if shouldShowSearchResults {
             return filteredClients.count
         } else {
-            return contacts[letters[section]]!.count
+            return contacts[section].clients.count
         }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "clientID", for: indexPath) as! ClientTableViewCell
-
-        if shouldShowSearchResults {
-            let f = filteredClients[indexPath.row]
-            print(f)
-            print(indexPath.row)
-            cell.textLabel?.text = f.lName
-        } else {
-            let c = contacts[letters[indexPath.section]]?[indexPath.row]
-            cell.clientName?.text = (c?.lName)! + ", " + (c?.fName)!
-            cell.animalNames?.text = c?.cellNum
-        }
+        let c = contacts[indexPath.section].clients[indexPath.row]
+        cell.clientName?.text = (c.lName) + ", " + (c.fName)
+        cell.animalNames?.text = c.cellNum
 
         return cell
     }
@@ -98,18 +90,13 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
     }
     
     func indexClients() {
-        for c in clients {
-            let key = "\(c.lName[c.lName.startIndex])".uppercased()
-
-            if var letterValues = contacts[key] {
-                letterValues.append(c)
-                contacts[key] = letterValues
-            } else {
-                contacts[key] = [c]
-            }
-        }
-        letters = [String](contacts.keys)
+        letters = {
+            return contacts.map{ $0.letter }
+        }()
         letters.sort()
+        contacts = contacts.sorted { (c1 , c2) -> Bool in
+            c1.letter < c2.letter
+        }
     }
 
     func charToString(c:[Character]) -> String {
@@ -130,24 +117,7 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
     }
     
     @IBAction func addNewClient(segue:UIStoryboardSegue) {
-        self.tableView.beginUpdates()
-        self.isEditing = true
-        let newClient = addNewClientData()
-        clients.append(newClient)
-        let firstLetter = charToString(c: [getFirstLetter(s: newClient.lName)]).capitalized
-        if !letters.contains(firstLetter) {
-            letters.append(firstLetter)
-            contacts[firstLetter] = [Client]()
-            letters.sort()
-        }
-        let clientIndex = contacts[firstLetter]!.count
-        let sectionIndex = Int(letters.index(of: firstLetter)!)
-        print(letters)
-        print(clientIndex)
-        print(sectionIndex)
-        self.tableView.insertRows(at: [IndexPath(row: clientIndex, section: sectionIndex)], with: .automatic)
-        self.tableView.endUpdates()
-        self.isEditing = false
+
     }
     
     @IBAction func cancelNewClient(segue:UIStoryboardSegue) { }
@@ -167,6 +137,7 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
         searchController.searchBar.placeholder = "Search"
         searchController.searchBar.delegate = self
         searchController.searchBar.sizeToFit()
+        self.definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
     }
 
@@ -191,13 +162,13 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
         }
         searchController.searchBar.resignFirstResponder()
     }
-
+    
     func updateSearchResults(for searchController: UISearchController) {
-        filteredClients = clients.filter { (client: Client) -> Bool in
-            if client.lName.lowercased().contains(searchController.searchBar.text!.lowercased()) {
-                return true
-            } else {
-                return false
+        filteredClients.removeAll()
+        for contact in contacts {
+            let filteredContent = contact.clients.filter {$0.lName.range(of: searchController.searchBar.text!, options: [.anchored, .caseInsensitive, .diacriticInsensitive]) != nil }
+            if !filteredContent.isEmpty {
+                filteredClients = filteredContent
             }
         }
         self.tableView.reloadData()
@@ -208,14 +179,12 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        // Pass the selected object to the new view
         if segue.identifier == "currentClient" {
             let index: Int = (self.tableView.indexPathForSelectedRow?.row)!
             let section: Int = (self.tableView.indexPathForSelectedRow?.section)!
             let clientCurrentVC = segue.destination as! CurrentClientViewController
-            clientCurrentVC.cur_client = (contacts[letters[section]]?[index])!
-            clientCurrentVC.currentClientIndex = index
-            clientCurrentVC.currentClientSection = section
+            clientCurrentVC.cur_client = contacts[section].clients[index]
         }
     }
 }

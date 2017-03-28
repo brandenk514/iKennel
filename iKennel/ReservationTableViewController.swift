@@ -85,24 +85,6 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
     }
     
     func indexReservations() {
-        for c in clients {
-            for a in c.animals! {
-                animals.append(a)
-            }
-        }
-        
-        for a in animals {
-            let key = "\(a.getDMY(d: (a.reservation?.dateIn)!))"
-            let upper = key.uppercased()
-            
-            if var dateValues = contacts[upper] {
-                dateValues.append(a)
-                contacts[upper] = dateValues
-            } else {
-                contacts[upper] = [a]
-            }
-        }
-        
         dates = [String](contacts.keys)
         dates.sort()
     }
