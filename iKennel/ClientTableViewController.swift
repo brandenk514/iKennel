@@ -27,10 +27,15 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
 
     var shouldShowSearchResults = false
     var searchController : UISearchController!
+    
+    var editIndex = 0
+    var editSection = 0
+    
+    var editedClient = Client(fName: "", lName: "", address: "", email: "", cellNum: "", animals: [Animal]())
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         indexClients()
         configureSearchController()
 
@@ -39,6 +44,11 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print(editedClient)
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,7 +65,6 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
         } else {
             return letters.count
         }
-
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -73,7 +82,6 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
             let c = filteredClients[indexPath.row]
             cell.clientName?.text = (c.lName) + ", " + (c.fName)
             cell.animalNames?.text = c.cellNum
-            
         } else {
             let c = contacts[indexPath.section].clients[indexPath.row]
             cell.clientName?.text = (c.lName) + ", " + (c.fName)
@@ -116,8 +124,7 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
     
     @IBAction func addNewClient(segue:UIStoryboardSegue) {
         let newClient = addNewClientData()
-        print(newClient)
-        let firstLetter = newClient.getFirstLetter(s: cLast)
+        let firstLetter = newClient.getFirstLetter(s: cLast).capitalized
         for contact in contacts {
             if firstLetter == contact.letter {
                 contact.add(client: newClient)
@@ -188,10 +195,6 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
             }
             tableView.deleteRows(at: [indexPath], with: .fade)
             self.tableView.endUpdates()
-        } else if editingStyle == .insert {
-            self.tableView.beginUpdates()
-            self.tableView.insertRows(at: [indexPath], with: .automatic)
-            self.tableView.endUpdates()
         }
     }
 
@@ -209,6 +212,8 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
                 clientCurrentVC.cur_client = filteredClients[index]
             } else {
                 clientCurrentVC.cur_client = contacts[section].clients[index]
+                clientCurrentVC.currentClientIndex = editIndex
+                clientCurrentVC.currentClientSection = editSection
             }
         }
     }

@@ -105,7 +105,7 @@ class EditClientViewController: UIViewController {
             editAnimalVC.sel_animal = selected_animal
         } else if segue.identifier == "newAnimal" {
             
-        } else {
+        } else if segue.identifier == "saveEdit" {
             let curClientVC = segue.destination as! CurrentClientViewController
             curClientVC.cur_client = cur_client
         }

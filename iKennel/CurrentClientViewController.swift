@@ -23,6 +23,9 @@ class CurrentClientViewController: UIViewController {
     var sel_animal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
     
     var cur_client = Client(fName: "", lName: "", address: "", email: "", cellNum: "", animals: [Animal]())
+    
+    var currentClientIndex = 0
+    var currentClientSection = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,10 +86,12 @@ class CurrentClientViewController: UIViewController {
         if segue.identifier == "editClient" {
             let editClientVC = segue.destination as! EditClientViewController
             editClientVC.cur_client = cur_client
-        }
-        if segue.identifier == "showAnimalInfo" {
+        } else if segue.identifier == "showAnimalInfo" {
             let cur_animalVC = segue.destination as! CurrentAnimalViewController
             cur_animalVC.selected_animal = sel_animal
+        } else {
+            let clientTableVC = segue.destination as! ClientTableViewController
+            clientTableVC.editedClient = cur_client // Edit client not displaying
         }
     }
 }
