@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,25 +23,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1kf-Rk-kbh">
-                                <rect key="frame" x="86" y="323" width="203" height="65.5"/>
+                                <rect key="frame" x="46" y="323" width="283" height="66"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to iKennel" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxm-Og-klc" userLabel="Welcome to iKennel">
-                                        <rect key="frame" x="9" y="0.0" width="185.5" height="25.5"/>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="21"/>
+                                        <rect key="frame" x="49" y="0.0" width="185" height="25"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="zhV-jL-WiD">
-                                        <rect key="frame" x="91.5" y="45.5" width="20" height="20"/>
-                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Getting everything ready... " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMu-rK-U07">
+                                        <rect key="frame" x="39" y="45" width="205" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="E9f-pf-PNe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="dMu-rK-U07" firstAttribute="leading" secondItem="1kf-Rk-kbh" secondAttribute="leading" constant="39" id="10n-BZ-shG"/>
+                                    <constraint firstItem="vxm-Og-klc" firstAttribute="leading" secondItem="1kf-Rk-kbh" secondAttribute="leading" constant="49" id="dmB-rs-5cB"/>
+                                </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0010313478113761487" green="0.34235248807303931" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.9800829291343689" green="0.27416455745697021" blue="0.19885051250457764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="1kf-Rk-kbh" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="70" id="Scg-0Q-F5J"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1kf-Rk-kbh" secondAttribute="trailing" constant="70" id="YSo-LF-JZx"/>
-                            <constraint firstItem="1kf-Rk-kbh" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="303" id="fRJ-tg-xLs"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="1kf-Rk-kbh" secondAttribute="bottom" constant="278" id="9S2-9m-C3Y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1kf-Rk-kbh" secondAttribute="trailing" constant="30" id="O0J-te-omR"/>
+                            <constraint firstItem="1kf-Rk-kbh" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="303" id="ac7-kv-ObU"/>
+                            <constraint firstItem="1kf-Rk-kbh" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="30" id="hIy-jX-0Zz"/>
                         </constraints>
                     </view>
                 </viewController>
