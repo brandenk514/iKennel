@@ -9,11 +9,11 @@
 import Foundation
 
 struct ReservationContact {
-    let letter : String
+    let date : String
     var animals : [Animal]
     
-    init (letter: String, animals: [Animal] = [Animal]()) {
-        self.letter = letter
+    init (date: String, animals: [Animal] = [Animal]()) {
+        self.date = date
         self.animals = animals
     }
     

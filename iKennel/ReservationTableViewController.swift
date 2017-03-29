@@ -12,12 +12,12 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
     
     var clients = Client.loadAllClients()
     
+    var clientAnimals = [ReservationContact]()
+    
     var animals = [Animal]()
     
-    var contacts = [String: [Animal]]()
-    
     var dates: [String] = []
-
+    
     var filteredAnimals = [Animal]()
     var shouldShowSearchResults = false
     var searchController : UISearchController!
@@ -49,24 +49,23 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
         if shouldShowSearchResults {
             return filteredAnimals.count
         } else {
-            return contacts[dates[section]]!.count
+            return clientAnimals[section].animals.count
         }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reservation", for: indexPath) as! ReservationTableViewCell
-
+        
         if shouldShowSearchResults {
-            let f = filteredAnimals[indexPath.row]
-            print(f)
-            print(indexPath.row)
-            cell.textLabel?.text = f.name
+            let selected = filteredAnimals[indexPath.row]
+            cell.clientName.text = selected.name
+            cell.animalNames.text = selected.convertBoolToText()
         } else {
-            let selected = contacts[dates[indexPath.section]]?[indexPath.row]
-            cell.clientName.text = selected?.name
-            cell.animalNames.text = selected?.convertBoolToText()
+            let selected = clientAnimals[indexPath.section].animals[indexPath.row]
+            cell.clientName.text = selected.name
+            cell.animalNames.text = "Checked In: " + selected.convertBoolToText()
         }
-
+        
         return cell
     }
     
@@ -85,10 +84,24 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
     }
     
     func indexReservations() {
-        dates = [String](contacts.keys)
+        for contact in clients {
+            for client in contact.clients {
+                for a in client.getAnimals() {
+                    let reserveA = ReservationContact(date: a.getDMY(d: (a.reservation?.dateIn)!), animals: client.getAnimals())
+                    clientAnimals.append(reserveA)
+                }
+            }
+        }
+        
+        dates = {
+            return clientAnimals.map { $0.date }
+        }()
         dates.sort()
+        clientAnimals = clientAnimals.sorted { (a1 , a2) -> Bool in
+            a1.date < a2.date
+        }
     }
-
+    
     func configureSearchController() {
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
@@ -96,23 +109,24 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
         searchController.searchBar.placeholder = "Search"
         searchController.searchBar.delegate = self
         searchController.searchBar.sizeToFit()
+        self.definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
     }
-
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         shouldShowSearchResults = true
         self.tableView.reloadData()
     }
-
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         shouldShowSearchResults = false
         self.tableView.reloadData()
     }
-
+    
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         shouldShowSearchResults = false
     }
-
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if !shouldShowSearchResults {
             shouldShowSearchResults = true
@@ -120,18 +134,18 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
         }
         searchController.searchBar.resignFirstResponder()
     }
-
+    
     func updateSearchResults(for searchController: UISearchController) {
-        filteredAnimals = animals.filter { (animal: Animal) -> Bool in
-            if animal.name.lowercased().contains(searchController.searchBar.text!.lowercased()) {
-                return true
-            } else {
-                return false
+        filteredAnimals.removeAll()
+        for animal in clientAnimals {
+            let filteredContent = animal.animals.filter {$0.name.range(of: searchController.searchBar.text!, options: [.anchored, .caseInsensitive, .diacriticInsensitive]) != nil }
+            if !filteredContent.isEmpty {
+                filteredAnimals = filteredContent
             }
         }
         self.tableView.reloadData()
     }
-
+    
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -177,7 +191,12 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
             let currentReservationVC = segue.destination as! CurrentReservationViewController
             let index: Int = (self.tableView.indexPathForSelectedRow?.row)!
             let section: Int = (self.tableView.indexPathForSelectedRow?.section)!
-            currentReservationVC.cur_animal = (contacts[dates[section]]?[index])!
+            if shouldShowSearchResults {
+                currentReservationVC.cur_animal = filteredAnimals[index]
+            } else {
+                currentReservationVC.cur_animal = clientAnimals[section].animals[index]
+            }
+            
         }
     }
     

@@ -104,18 +104,6 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
             c1.letter < c2.letter
         }
     }
-
-    func charToString(c:[Character]) -> String {
-        var s = [String]()
-        for i in c {
-            s.append(String(i))
-        }
-        return s[0]
-    }
-
-    func getFirstLetter(s:String) -> Character {
-        return s.characters[s.startIndex]
-    }
     
     func addNewClientData() -> Client
     {
