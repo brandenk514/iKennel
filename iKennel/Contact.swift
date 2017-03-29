@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Contact {
+class Contact {
     let letter : String
     var clients : [Client]
     
@@ -17,7 +17,7 @@ struct Contact {
         self.clients = clients
     }
     
-    mutating func add(client: Client) {
+    func add(client: Client) {
         clients.append(client)
     }
 }

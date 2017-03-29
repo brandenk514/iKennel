@@ -114,7 +114,22 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
         return Client(fName: cFirst, lName: cLast, address: cAddress, email: cEmail, cellNum: cCellNum, animals: animalArray)
     }
     
-    @IBAction func addNewClient(segue:UIStoryboardSegue) { }
+    @IBAction func addNewClient(segue:UIStoryboardSegue) {
+        let newClient = addNewClientData()
+        print(newClient)
+        let firstLetter = newClient.getFirstLetter(s: cLast)
+        for contact in contacts {
+            if firstLetter == contact.letter {
+                contact.add(client: newClient)
+            } else {
+                let tempContact = Contact(letter: firstLetter, clients: [newClient])
+                contacts.append(tempContact)
+                break
+            }
+        }
+        indexClients()
+        self.tableView.reloadData()
+    }
     
     @IBAction func cancelNewClient(segue:UIStoryboardSegue) { }
 
@@ -174,7 +189,9 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
             tableView.deleteRows(at: [indexPath], with: .fade)
             self.tableView.endUpdates()
         } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+            self.tableView.beginUpdates()
+            self.tableView.insertRows(at: [indexPath], with: .automatic)
+            self.tableView.endUpdates()
         }
     }
 

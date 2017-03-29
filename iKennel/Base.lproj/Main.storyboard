@@ -421,7 +421,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="u5x-8u-jBL">
                                             <connections>
-                                                <segue destination="r0Q-9o-axm" kind="unwind" unwindAction="addNewClientWithSegue:" id="8Bp-Sa-4bB"/>
+                                                <segue destination="r0Q-9o-axm" kind="unwind" unwindAction="addNewClientWithSegue:" id="bKg-Qj-YCc"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1398,18 +1398,18 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ogf-9G-gJQ" id="If4-kB-jty">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WMo-tX-aFx">
-                                            <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PXU-ta-BQC">
-                                            <rect key="frame" x="15" y="25.5" width="33" height="14.5"/>
+                                            <rect key="frame" x="16" y="25.5" width="33" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -1880,7 +1880,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Toggle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yxm-Gy-EEd">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="344" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
@@ -1904,7 +1904,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Stepper switch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3In-A6-1G6">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="344" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
@@ -1924,11 +1924,11 @@
                                         <rect key="frame" x="0.0" y="123" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ALs-6o-Y3r" id="Iar-gs-XPr">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EUZ-19-PRL">
-                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>

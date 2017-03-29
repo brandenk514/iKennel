@@ -29,11 +29,11 @@ struct Client {
         return aNames.joined(separator: ", ")
     }
     
-    func getFirstLetter(s:String) -> Character {
-        return s.characters[s.startIndex]
+    func getFirstLetter(s:String) -> String {
+        return self.charToString(c: [s.characters[s.startIndex]])
     }
     
-    func charToString(c:[Character]) -> String {
+    private func charToString(c:[Character]) -> String {
         var s = [String]()
         for i in c {
             s.append(String(i))
@@ -82,9 +82,9 @@ extension Client {
         let client1 = Client(fName: "Samantha", lName: "Smith", address: "234 Wall Street", email: "ss@gmail.com", cellNum: "210-453-2211", animals: sAnimals)
         let client2 = Client(fName: "Mary", lName: "Doe", address: "775 Saint Lane", email: "md@gmail.com", cellNum: "122-345-6677", animals: m2animals)
         
-        var contact0 = Contact(letter: client0.charToString(c:[client0.getFirstLetter(s: client0.lName)]), clients: [client0])
+        let contact0 = Contact(letter: client0.getFirstLetter(s: client0.lName), clients: [client0])
         contact0.add(client: client1)
-        let contact1 = Contact(letter: client2.charToString(c:[client2.getFirstLetter(s: client2.lName)]), clients: [client2])
+        let contact1 = Contact(letter: client2.getFirstLetter(s: client2.lName), clients: [client2])
         contactArray.append(contact0)
         contactArray.append(contact1)
         return contactArray
