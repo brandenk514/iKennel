@@ -166,6 +166,11 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
         if editingStyle == .delete {
             self.tableView.beginUpdates()
             contacts[indexPath.section].clients.remove(at: indexPath.row)
+            if contacts[indexPath.section].clients.count == 0 {
+                contacts.remove(at: indexPath.section)
+                tableView.deleteSections([indexPath.section], with: .fade)
+                indexClients()
+            }
             tableView.deleteRows(at: [indexPath], with: .fade)
             self.tableView.endUpdates()
         } else if editingStyle == .insert {
@@ -183,8 +188,6 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
             let index: Int = (self.tableView.indexPathForSelectedRow?.row)!
             let section: Int = (self.tableView.indexPathForSelectedRow?.section)!
             let clientCurrentVC = segue.destination as! CurrentClientViewController
-            clientCurrentVC.currentClientIndex = index
-            clientCurrentVC.currentClientSection = section
             if shouldShowSearchResults {
                 clientCurrentVC.cur_client = filteredClients[index]
             } else {
