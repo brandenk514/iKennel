@@ -10,8 +10,6 @@ import UIKit
 
 class ClientTableViewCell: UITableViewCell {
 
-    var clientTableView: ClientTableViewController?
-
     @IBOutlet weak var clientName: UILabel!
     @IBOutlet weak var animalNames: UILabel!
     

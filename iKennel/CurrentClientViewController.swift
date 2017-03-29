@@ -70,10 +70,7 @@ class CurrentClientViewController: UIViewController {
     
     @IBAction func cancelCurrentClient(segue:UIStoryboardSegue) { }
     
-    @IBAction func editCurrentClient(segue:UIStoryboardSegue) {
-        
-    }
-
+    @IBAction func editCurrentClient(segue:UIStoryboardSegue) { }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -93,6 +90,10 @@ class CurrentClientViewController: UIViewController {
         if segue.identifier == "showAnimalInfo" {
             let cur_animalVC = segue.destination as! CurrentAnimalViewController
             cur_animalVC.selected_animal = sel_animal
+        } else {
+            let clientTableVC = segue.destination as! ClientTableViewController
+            clientTableVC.deleteIndex = currentClientIndex
+            clientTableVC.deleteSection = currentClientSection
         }
     }
 }

@@ -21,6 +21,9 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
     var cEmail = ""
     var cAddress = ""
     var cCellNum = ""
+    
+    var deleteIndex = 0
+    var deleteSection = 0
 
     var shouldShowSearchResults = false
     var searchController : UISearchController!
@@ -70,6 +73,7 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
             let c = filteredClients[indexPath.row]
             cell.clientName?.text = (c.lName) + ", " + (c.fName)
             cell.animalNames?.text = c.cellNum
+            
         } else {
             let c = contacts[indexPath.section].clients[indexPath.row]
             cell.clientName?.text = (c.lName) + ", " + (c.fName)
@@ -110,19 +114,9 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
         return Client(fName: cFirst, lName: cLast, address: cAddress, email: cEmail, cellNum: cCellNum, animals: animalArray)
     }
     
-    @IBAction func addNewClient(segue:UIStoryboardSegue) {
-
-    }
+    @IBAction func addNewClient(segue:UIStoryboardSegue) { }
     
     @IBAction func cancelNewClient(segue:UIStoryboardSegue) { }
-
-    @IBAction func deleteClient(segue:UIStoryboardSegue) {
-        let index: Int = (self.tableView.indexPathForSelectedRow?.row)!
-        let section: Int = (self.tableView.indexPathForSelectedRow?.section)!
-        self.tableView.beginUpdates()
-        self.tableView.deleteRows(at: [IndexPath(row: index, section: section)], with: .automatic)
-        self.tableView.endUpdates()
-    }
 
     func configureSearchController() {
         searchController = UISearchController(searchResultsController: nil)
@@ -167,6 +161,17 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
         }
         self.tableView.reloadData()
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.tableView.beginUpdates()
+            contacts[indexPath.section].clients.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            self.tableView.endUpdates()
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        }
+    }
 
     // MARK: - Navigation
     
@@ -178,6 +183,8 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
             let index: Int = (self.tableView.indexPathForSelectedRow?.row)!
             let section: Int = (self.tableView.indexPathForSelectedRow?.section)!
             let clientCurrentVC = segue.destination as! CurrentClientViewController
+            clientCurrentVC.currentClientIndex = index
+            clientCurrentVC.currentClientSection = section
             if shouldShowSearchResults {
                 clientCurrentVC.cur_client = filteredClients[index]
             } else {
