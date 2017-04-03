@@ -81,17 +81,19 @@ class CurrentClientViewController: UIViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "editClient" {
-            let editClientVC = segue.destination as! EditClientViewController
-            editClientVC.cur_client = cur_client
-        } else if segue.identifier == "showAnimalInfo" {
-            let cur_animalVC = segue.destination as! CurrentAnimalViewController
-            cur_animalVC.selected_animal = sel_animal
-        } else {
-            let clientTableVC = segue.destination as! ClientTableViewController
-            clientTableVC.editedClient = cur_client // Edit client not displaying
+        super.prepare(for: segue, sender: sender)
+        switch(segue.identifier ?? "") {
+            case "editClient":
+                let editClientVC = segue.destination as! EditClientViewController
+                editClientVC.cur_client = cur_client
+            case "showAnimalInfo":
+                let cur_animalVC = segue.destination as! CurrentAnimalViewController
+                cur_animalVC.selected_animal = sel_animal
+            case "doneEditingClient":
+                let clientTableVC = segue.destination as! ClientTableViewController
+                clientTableVC.editedClient = cur_client
+        default:
+            print("Error")
         }
     }
 }

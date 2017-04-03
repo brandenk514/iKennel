@@ -25,13 +25,20 @@ class EditClientViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        firstNameTF.delegate = self as? UITextFieldDelegate
+        lastNameTF.delegate = self as? UITextFieldDelegate
+        addressTF.delegate = self as? UITextFieldDelegate
+        emailTF.delegate = self as? UITextFieldDelegate
+        cellNumTF.delegate = self as? UITextFieldDelegate
+        
         // Do any additional setup after loading the view.
         firstNameTF.text = cur_client.fName
         lastNameTF.text = cur_client.lName
         addressTF.text = cur_client.address
         emailTF.text = cur_client.email
         cellNumTF.text = cur_client.cellNum
-
+        
         for b in animalButtons {
             let index = Int(animalButtons.index(of: b)!)
             if index <= ((cur_client.animals?.count)! - 1) {

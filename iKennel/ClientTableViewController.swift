@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import os.log
 
 class ClientTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
     
     var contacts = Client.loadAllClients()
     var letters = [String]()
     var filteredClients = [Client]()
-
     var animalArray = [Animal]()
     
     var cFirst = ""
@@ -21,15 +21,9 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
     var cEmail = ""
     var cAddress = ""
     var cCellNum = ""
-    
-    var deleteIndex = 0
-    var deleteSection = 0
 
     var shouldShowSearchResults = false
     var searchController : UISearchController!
-    
-    var editIndex = 0
-    var editSection = 0
     
     var editedClient = Client(fName: "", lName: "", address: "", email: "", cellNum: "", animals: [Animal]())
 
@@ -44,11 +38,6 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print(editedClient)
     }
 
     override func didReceiveMemoryWarning() {
@@ -116,14 +105,9 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
             c1.letter < c2.letter
         }
     }
-    
-    func addNewClientData() -> Client
-    {
-        return Client(fName: cFirst, lName: cLast, address: cAddress, email: cEmail, cellNum: cCellNum, animals: animalArray)
-    }
-    
+
     @IBAction func addNewClient(segue:UIStoryboardSegue) {
-        let newClient = addNewClientData()
+        let newClient = Client(fName: cFirst, lName: cLast, address: cAddress, email: cEmail, cellNum: cCellNum, animals: animalArray)
         let firstLetter = newClient.getFirstLetter(s: cLast).capitalized
         for contact in contacts {
             if firstLetter == contact.letter {
@@ -139,6 +123,13 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
     }
     
     @IBAction func cancelNewClient(segue:UIStoryboardSegue) { }
+    
+    @IBAction func doneEditClient(segue:UIStoryboardSegue) {
+        let index: Int = (self.tableView.indexPathForSelectedRow?.row)!
+        let section: Int = (self.tableView.indexPathForSelectedRow?.section)!
+        contacts[section].clients[index] = editedClient
+        tableView.reloadData()
+    }
 
     func configureSearchController() {
         searchController = UISearchController(searchResultsController: nil)
@@ -202,19 +193,30 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view
-        if segue.identifier == "currentClient" {
-            let index: Int = (self.tableView.indexPathForSelectedRow?.row)!
-            let section: Int = (self.tableView.indexPathForSelectedRow?.section)!
-            let clientCurrentVC = segue.destination as! CurrentClientViewController
-            if shouldShowSearchResults {
-                clientCurrentVC.cur_client = filteredClients[index]
-            } else {
-                clientCurrentVC.cur_client = contacts[section].clients[index]
-                clientCurrentVC.currentClientIndex = editIndex
-                clientCurrentVC.currentClientSection = editSection
-            }
+        super.prepare(for: segue, sender: sender)
+        switch(segue.identifier ?? "") {
+            case "currentClient":
+                guard let clientCurrentVC = segue.destination as? CurrentClientViewController else {
+                    fatalError("Unexpected destination: \(segue.destination)")
+                }
+                
+                guard let selectedCell = sender as? ClientTableViewCell else {
+                    fatalError("Unexpected sender: \(sender ?? "Empty")")
+                }
+                
+                guard tableView.indexPath(for: selectedCell) != nil else {
+                    fatalError("The selected cell is not being displayed by the table")
+                }
+                let index: Int = (self.tableView.indexPathForSelectedRow?.row)!
+                let section: Int = (self.tableView.indexPathForSelectedRow?.section)!
+                if shouldShowSearchResults {
+                    clientCurrentVC.cur_client = filteredClients[index]
+                } else {
+                    clientCurrentVC.cur_client = contacts[section].clients[index]
+                }
+            case "newClient": break
+        default:
+            fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "Empty")")
         }
     }
 }
