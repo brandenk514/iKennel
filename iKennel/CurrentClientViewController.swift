@@ -65,12 +65,12 @@ class CurrentClientViewController: UIViewController {
         }
         performSegue(withIdentifier: "showAnimalInfo", sender: sender)
     }
-
-    @IBAction func cancelCurrentAnimal(segue:UIStoryboardSegue) { }
     
     @IBAction func cancelCurrentClient(segue:UIStoryboardSegue) { }
     
     @IBAction func editCurrentClient(segue:UIStoryboardSegue) { }
+    
+    @IBAction func unwindToCurrentClient(segue:UIStoryboardSegue) { }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -93,7 +93,7 @@ class CurrentClientViewController: UIViewController {
                 let clientTableVC = segue.destination as! ClientTableViewController
                 clientTableVC.editedClient = cur_client
         default:
-            print("Error")
+            fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "Empty")")
         }
     }
 }
