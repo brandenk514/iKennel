@@ -75,6 +75,7 @@ class CurrentAnimalViewController: UIViewController {
             case "unwindAnimalInfo":
                 let currentClientVC = segue.destination as! CurrentClientViewController
                 currentClientVC.sel_animal = selected_animal
+            case "removeAnimal": break
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "Empty")")
         }

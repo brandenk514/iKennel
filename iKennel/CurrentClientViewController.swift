@@ -62,6 +62,10 @@ class CurrentClientViewController: UIViewController {
     
     @IBAction func unwindFromNewAnimal(segue:UIStoryboardSegue) { }
     
+    @IBAction func removeFromClient(segue:UIStoryboardSegue) {
+        cur_client.animals?.remove(at: currentAnimalTag)
+    }
+    
     @IBAction func saveFromNewAnimal(segue:UIStoryboardSegue) {
         cur_client.animals?.append(add_animal)
     }
