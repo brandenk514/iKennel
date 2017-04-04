@@ -55,7 +55,6 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reservation", for: indexPath) as! ReservationTableViewCell
-        
         if shouldShowSearchResults {
             let selected = filteredAnimals[indexPath.row]
             cell.clientName.text = selected.name
@@ -87,12 +86,22 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
         for contact in clients {
             for client in contact.clients {
                 for a in client.getAnimals() {
-                    let reserveA = ReservationContact(date: a.getDMY(d: (a.reservation?.dateIn)!), animals: client.getAnimals())
-                    clientAnimals.append(reserveA)
+                    animals.append(a)
                 }
             }
         }
-        
+        for a in animals {
+            var reserv = ReservationContact(date: a.getDMY(d: a.getReservation().dateIn), animals: [a])
+            for animal in clientAnimals {
+                var tempReserv = ReservationContact(date: a.getDMY(d: a.getReservation().dateIn), animals: [a])
+                if animal.date == a.getDMY(d: a.getReservation().dateIn) {
+                    tempReserv.add(animal: a)
+                }
+                reserv = tempReserv
+            }
+            clientAnimals.append(reserv)
+        }
+        print(clientAnimals)
         dates = {
             return clientAnimals.map { $0.date }
         }()

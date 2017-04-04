@@ -74,7 +74,7 @@ extension Client {
         sAnimals.append(animal1)
         sAnimals.append(animal2)
         
-        let reserve3 = Reservation(dateIn: tempCal.date(from: date2)!, dateOut: tempCal.date(from: date4)!, checkedIn: true)
+        let reserve3 = Reservation(dateIn: tempCal.date(from: date1)!, dateOut: tempCal.date(from: date4)!, checkedIn: true)
         let animal3 = Animal(name: "Sol", type: "Cat", sex: "female", breed: "German Shepard", social: true, reservation: reserve3, notes: "")
         m2animals.append(animal3)
 
