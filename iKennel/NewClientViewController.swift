@@ -18,18 +18,8 @@ class NewClientViewController: UIViewController {
     
     @IBOutlet var addAnimalButtons: [UIButton]!
     
-    var name = ""
-    var type = ""
-    var breed = ""
-    var sex = ""
-    var notes = ""
-    var social = false
+    var newAnimal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
     
-    var dateIn = Date()
-    var dateOut = Date()
-    
-    var checkedIn = false
-
     var animalTag = 0
 
     var animalArray = [Animal]()
@@ -45,12 +35,13 @@ class NewClientViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func cancelAddAnimal(segue:UIStoryboardSegue) { }
-    @IBAction func saveAddAnimal(segue:UIStoryboardSegue) {
-        addAnimal()
+    @IBAction func cancelNewClientAddAnimal(segue:UIStoryboardSegue) { }
+    
+    @IBAction func saveNewClientAddAnimal(segue:UIStoryboardSegue) {
+        animalArray.append(newAnimal)
         for b in addAnimalButtons {
             if animalTag == b.tag {
-                b.setTitle(name, for: .normal)
+                b.setTitle(newAnimal.name, for: .normal)
             }
         }
     }
@@ -60,12 +51,6 @@ class NewClientViewController: UIViewController {
         animalTag = sender.tag
     }
 
-    func addAnimal() {
-        let tempReservation = Reservation(dateIn: dateIn, dateOut: dateOut, checkedIn: checkedIn)
-        let tempAnimal = Animal(name: name, type: type, sex: sex, breed: breed, social: social, reservation: tempReservation, notes: notes)
-        animalArray.append(tempAnimal)
-    }
-
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -73,6 +58,7 @@ class NewClientViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
         switch(segue.identifier ?? "") {
         case "unwindToClientTable": break
+        case "addAnimal": break
         case "unwindSaveToClientTable":
             let clientTableVC = segue.destination as! ClientTableViewController
             clientTableVC.cFirst = firstname.text!

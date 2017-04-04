@@ -471,7 +471,7 @@
         <!--Add Animal View Controller-->
         <scene sceneID="xUb-gT-O9B">
             <objects>
-                <viewController id="Y9d-ld-i9u" userLabel="Add Animal View Controller" customClass="AddAnimalViewController" customModule="iKennel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Y9d-ld-i9u" userLabel="Add Animal View Controller" customClass="AddAnimalNewClientViewController" customModule="iKennel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9qn-TR-qm9"/>
                         <viewControllerLayoutGuide type="bottom" id="cmd-5W-Sdo"/>
@@ -543,7 +543,7 @@
                                                 <state key="normal" title="Date In"/>
                                                 <connections>
                                                     <action selector="dateButtonPressed:" destination="Y9d-ld-i9u" eventType="touchUpInside" id="eJa-fS-tu8"/>
-                                                    <segue destination="DHm-fY-B1T" kind="presentation" identifier="pickDate" id="j2q-3L-hho"/>
+                                                    <segue destination="DHm-fY-B1T" kind="presentation" identifier="pickDate" id="9q2-to-Ys9"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -589,12 +589,12 @@
                                     <navigationItem title="Add Animal" id="hxk-jS-lIw">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="BuL-J8-K7A">
                                             <connections>
-                                                <segue destination="qFX-fM-NPJ" kind="unwind" unwindAction="cancelAddAnimalWithSegue:" id="e0m-xF-Mfy"/>
+                                                <segue destination="qFX-fM-NPJ" kind="unwind" identifier="unwindToNewClient" unwindAction="cancelNewClientAddAnimalWithSegue:" id="QZl-As-pwk"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="P8W-ay-YbI">
                                             <connections>
-                                                <segue destination="qFX-fM-NPJ" kind="unwind" unwindAction="saveAddAnimalWithSegue:" id="OK3-q7-Ozp"/>
+                                                <segue destination="qFX-fM-NPJ" kind="unwind" identifier="unwindSaveToNewClient" unwindAction="saveNewClientAddAnimalWithSegue:" id="vXz-jA-3oX"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -610,15 +610,15 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="animalBreed" destination="ZDl-zS-Thb" id="jbN-sv-ckO"/>
-                        <outlet property="animalName" destination="O4U-m6-zbr" id="kYe-gi-NIs"/>
-                        <outlet property="animalNotes" destination="alG-Sm-GXV" id="2Nb-qw-YYv"/>
-                        <outlet property="animalSex" destination="udA-7H-g43" id="l0W-E0-yNs"/>
-                        <outlet property="animalType" destination="hqM-oX-ehz" id="Fce-Mb-V3N"/>
-                        <outlet property="checkedInSwitch" destination="1aG-Bk-NOn" id="UNe-q6-A9d"/>
-                        <outlet property="dateInButton" destination="ccb-xO-DUI" id="GOD-JQ-t4v"/>
-                        <outlet property="dateOutButton" destination="uKX-MY-9WO" id="fkw-2f-lkq"/>
-                        <outlet property="socialSwitch" destination="gbT-MX-Kft" id="3lh-ms-GW8"/>
+                        <outlet property="animalBreed" destination="ZDl-zS-Thb" id="ZNo-mE-57s"/>
+                        <outlet property="animalName" destination="O4U-m6-zbr" id="7eV-k5-3bm"/>
+                        <outlet property="animalNotes" destination="alG-Sm-GXV" id="PZu-Yd-Ip8"/>
+                        <outlet property="animalSex" destination="udA-7H-g43" id="fJ7-12-hrL"/>
+                        <outlet property="animalType" destination="hqM-oX-ehz" id="2Uy-iC-CUB"/>
+                        <outlet property="checkedInSwitch" destination="1aG-Bk-NOn" id="lJn-cS-MtN"/>
+                        <outlet property="dateInButton" destination="ccb-xO-DUI" id="Hkz-5t-bBS"/>
+                        <outlet property="dateOutButton" destination="uKX-MY-9WO" id="fc7-z8-Wg9"/>
+                        <outlet property="socialSwitch" destination="gbT-MX-Kft" id="vTm-9L-mo6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="331-oH-WWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -686,7 +686,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nj0-Vd-Mh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zxT-UW-oY2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5802" y="-2074"/>
+            <point key="canvasLocation" x="5984" y="-2409"/>
         </scene>
         <!--Animal Information-->
         <scene sceneID="BCm-nf-cMj">
