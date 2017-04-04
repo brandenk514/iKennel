@@ -24,8 +24,7 @@ class CurrentClientViewController: UIViewController {
     
     var cur_client = Client(fName: "", lName: "", address: "", email: "", cellNum: "", animals: [Animal]())
     
-    var currentClientIndex = 0
-    var currentClientSection = 0
+    var currentAnimalTag = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +39,7 @@ class CurrentClientViewController: UIViewController {
             let index = Int(animalButtons.index(of: b)!)
             if index <= ((cur_client.animals?.count)! - 1) {
                 b.setTitle(cur_client.animals?[index].name, for: .normal)
+                b.tag = index
             } else {
                 b.isHidden = true
             }
@@ -54,15 +54,25 @@ class CurrentClientViewController: UIViewController {
         clientPhone.text = cur_client.cellNum
         clientEmail.text = cur_client.email
         clientAddress.text = cur_client.address
+        for b in animalButtons {
+            let index = Int(animalButtons.index(of: b)!)
+            if index <= ((cur_client.animals?.count)! - 1) {
+                b.setTitle(cur_client.animals?[index].name, for: .normal)
+            } else {
+                b.isHidden = true
+            }
+        }
+        print(sel_animal)
     }
     
-    @IBAction func animalPressed(_ sender: UIButton) {
+    @IBAction func animalPressed(_ sender: UIButton) { // tags for buttons to reconginze which animal is being edited currently
         for a in cur_client.animals! {
             if (a.name ==  (sender.titleLabel?.text)!) {
                 sel_animal = a // need error check for empty
                 break
             }
         }
+        currentAnimalTag = sender.tag
         performSegue(withIdentifier: "showAnimalInfo", sender: sender)
     }
     
@@ -70,7 +80,13 @@ class CurrentClientViewController: UIViewController {
     
     @IBAction func editCurrentClient(segue:UIStoryboardSegue) { }
     
-    @IBAction func unwindToCurrentClient(segue:UIStoryboardSegue) { }
+    @IBAction func unwindFromNewAnimal(segue:UIStoryboardSegue) { }
+    
+    @IBAction func saveFromNewAnimal(segue:UIStoryboardSegue) { }
+    
+    @IBAction func unwindToCurrentClient(segue:UIStoryboardSegue) {
+        cur_client.animals?[currentAnimalTag] = sel_animal
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -92,6 +108,7 @@ class CurrentClientViewController: UIViewController {
             case "doneEditingClient":
                 let clientTableVC = segue.destination as! ClientTableViewController
                 clientTableVC.editedClient = cur_client
+            case "newAnimal": break
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "Empty")")
         }

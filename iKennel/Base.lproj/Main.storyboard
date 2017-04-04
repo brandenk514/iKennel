@@ -223,7 +223,7 @@
                                         <rect key="frame" x="0.0" y="412" width="355" height="30"/>
                                         <state key="normal" title="+Animal"/>
                                         <connections>
-                                            <segue destination="1UK-da-Ao5" kind="presentation" id="FMe-9H-Pao"/>
+                                            <segue destination="1UK-da-Ao5" kind="presentation" identifier="newAnimal" id="FMe-9H-Pao"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -707,7 +707,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Animal Information" id="Pgu-xw-f9F">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wCg-K6-3V5">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="wCg-K6-3V5">
                                             <connections>
                                                 <segue destination="jl8-if-4PT" kind="unwind" identifier="unwindAnimalInfo" unwindAction="unwindToCurrentClientWithSegue:" id="4HC-wf-yba"/>
                                             </connections>
@@ -1204,12 +1204,12 @@
                                     <navigationItem title="New Animal" id="meI-UD-lRo">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="PR5-fc-Wze">
                                             <connections>
-                                                <segue destination="xyo-mA-hzH" kind="unwind" unwindAction="cancelNewAnimalWithSegue:" id="kNF-4X-LEM"/>
+                                                <segue destination="xyo-mA-hzH" kind="unwind" unwindAction="unwindFromNewAnimalWithSegue:" id="cof-gm-5Op"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ll2-Ng-We5">
                                             <connections>
-                                                <segue destination="xyo-mA-hzH" kind="unwind" unwindAction="saveNewAnimalWithSegue:" id="WRW-c0-uer"/>
+                                                <segue destination="xyo-mA-hzH" kind="unwind" unwindAction="saveFromNewAnimalWithSegue:" id="RXI-rM-QOK"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

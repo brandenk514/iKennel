@@ -9,11 +9,7 @@
 import UIKit
 
 class CurrentAnimalViewController: UIViewController {
-
-    var selected_animal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
-
-    var current_client = Client(fName: "", lName: "", address: "", email: "", cellNum: "", animals: [Animal]())
-
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var sexLabel: UILabel!
@@ -23,7 +19,12 @@ class CurrentAnimalViewController: UIViewController {
     @IBOutlet weak var dateInLabel: UILabel!
     @IBOutlet weak var dateOutLabel: UILabel!
     @IBOutlet weak var checkedInLabel: UILabel!
-
+    
+    var selected_animal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
+    
+    var current_client = Client(fName: "", lName: "", address: "", email: "", cellNum: "", animals: [Animal]())
+    
+    var animalTag = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +72,9 @@ class CurrentAnimalViewController: UIViewController {
             case "editAnimal":
                 let editAnimalVC = segue.destination as! EditAnimalViewController
                 editAnimalVC.sel_animal = selected_animal
-            case "unwindAnimalInfo": break
+            case "unwindAnimalInfo":
+                let currentClientVC = segue.destination as! CurrentClientViewController
+                currentClientVC.sel_animal = selected_animal
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "Empty")")
         }
