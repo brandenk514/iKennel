@@ -42,6 +42,7 @@ class NewClientViewController: UIViewController {
         for b in addAnimalButtons {
             if animalTag == b.tag {
                 b.setTitle(newAnimal.name, for: .normal)
+                b.isEnabled = false
             }
         }
     }

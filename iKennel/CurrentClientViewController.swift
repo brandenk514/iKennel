@@ -42,7 +42,6 @@ class CurrentClientViewController: UIViewController {
         clientEmail.text = cur_client.email
         clientAddress.text = cur_client.address
         setAnimalButtons()
-        print(add_animal)
     }
     
     @IBAction func animalPressed(_ sender: UIButton) {
