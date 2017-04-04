@@ -24,21 +24,30 @@ class EditAnimalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameField.delegate = self as? UITextFieldDelegate
+        breedField.delegate = self as? UITextFieldDelegate
+        notesField.delegate = self as? UITextFieldDelegate
 
         nameField.text = sel_animal.name
         if nameField.text!.isEmpty { nameField.placeholder = "Name" }
+        
         typeSelector.selectedSegmentIndex = sel_animal.setTypeSelectorIndex()
+        
         breedField.text = sel_animal.breed
         if breedField.text!.isEmpty { breedField.placeholder = "Breed" }
+        
         sexSelector.selectedSegmentIndex = sel_animal.setSexSelectorIndex()
+        
         socialSwitch.isOn = sel_animal.social
+        
         notesField.text = sel_animal.notes
         if notesField.text!.isEmpty { notesField.placeholder = "Notes" }
+        
         dateInButton.setTitle(sel_animal.getDMY_time(d: sel_animal.getReservation().dateIn), for: .normal)
         dateOutButton.setTitle(sel_animal.getDMY_time(d: sel_animal.getReservation().dateOut), for: .normal)
+        
         checkedInSwitch.isOn = sel_animal.getReservation().checkedIn
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,15 +55,68 @@ class EditAnimalViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func didNameChange(_ sender: UITextField) {
+        if nameField.text != sel_animal.name {
+            sel_animal.name = nameField.text!
+        }
+    }
+    
+    @IBAction func didTypeChange(_ sender: UISegmentedControl) {
+        if typeSelector.titleForSegment(at: sender.selectedSegmentIndex) != sel_animal.type {
+            sel_animal.type = typeSelector.titleForSegment(at: sender.selectedSegmentIndex)!
+        }
+    }
+    
+    @IBAction func didBreedChange(_ sender: UITextField) {
+        if breedField.text != sel_animal.breed {
+            sel_animal.breed = breedField.text!
+        }
+    }
+    
+    @IBAction func didSexChange(_ sender: UISegmentedControl) {
+        if sexSelector.titleForSegment(at: sexSelector.selectedSegmentIndex) != sel_animal.sex {
+            sel_animal.sex = sexSelector.titleForSegment(at: sexSelector.selectedSegmentIndex)!
+        }
+    }
+    
+    @IBAction func didSocialChange(_ sender: UISwitch) {
+        if socialSwitch.isOn != sel_animal.social {
+            sel_animal.social = socialSwitch.isOn
+        }
+    }
+    
+    @IBAction func didNotesChange(_ sender: UITextField) {
+        if notesField.text != sel_animal.notes {
+            sel_animal.notes = notesField.text!
+        }
+    }
+    
+    @IBAction func didDateInChange(_ sender: UIButton) {
+    }
+    @IBAction func didDateOutChange(_ sender: UIButton) {
+    }
+    
+    @IBAction func didCheckInChange(_ sender: UISwitch) {
+        if checkedInSwitch.isOn != sel_animal.getReservation().checkedIn {
+            sel_animal.reservation?.checkedIn = checkedInSwitch.isOn
+        }
+    }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        switch(segue.identifier ?? "") {
+            case "unwindToShowAnimal":
+                let currentAnimalVC = segue.destination as! CurrentAnimalViewController
+                currentAnimalVC.selected_animal = sel_animal
+        default:
+            fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "Empty")")
+            
+        }
     }
-    */
+    
 
 }

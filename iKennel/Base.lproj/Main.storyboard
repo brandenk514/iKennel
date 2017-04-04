@@ -919,6 +919,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="didNameChange:" destination="9xV-Iu-Svg" eventType="editingChanged" id="fnk-No-HKL"/>
+                                        </connections>
                                     </textField>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8MP-IL-XIj">
                                         <rect key="frame" x="0.0" y="46" width="355" height="29"/>
@@ -926,12 +929,18 @@
                                             <segment title="Dog"/>
                                             <segment title="Cat"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="didTypeChange:" destination="9xV-Iu-Svg" eventType="valueChanged" id="eeS-GZ-Xaz"/>
+                                        </connections>
                                     </segmentedControl>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Breed" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zhw-IX-rls">
                                         <rect key="frame" x="0.0" y="90.5" width="355" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="didBreedChange:" destination="9xV-Iu-Svg" eventType="editingChanged" id="38j-gY-6VW"/>
+                                        </connections>
                                     </textField>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eI8-Sg-Gsq">
                                         <rect key="frame" x="0.0" y="136.5" width="355" height="29"/>
@@ -939,6 +948,9 @@
                                             <segment title="Male"/>
                                             <segment title="Female"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="didSexChange:" destination="9xV-Iu-Svg" eventType="valueChanged" id="3xl-Ri-Yhi"/>
+                                        </connections>
                                     </segmentedControl>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="l3Y-0C-AL8">
                                         <rect key="frame" x="0.0" y="180.5" width="355" height="31"/>
@@ -951,6 +963,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QHC-l1-iEl">
                                                 <rect key="frame" x="306" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="didSocialChange:" destination="9xV-Iu-Svg" eventType="valueChanged" id="QLM-d0-UHf"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -959,6 +974,9 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="didNotesChange:" destination="9xV-Iu-Svg" eventType="editingChanged" id="iX4-OS-rhX"/>
+                                        </connections>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="khb-fp-44Q">
                                         <rect key="frame" x="0.0" y="271" width="355" height="30"/>
@@ -972,6 +990,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svg-Ul-df2">
                                                 <rect key="frame" x="306" y="0.0" width="49" height="30"/>
                                                 <state key="normal" title="Date In"/>
+                                                <connections>
+                                                    <action selector="didDateInChange:" destination="9xV-Iu-Svg" eventType="valueChanged" id="vOf-IY-7uR"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -987,6 +1008,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h8Y-lv-shc">
                                                 <rect key="frame" x="293" y="0.0" width="62" height="30"/>
                                                 <state key="normal" title="Date Out"/>
+                                                <connections>
+                                                    <action selector="didDateOutChange:" destination="9xV-Iu-Svg" eventType="valueChanged" id="sBA-w3-afk"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -1001,6 +1025,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jhn-bF-Klf">
                                                 <rect key="frame" x="306" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="didCheckInChange:" destination="9xV-Iu-Svg" eventType="valueChanged" id="wTW-Yo-NLU"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -1018,7 +1045,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="vYA-pg-h1A">
                                             <connections>
-                                                <segue destination="bYo-ZB-UXx" kind="unwind" unwindAction="saveEditAnimalWithSegue:" id="v5l-0K-pt2"/>
+                                                <segue destination="bYo-ZB-UXx" kind="unwind" identifier="unwindToShowAnimal" unwindAction="saveEditAnimalWithSegue:" id="v5l-0K-pt2"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

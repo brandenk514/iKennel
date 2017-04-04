@@ -32,14 +32,23 @@ class CurrentAnimalViewController: UIViewController {
         typeLabel.text = selected_animal.type
         sexLabel.text = selected_animal.sex
         breedLabel.text = selected_animal.breed
-        socialLabel.text = selected_animal.convertBoolToText()
+        socialLabel.text = selected_animal.socialToText()
         notesLabel.text = selected_animal.notes
         dateInLabel.text = selected_animal.getDMY_time(d: (selected_animal.reservation?.dateIn)!)
         dateOutLabel.text = selected_animal.getDMY_time(d: (selected_animal.reservation?.dateOut)!)
         checkedInLabel.text = selected_animal.checkedInToText()
-
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        nameLabel.text = selected_animal.name
+        typeLabel.text = selected_animal.type
+        sexLabel.text = selected_animal.sex
+        breedLabel.text = selected_animal.breed
+        socialLabel.text = selected_animal.socialToText()
+        notesLabel.text = selected_animal.notes
+        dateInLabel.text = selected_animal.getDMY_time(d: (selected_animal.reservation?.dateIn)!)
+        dateOutLabel.text = selected_animal.getDMY_time(d: (selected_animal.reservation?.dateOut)!)
+        checkedInLabel.text = selected_animal.checkedInToText()
     }
 
     override func didReceiveMemoryWarning() {

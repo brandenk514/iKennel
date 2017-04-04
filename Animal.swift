@@ -19,7 +19,7 @@ struct Animal {
         return self.reservation!
     }
     
-    func convertBoolToText() -> String {
+    func socialToText() -> String {
         if social {
             return "Yes"
         } else {
