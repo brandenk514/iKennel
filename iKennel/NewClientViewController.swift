@@ -70,12 +70,10 @@ class NewClientViewController: UIViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "addAnimal" {
-            let addAnimalVC = segue.destination as! AddAnimalViewController
-            addAnimalVC.animalTag = animalTag
-        } else {
+        super.prepare(for: segue, sender: sender)
+        switch(segue.identifier ?? "") {
+        case "unwindToClientTable": break
+        case "unwindSaveToClientTable":
             let clientTableVC = segue.destination as! ClientTableViewController
             clientTableVC.cFirst = firstname.text!
             clientTableVC.cLast = lastname.text!
@@ -83,6 +81,8 @@ class NewClientViewController: UIViewController {
             clientTableVC.cEmail = email.text!
             clientTableVC.cCellNum = cellnum.text!
             clientTableVC.animalArray = animalArray
+        default:
+            fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "Empty")")
         }
         
     }

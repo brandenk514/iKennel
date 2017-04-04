@@ -59,7 +59,7 @@
 		11B2C2D38FBD479F5EE3F735 /* ReservDatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservDatePickerViewController.swift; sourceTree = "<group>"; };
 		11B2C4D2AB345A94A532688A /* Animal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		11B2C6856FCF824D70B3D739 /* ReservationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationTableViewController.swift; sourceTree = "<group>"; };
-		11B2C68E1D816058531BB835 /* AddAnimalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAnimalViewController.swift; sourceTree = "<group>"; };
+		11B2C68E1D816058531BB835 /* AddAnimalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AddAnimalViewController.swift; sourceTree = "<group>"; };
 		11B2C6924647838DECAFA18E /* ClientTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ClientTableViewController.swift; sourceTree = "<group>"; usesTabs = 0; };
 		11B2C7A22FAB2F64C1240FF0 /* EditAnimalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAnimalViewController.swift; sourceTree = "<group>"; };
 		11B2C932DDA6ADD19D1B2E4E /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };

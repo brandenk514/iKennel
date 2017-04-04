@@ -9,16 +9,17 @@
 import UIKit
 
 class AddAnimalViewController: UIViewController {
-
+    
     @IBOutlet weak var animalName: UITextField!
     @IBOutlet weak var animalType: UISegmentedControl!
     @IBOutlet weak var animalBreed: UITextField!
     @IBOutlet weak var animalSex: UISegmentedControl!
     @IBOutlet weak var animalNotes: UITextField!
     @IBOutlet weak var socialSwitch: UISwitch!
+    @IBOutlet weak var checkedInSwitch: UISwitch!
+    
     @IBOutlet weak var dateInButton: UIButton!
     @IBOutlet weak var dateOutButton: UIButton!
-    @IBOutlet weak var checkedInSwitch: UISwitch!
     
     var dateIn_string = "Date In"
     var dateOut_string = "Date Out"
@@ -27,8 +28,6 @@ class AddAnimalViewController: UIViewController {
     var dateOut = Date()
     
     var dateTag = 0
-
-    var animalTag = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +41,7 @@ class AddAnimalViewController: UIViewController {
     }
 
     @IBAction func cancelDatePicker(segue:UIStoryboardSegue) { }
+    
     @IBAction func addDatePicker(segue:UIStoryboardSegue) {
         dateInButton.setTitle(dateIn_string, for: .normal)
         dateOutButton.setTitle(dateOut_string, for: .normal)
@@ -52,26 +52,25 @@ class AddAnimalViewController: UIViewController {
         performSegue(withIdentifier: "pickDate", sender: sender)
     }
     
+    func createAnimal() -> Animal {
+        return Animal(name: animalName.text!, type: animalType.titleForSegment(at: animalType.selectedSegmentIndex)!, sex: animalSex.titleForSegment(at: animalSex.selectedSegmentIndex)!, breed: animalBreed.text!, social: socialSwitch.isOn, reservation: Reservation(dateIn: dateIn, dateOut: dateOut, checkedIn: checkedInSwitch.isOn), notes: animalNotes.text!)
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "pickDate" {
+        super.prepare(for: segue, sender: sender)
+        switch(segue.identifier ?? "") {
+        case "pickDate":
             let datePickerVC = segue.destination as! DatePickerViewController
             datePickerVC.dateTag = dateTag
-        } else {
-            let newClientVC = segue.destination as! NewClientViewController
-            newClientVC.name = animalName.text!
-            newClientVC.type = animalType.titleForSegment(at: animalType.selectedSegmentIndex)!
-            newClientVC.breed = animalBreed.text!
-            newClientVC.sex = animalSex.titleForSegment(at: animalSex.selectedSegmentIndex)!
-            newClientVC.notes = animalNotes.text!
-            newClientVC.social = socialSwitch.isOn
-            newClientVC.dateIn = dateIn
-            newClientVC.dateOut = dateOut
-            newClientVC.checkedIn = checkedInSwitch.isOn
+        case "unwindToCurrentClient": break
+        case "unwindSaveToCurrentClient":
+            let currentClientVC = segue.destination as! CurrentClientViewController
+            currentClientVC.add_animal = createAnimal()
+        default:
+            fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "Empty")")
         }
     }
  

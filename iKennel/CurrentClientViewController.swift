@@ -14,13 +14,11 @@ class CurrentClientViewController: UIViewController {
     @IBOutlet weak var clientPhone: UILabel!
     @IBOutlet weak var clientAddress: UILabel!
     @IBOutlet weak var clientEmail: UILabel!
-
     @IBOutlet var animalButtons: [UIButton]!
-    @IBOutlet weak var clientStackView: UIStackView!
-    @IBOutlet weak var secondAnimalStack: UIStackView!
-    @IBOutlet weak var deleteButton: UIButton!
     
     var sel_animal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
+    
+    var add_animal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
     
     var cur_client = Client(fName: "", lName: "", address: "", email: "", cellNum: "", animals: [Animal]())
     
@@ -34,19 +32,8 @@ class CurrentClientViewController: UIViewController {
         clientPhone.text = cur_client.cellNum
         clientEmail.text = cur_client.email
         clientAddress.text = cur_client.address
+        setAnimalButtons()
         
-        for b in animalButtons {
-            let index = Int(animalButtons.index(of: b)!)
-            if index <= ((cur_client.animals?.count)! - 1) {
-                b.setTitle(cur_client.animals?[index].name, for: .normal)
-                b.tag = index
-            } else {
-                b.isHidden = true
-            }
-        }
-        if  (cur_client.animals?.count)! < 5 {
-            secondAnimalStack.isHidden = true
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -54,18 +41,11 @@ class CurrentClientViewController: UIViewController {
         clientPhone.text = cur_client.cellNum
         clientEmail.text = cur_client.email
         clientAddress.text = cur_client.address
-        for b in animalButtons {
-            let index = Int(animalButtons.index(of: b)!)
-            if index <= ((cur_client.animals?.count)! - 1) {
-                b.setTitle(cur_client.animals?[index].name, for: .normal)
-            } else {
-                b.isHidden = true
-            }
-        }
-        print(sel_animal)
+        setAnimalButtons()
+        print(add_animal)
     }
     
-    @IBAction func animalPressed(_ sender: UIButton) { // tags for buttons to reconginze which animal is being edited currently
+    @IBAction func animalPressed(_ sender: UIButton) {
         for a in cur_client.animals! {
             if (a.name ==  (sender.titleLabel?.text)!) {
                 sel_animal = a // need error check for empty
@@ -82,7 +62,9 @@ class CurrentClientViewController: UIViewController {
     
     @IBAction func unwindFromNewAnimal(segue:UIStoryboardSegue) { }
     
-    @IBAction func saveFromNewAnimal(segue:UIStoryboardSegue) { }
+    @IBAction func saveFromNewAnimal(segue:UIStoryboardSegue) {
+        cur_client.animals?.append(add_animal)
+    }
     
     @IBAction func unwindToCurrentClient(segue:UIStoryboardSegue) {
         cur_client.animals?[currentAnimalTag] = sel_animal
@@ -91,6 +73,21 @@ class CurrentClientViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setAnimalButtons() {
+        for b in animalButtons {
+            let index = Int(animalButtons.index(of: b)!)
+            if index <= ((cur_client.animals?.count)! - 1) {
+                b.isHidden = false
+                b.isEnabled = true
+                b.setTitle(cur_client.animals?[index].name, for: .normal)
+                b.tag = index
+            } else {
+                b.isHidden = true
+                b.isEnabled = false
+            }
+        }
     }
     
     // MARK: - Navigation

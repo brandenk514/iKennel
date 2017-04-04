@@ -263,8 +263,6 @@
                         <outlet property="clientEmail" destination="Nul-po-tDQ" id="U5g-uP-IlO"/>
                         <outlet property="clientName" destination="xBO-JM-Vzg" id="S6g-jZ-555"/>
                         <outlet property="clientPhone" destination="MsN-pp-Ol9" id="d2r-4n-yQP"/>
-                        <outlet property="clientStackView" destination="wiL-dc-oPb" id="tnL-ut-Nuz"/>
-                        <outlet property="secondAnimalStack" destination="IEw-lu-ktu" id="Jvi-aZ-2OG"/>
                         <outletCollection property="animalButtons" destination="PeK-JE-Mc4" collectionClass="NSMutableArray" id="4RS-tJ-cgK"/>
                         <outletCollection property="animalButtons" destination="J5N-Ih-6Kz" collectionClass="NSMutableArray" id="UPm-ie-kMe"/>
                         <outletCollection property="animalButtons" destination="dZ3-cC-j9a" collectionClass="NSMutableArray" id="xiM-gD-bYR"/>
@@ -427,12 +425,12 @@
                                     <navigationItem title="New Client" id="3a9-cT-vdU">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="2SX-Hl-fOL">
                                             <connections>
-                                                <segue destination="r0Q-9o-axm" kind="unwind" unwindAction="cancelNewClientWithSegue:" id="k6c-Cl-TJf"/>
+                                                <segue destination="r0Q-9o-axm" kind="unwind" identifier="unwindToClientTable" unwindAction="cancelNewClientWithSegue:" id="k6c-Cl-TJf"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="u5x-8u-jBL">
                                             <connections>
-                                                <segue destination="r0Q-9o-axm" kind="unwind" unwindAction="addNewClientWithSegue:" id="8Bp-Sa-4bB"/>
+                                                <segue destination="r0Q-9o-axm" kind="unwind" identifier="unwindSaveToClientTable" unwindAction="addNewClientWithSegue:" id="8Bp-Sa-4bB"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1188,7 +1186,7 @@
         <!--New Animal-->
         <scene sceneID="2nl-Pv-8Ke">
             <objects>
-                <viewController id="1UK-da-Ao5" userLabel="New Animal" sceneMemberID="viewController">
+                <viewController id="1UK-da-Ao5" userLabel="New Animal" customClass="AddAnimalViewController" customModule="iKennel" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zmn-t0-cSa"/>
                         <viewControllerLayoutGuide type="bottom" id="A8q-mQ-GTP"/>
@@ -1204,12 +1202,12 @@
                                     <navigationItem title="New Animal" id="meI-UD-lRo">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="PR5-fc-Wze">
                                             <connections>
-                                                <segue destination="xyo-mA-hzH" kind="unwind" unwindAction="unwindFromNewAnimalWithSegue:" id="cof-gm-5Op"/>
+                                                <segue destination="xyo-mA-hzH" kind="unwind" identifier="unwindToCurrentClient" unwindAction="unwindFromNewAnimalWithSegue:" id="cof-gm-5Op"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Ll2-Ng-We5">
                                             <connections>
-                                                <segue destination="xyo-mA-hzH" kind="unwind" unwindAction="saveFromNewAnimalWithSegue:" id="RXI-rM-QOK"/>
+                                                <segue destination="xyo-mA-hzH" kind="unwind" identifier="unwindSaveToCurrentClient" unwindAction="saveFromNewAnimalWithSegue:" id="RXI-rM-QOK"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1325,6 +1323,17 @@
                             <constraint firstAttribute="trailing" secondItem="UOU-rS-mdT" secondAttribute="trailing" constant="10" id="xSl-A6-GvL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="animalBreed" destination="eU1-v6-v9x" id="q7q-RX-v0J"/>
+                        <outlet property="animalName" destination="EKz-lU-ccC" id="0a5-My-Apd"/>
+                        <outlet property="animalNotes" destination="EKf-Vp-yGZ" id="MMA-uf-U9C"/>
+                        <outlet property="animalSex" destination="pUj-br-0LE" id="APy-7a-B77"/>
+                        <outlet property="animalType" destination="M4u-lY-Hpb" id="pHZ-N1-GOF"/>
+                        <outlet property="checkedInSwitch" destination="w5t-Dy-i40" id="jtA-xh-RMc"/>
+                        <outlet property="dateInButton" destination="2WE-mn-8Bs" id="JLn-Aa-77L"/>
+                        <outlet property="dateOutButton" destination="vWa-EZ-nGz" id="Zhb-WR-7YT"/>
+                        <outlet property="socialSwitch" destination="poW-gI-YBL" id="9eX-Xb-IkF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kcs-sQ-1bX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="xyo-mA-hzH" userLabel="Exit" sceneMemberID="exit"/>
