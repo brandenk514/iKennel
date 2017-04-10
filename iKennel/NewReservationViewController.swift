@@ -10,17 +10,19 @@ import UIKit
 
 class NewReservationViewController: UIViewController, UIPickerViewDelegate {
     
-    var clientList = [Contact]()
     var animalList = [Animal]()
-    var clients = [Client]()
-    @IBOutlet weak var clientPicker: UIPickerView!
+    var clientList = [Contact]()
+    
+    var selectedClient = Client(fName: "", lName: "", address: "", email: "", cellNum: "", animals: [Animal]())
+    
     @IBOutlet weak var animalPicker: UIPickerView!
+    @IBOutlet weak var selectClientButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getClientfromContacts()
-        self.clientPicker.dataSource = self as? UIPickerViewDataSource;
-        self.clientPicker.delegate = self
+        self.animalPicker.dataSource = self as? UIPickerViewDataSource;
+        self.animalPicker.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -29,16 +31,24 @@ class NewReservationViewController: UIViewController, UIPickerViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if selectedClient.lName != "" {
+            selectClientButton.setTitle(selectedClient.lName + ", " + selectedClient.fName, for: .normal)
+        }
+        loadAnimalsFromClient()
+        animalPicker.reloadAllComponents()
+    }
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return clients.count;
+        return animalList.count;
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return clients[row].lName + ", " + clients[row].fName
+        return animalList[row].name
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
@@ -46,16 +56,16 @@ class NewReservationViewController: UIViewController, UIPickerViewDelegate {
         
     }
     
-    func getClientfromContacts() {
-        for clientContact in clientList{
-            for c in clientContact.clients {
-                clients.append(c)
-            }
-        }
-        clients.sort { (c1, c2) -> Bool in
-            c1.lName < c2.lName
-        }
-        print(clients)
+    @IBAction func unwindToNewReserv(segue: UIStoryboardSegue) {
+        
+    }
+    
+    @IBAction func unwindSaveToNewReserv(segue: UIStoryboardSegue) {
+        
+    }
+    
+    func loadAnimalsFromClient() {
+        animalList = selectedClient.animals!
     }
     
     // MARK: - Navigation
@@ -68,6 +78,11 @@ class NewReservationViewController: UIViewController, UIPickerViewDelegate {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
         case "cancelNewReservation": break
+        case "selectClient":
+            guard let selectClientVC = segue.destination as? SelectClientViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            selectClientVC.clientList = clientList
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "Empty")")
         }

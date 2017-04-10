@@ -205,7 +205,6 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             newReservationVC.clientList = clients
-            newReservationVC.animalList = animals
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "Empty")")
         }
