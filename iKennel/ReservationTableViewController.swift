@@ -77,9 +77,18 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
     }
     
     @IBAction func addNewReservation(segue:UIStoryboardSegue) {
+        
     }
     
     @IBAction func cancelNewReservation(segue:UIStoryboardSegue) {
+    }
+    
+    @IBAction func unwindToReservTable(segue: UIStoryboardSegue) {
+        
+    }
+    
+    @IBAction func unwindSaveToReservTable(segue: UIStoryboardSegue) {
+        
     }
     
     func indexReservations() {
@@ -92,16 +101,11 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
         }
         for a in animals {
             var reserv = ReservationContact(date: a.getDMY(d: a.getReservation().dateIn), animals: [a])
-            for animal in clientAnimals {
-                var tempReserv = ReservationContact(date: a.getDMY(d: a.getReservation().dateIn), animals: [a])
-                if animal.date == a.getDMY(d: a.getReservation().dateIn) {
-                    tempReserv.add(animal: a)
-                }
-                reserv = tempReserv
+            if reserv.date == a.getDMY(d: a.getReservation().dateIn) {
+                reserv.add(animal: a)
             }
             clientAnimals.append(reserv)
         }
-        print(clientAnimals)
         dates = {
             return clientAnimals.map { $0.date }
         }()
@@ -176,8 +180,19 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "currentReservation" {
-            let currentReservationVC = segue.destination as! CurrentReservationViewController
+        switch(segue.identifier ?? "") {
+        case "currentReservation":
+            guard let currentReservationVC = segue.destination as? CurrentReservationViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedCell = sender as? ReservationTableViewCell else {
+                fatalError("Unexpected sender: \(sender ?? "Empty")")
+            }
+            
+            guard tableView.indexPath(for: selectedCell) != nil else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
             let index: Int = (self.tableView.indexPathForSelectedRow?.row)!
             let section: Int = (self.tableView.indexPathForSelectedRow?.section)!
             if shouldShowSearchResults {
@@ -185,7 +200,14 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
             } else {
                 currentReservationVC.cur_animal = clientAnimals[section].animals[index]
             }
-            
+        case "newReservation":
+            guard let newReservationVC = segue.destination as? NewReservationViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            newReservationVC.clientList = clients
+            newReservationVC.animalList = animals
+        default:
+            fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "Empty")")
         }
     }
     

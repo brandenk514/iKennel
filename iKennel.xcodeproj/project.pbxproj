@@ -28,6 +28,7 @@
 		536C5E5B1E4023E9001C7A2D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536C5E5A1E4023E9001C7A2D /* SettingsTableViewController.swift */; };
 		53B130651E38306E00268193 /* ReservationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B130641E38306E00268193 /* ReservationTableViewCell.swift */; };
 		53B130691E38384F00268193 /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B130681E38384F00268193 /* ClientTableViewCell.swift */; };
+		53C8447E1E9BE3D800814A24 /* NewReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C8447D1E9BE3D800814A24 /* NewReservationViewController.swift */; };
 		53FBBD091E1566E400734D66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53FBBD081E1566E400734D66 /* AppDelegate.swift */; };
 		53FBBD101E1566E400734D66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53FBBD0E1E1566E400734D66 /* Main.storyboard */; };
 		53FBBD121E1566E400734D66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53FBBD111E1566E400734D66 /* Assets.xcassets */; };
@@ -75,6 +76,7 @@
 		536C5E5A1E4023E9001C7A2D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		53B130641E38306E00268193 /* ReservationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationTableViewCell.swift; sourceTree = "<group>"; };
 		53B130681E38384F00268193 /* ClientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
+		53C8447D1E9BE3D800814A24 /* NewReservationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewReservationViewController.swift; sourceTree = "<group>"; };
 		53FBBD051E1566E400734D66 /* iKennel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iKennel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53FBBD081E1566E400734D66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53FBBD0F1E1566E400734D66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			children = (
 				11B2C02CF73BD74C4D1276D6 /* EditReservationViewController.swift */,
 				11B2C6856FCF824D70B3D739 /* ReservationTableViewController.swift */,
+				53C8447D1E9BE3D800814A24 /* NewReservationViewController.swift */,
 				11B2C2D38FBD479F5EE3F735 /* ReservDatePickerViewController.swift */,
 				11B2C1B8A932B1A1D7378ECD /* CurrentReservationViewController.swift */,
 			);
@@ -384,6 +387,7 @@
 				53FBBD091E1566E400734D66 /* AppDelegate.swift in Sources */,
 				11B2C3331F65681A21CCA6C0 /* Client.swift in Sources */,
 				11B2C4620E0DACE2D55E821E /* Animal.swift in Sources */,
+				53C8447E1E9BE3D800814A24 /* NewReservationViewController.swift in Sources */,
 				53B130651E38306E00268193 /* ReservationTableViewCell.swift in Sources */,
 				11B2C5D991BB19838E4533F5 /* Reservation.swift in Sources */,
 				5335E7361E899CF500E9FC51 /* Contact.swift in Sources */,
