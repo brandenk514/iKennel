@@ -22,6 +22,8 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
     var shouldShowSearchResults = false
     var searchController : UISearchController!
     
+    var newReservationEntry = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         indexReservations()

@@ -1655,6 +1655,9 @@
                     </view>
                     <connections>
                         <outlet property="animalPicker" destination="Gow-wZ-g3A" id="7u6-GA-3zs"/>
+                        <outlet property="checkedInSwitch" destination="fln-tF-8XQ" id="gx3-v7-lAm"/>
+                        <outlet property="dateInPicker" destination="B6P-yK-KRg" id="uoO-7w-tjG"/>
+                        <outlet property="dateOutPicker" destination="SwK-he-HAm" id="pqw-1v-NKS"/>
                         <outlet property="selectClientButton" destination="fQs-Nn-9Gx" id="K1P-NF-ang"/>
                     </connections>
                 </viewController>

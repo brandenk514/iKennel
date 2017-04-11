@@ -14,15 +14,18 @@ class NewReservationViewController: UIViewController, UIPickerViewDelegate {
     var clientList = [Contact]()
     
     var selectedClient = Client(fName: "", lName: "", address: "", email: "", cellNum: "", animals: [Animal]())
+    var selectedAnimal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
     
     @IBOutlet weak var animalPicker: UIPickerView!
     @IBOutlet weak var selectClientButton: UIButton!
+    @IBOutlet weak var dateInPicker: UIDatePicker!
+    @IBOutlet weak var dateOutPicker: UIDatePicker!
+    @IBOutlet weak var checkedInSwitch: UISwitch!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.animalPicker.dataSource = self as? UIPickerViewDataSource;
         self.animalPicker.delegate = self
-        
         // Do any additional setup after loading the view.
     }
 
@@ -36,6 +39,9 @@ class NewReservationViewController: UIViewController, UIPickerViewDelegate {
             selectClientButton.setTitle(selectedClient.lName + ", " + selectedClient.fName, for: .normal)
         }
         loadAnimalsFromClient()
+        if animalList.count != 0 {
+            selectedAnimal = animalList[0]
+        }
         animalPicker.reloadAllComponents()
     }
     
@@ -53,7 +59,7 @@ class NewReservationViewController: UIViewController, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        
+        selectedAnimal = animalList[row]
     }
     
     @IBAction func unwindToNewReserv(segue: UIStoryboardSegue) {
@@ -68,6 +74,10 @@ class NewReservationViewController: UIViewController, UIPickerViewDelegate {
         animalList = selectedClient.animals!
     }
     
+    func newReservation() {
+        selectedAnimal.reservation = Reservation(dateIn: dateInPicker.date, dateOut: dateOutPicker.date, checkedIn: checkedInSwitch.isOn)
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -77,6 +87,8 @@ class NewReservationViewController: UIViewController, UIPickerViewDelegate {
             guard let reservationTableVC = segue.destination as? ReservationTableViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
+            newReservation()
+            reservationTableVC.newReservationEntry = selectedAnimal
         case "cancelNewReservation": break
         case "selectClient":
             guard let selectClientVC = segue.destination as? SelectClientViewController else {
