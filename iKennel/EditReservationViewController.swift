@@ -41,7 +41,7 @@ class EditReservationViewController: UIViewController {
     @IBAction func addNewDate(_ sender: UIButton) {
         dateTag = sender.tag
         performSegue(withIdentifier: "reservDatePicker", sender: sender)
-        if dateTag == 1 { // Conditions are wrong need to fixed
+        if dateTag == 1 {
             current_animal.reservation?.dateIn = dateIn
         }
         if dateTag == 2 {

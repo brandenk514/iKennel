@@ -11,20 +11,15 @@ import UIKit
 class ReservationTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
     
     var clients = Client.loadAllClients()
-    
     var clientAnimals = [ReservationContact]()
-    
     var animals = [Animal]()
-    
     var dates: [String] = []
+    var newReservationEntry = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
+    var editReservation = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
     
     var filteredAnimals = [Animal]()
     var shouldShowSearchResults = false
     var searchController : UISearchController!
-    
-    var newReservationEntry = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
-    
-    var editReservation = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,19 +105,17 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
             for client in contact.clients {
                 for a in client.getAnimals() {
                     animals.append(a)
+                    var reserv = ReservationContact(date: a.getDMY(d: a.getReservation().dateIn), animals: [a])
+                    for animal in clientAnimals {
+                        var tempReserv = ReservationContact(date: a.getDMY(d: a.getReservation().dateIn), animals: [a])
+                        if animal.date == a.getDMY(d: a.getReservation().dateIn) {
+                            tempReserv.add(animal: a)
+                        }
+                        reserv = tempReserv
+                    }
+                    clientAnimals.append(reserv)
                 }
             }
-        }
-        for a in animals {
-            var reserv = ReservationContact(date: a.getDMY(d: a.getReservation().dateIn), animals: [a])
-            for animal in clientAnimals {
-                var tempReserv = ReservationContact(date: a.getDMY(d: a.getReservation().dateIn), animals: [a])
-                if animal.date == a.getDMY(d: a.getReservation().dateIn) {
-                    tempReserv.add(animal: a)
-                }
-                reserv = tempReserv
-            }
-            clientAnimals.append(reserv)
         }
         dates = {
             return clientAnimals.map { $0.date }
