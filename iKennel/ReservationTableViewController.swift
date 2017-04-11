@@ -24,6 +24,8 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
     
     var newReservationEntry = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
     
+    var editReservation = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         indexReservations()
@@ -79,18 +81,28 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
     }
     
     @IBAction func addNewReservation(segue:UIStoryboardSegue) {
-        
+        let reservDateIn = newReservationEntry.getDMY(d: (newReservationEntry.reservation?.dateIn)!)
+        for c in clientAnimals {
+            if reservDateIn == c.date {
+                //c.add(animal: newReservationEntry)
+            } else {
+                clientAnimals.append(ReservationContact(date: reservDateIn, animals: [newReservationEntry]))
+                break
+            }
+        }
+        indexReservations()
+        self.tableView.reloadData()
     }
     
-    @IBAction func cancelNewReservation(segue:UIStoryboardSegue) {
-    }
+    @IBAction func cancelNewReservation(segue:UIStoryboardSegue) { }
     
-    @IBAction func unwindToReservTable(segue: UIStoryboardSegue) {
-        
-    }
+    @IBAction func unwindToReservTable(segue: UIStoryboardSegue) { }
     
     @IBAction func unwindSaveToReservTable(segue: UIStoryboardSegue) {
-        
+        let index: Int = (self.tableView.indexPathForSelectedRow?.row)!
+        let section: Int = (self.tableView.indexPathForSelectedRow?.section)!
+        clientAnimals[section].animals[index] = editReservation
+        tableView.reloadData()
     }
     
     func indexReservations() {
@@ -103,8 +115,12 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
         }
         for a in animals {
             var reserv = ReservationContact(date: a.getDMY(d: a.getReservation().dateIn), animals: [a])
-            if reserv.date == a.getDMY(d: a.getReservation().dateIn) {
-                reserv.add(animal: a)
+            for animal in clientAnimals {
+                var tempReserv = ReservationContact(date: a.getDMY(d: a.getReservation().dateIn), animals: [a])
+                if animal.date == a.getDMY(d: a.getReservation().dateIn) {
+                    tempReserv.add(animal: a)
+                }
+                reserv = tempReserv
             }
             clientAnimals.append(reserv)
         }
@@ -180,8 +196,7 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
         switch(segue.identifier ?? "") {
         case "currentReservation":
             guard let currentReservationVC = segue.destination as? CurrentReservationViewController else {

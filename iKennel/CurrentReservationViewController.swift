@@ -43,18 +43,25 @@ class CurrentReservationViewController: UIViewController {
     
     @IBAction func edittingCurrentReservation(segue:UIStoryboardSegue) { }
     
-    @IBAction func cancelEdittingCurrentReservation(segue:UIStoryboardSegue) { }
-    
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "edittingCurrentReserv" {
-            let editCurrentReservVC = segue.destination as! EditReservationViewController
+        super.prepare(for: segue, sender: sender)
+        switch(segue.identifier ?? "") {
+        case "edittingCurrentReserv":
+            guard let editCurrentReservVC = segue.destination as? EditReservationViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
             editCurrentReservVC.current_animal = cur_animal
+        case "saveEditReservation":
+            guard let reservationTableVC = segue.destination as? ReservationTableViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            reservationTableVC.editReservation = cur_animal
+        default:
+            fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "Empty")")
         }
     }
     

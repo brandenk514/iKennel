@@ -59,6 +59,7 @@ class SelectClientViewController: UIViewController, UIPickerViewDelegate {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         switch(segue.identifier ?? "") {
         case "saveClientPick":
             guard let newReservationVC = segue.destination as? NewReservationViewController else {

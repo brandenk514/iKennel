@@ -41,10 +41,10 @@ class EditReservationViewController: UIViewController {
     @IBAction func addNewDate(_ sender: UIButton) {
         dateTag = sender.tag
         performSegue(withIdentifier: "reservDatePicker", sender: sender)
-        if dateIn != current_animal.getReservation().dateIn { // Conditions are wrong need to fixed
+        if dateTag == 1 { // Conditions are wrong need to fixed
             current_animal.reservation?.dateIn = dateIn
         }
-        if dateOut != current_animal.getReservation().dateOut {
+        if dateTag == 2 {
             current_animal.reservation?.dateOut = dateOut
         }
     }
@@ -57,8 +57,15 @@ class EditReservationViewController: UIViewController {
     @IBAction func cancelEditReservDate(segue:UIStoryboardSegue) { }
     
     @IBAction func saveEditReservDate(segue:UIStoryboardSegue) {
-        animal_DateIn.setTitle(dateIn_string, for: .normal)
-        animal_DateOut.setTitle(dateOut_string, for: .normal)
+        if dateTag == 1 {
+            current_animal.reservation?.dateIn = dateIn
+            animal_DateIn.setTitle(dateIn_string, for: .normal)
+        } else {
+            current_animal.reservation?.dateOut = dateOut
+            animal_DateOut.setTitle(dateOut_string, for: .normal)
+        }
+        
+        
     }
 
     @IBAction func didCheckInChange(_ sender: UISwitch) {
@@ -68,15 +75,21 @@ class EditReservationViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "reservDatePicker" {
-            let datePickerVC = segue.destination as! ReservDatePickerViewController
+        super.prepare(for: segue, sender: sender)
+        switch(segue.identifier ?? "") {
+        case "reservDatePicker":
+            guard let datePickerVC = segue.destination as? ReservDatePickerViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
             datePickerVC.dateTag = dateTag
-        } else {
-            let currentReservVC = segue.destination as! CurrentReservationViewController
+        case "saveEditReserv":
+            guard let currentReservVC = segue.destination as? CurrentReservationViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
             currentReservVC.cur_animal = current_animal
-            print(current_animal)
+        case "cancelEditReserv": break
+        default:
+            fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "Empty")")
         }
     }
     

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import os.log
 
 class ClientTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
     
@@ -113,8 +112,7 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
             if firstLetter == contact.letter {
                 contact.add(client: newClient)
             } else {
-                let tempContact = Contact(letter: firstLetter, clients: [newClient])
-                contacts.append(tempContact)
+                contacts.append(Contact(letter: firstLetter, clients: [newClient]))
                 break
             }
         }
