@@ -63,7 +63,9 @@ class AddAnimalViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
         switch(segue.identifier ?? "") {
         case "pickDate":
-            let datePickerVC = segue.destination as! DatePickerViewController
+            guard let datePickerVC = segue.destination as? NewAnimalDatePickerViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
             datePickerVC.dateTag = dateTag
         case "unwindToCurrentClient": break
         case "unwindSaveToCurrentClient":

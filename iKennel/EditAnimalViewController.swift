@@ -22,6 +22,14 @@ class EditAnimalViewController: UIViewController {
     @IBOutlet weak var dateOutButton: UIButton!
     @IBOutlet weak var checkedInSwitch: UISwitch!
     
+    var dateIn = Date()
+    var dateOut = Date()
+    
+    var dateTag = 0
+    
+    var dateIn_string = "Date In"
+    var dateOut_string = "Date Out"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,6 +54,8 @@ class EditAnimalViewController: UIViewController {
         
         dateInButton.setTitle(sel_animal.getDMY_time(d: sel_animal.getReservation().dateIn), for: .normal)
         dateOutButton.setTitle(sel_animal.getDMY_time(d: sel_animal.getReservation().dateOut), for: .normal)
+        sel_animal.reservation?.dateIn = dateIn
+        sel_animal.reservation?.dateOut = dateOut
         
         checkedInSwitch.isOn = sel_animal.getReservation().checkedIn
     }
@@ -91,9 +101,9 @@ class EditAnimalViewController: UIViewController {
         }
     }
     
-    @IBAction func didDateInChange(_ sender: UIButton) {
-    }
-    @IBAction func didDateOutChange(_ sender: UIButton) {
+    @IBAction func dateButtonPressed(_ sender: UIButton) {
+        dateTag = sender.tag
+        performSegue(withIdentifier: "editDatePicker", sender: sender)
     }
     
     @IBAction func didCheckInChange(_ sender: UISwitch) {
@@ -102,6 +112,17 @@ class EditAnimalViewController: UIViewController {
         }
     }
 
+    @IBAction func cancelEditAnimalDatePicker(segue:UIStoryboardSegue) { }
+    
+    @IBAction func addEditAnimalDatePicker(segue:UIStoryboardSegue) {
+        if dateTag == 1 {
+            sel_animal.reservation?.dateIn = dateIn
+            dateInButton.setTitle(dateIn_string, for: .normal)
+        } else {
+           sel_animal.reservation?.dateOut = dateOut
+           dateOutButton.setTitle(dateOut_string, for: .normal)
+        }
+    }
     
     // MARK: - Navigation
 
@@ -110,8 +131,16 @@ class EditAnimalViewController: UIViewController {
         super.prepare(for: segue, sender: sender)
         switch(segue.identifier ?? "") {
             case "unwindToShowAnimal":
-                let currentAnimalVC = segue.destination as! CurrentAnimalViewController
+                guard let currentAnimalVC = segue.destination as? CurrentAnimalViewController else {
+                    fatalError("Unexpected destination: \(segue.destination)")
+                }
                 currentAnimalVC.selected_animal = sel_animal
+            case "cancelEditAnimal": break
+            case "editDatePicker":
+                guard let editDatePickerVC = segue.destination as? EditAnimalDatePickerViewController else {
+                    fatalError("Unexpected destination: \(segue.destination)")
+                }
+                editDatePickerVC.dateTag = dateTag
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "Empty")")
             

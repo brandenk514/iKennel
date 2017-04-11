@@ -1,21 +1,21 @@
 //
-//  DatePickerViewController.swift
+//  NewAnimalDatePickerViewController.swift
 //  iKennel
 //
-//  Created by Branden Kaestner on 2/22/17.
+//  Created by Branden Kaestner on 4/10/17.
 //  Copyright © 2017 BK Development. All rights reserved.
 //
 
 import UIKit
 
-class DatePickerViewController: UIViewController {
-
-    @IBOutlet weak var datePicker: UIDatePicker!
+class NewAnimalDatePickerViewController: UIViewController {
     
     var dateTag = 0
-    
+    @IBOutlet weak var datePicker: UIDatePicker!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(dateTag)
         // Do any additional setup after loading the view.
     }
 
@@ -30,16 +30,15 @@ class DatePickerViewController: UIViewController {
         dateFormatter.timeStyle = .short
         return dateFormatter.string(from: cDate)
     }
+
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
         switch(segue.identifier ?? "") {
-        case "newAnimalDatePicker":
-            guard let addAnimalVC = segue.destination as? AddAnimalNewClientViewController else {
+        case "addNewAnimalDatePicker":
+            guard let addAnimalVC = segue.destination as? AddAnimalViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             if dateTag == 1 {
@@ -51,7 +50,7 @@ class DatePickerViewController: UIViewController {
             } else {
                 print("No date selected")
             }
-        case "cancelNewAnimalDatePicker": break
+        case "cancelAnimalDatePicker": break
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "Empty")")
         }
