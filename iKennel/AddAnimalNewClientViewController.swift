@@ -20,7 +20,9 @@ class AddAnimalNewClientViewController: UIViewController {
     @IBOutlet weak var dateOutButton: UIButton!
     @IBOutlet weak var checkedInSwitch: UISwitch!
     
+    @IBOutlet weak var errorLabel: UILabel!
     
+    @IBOutlet weak var doneButton: UIBarButtonItem!
     var dateIn_string = "Date In"
     var dateOut_string = "Date Out"
     
@@ -29,8 +31,15 @@ class AddAnimalNewClientViewController: UIViewController {
     
     var dateTag = 0
     
+    let bannedChars = CharacterSet(charactersIn: "0123456789./*+!@#$%^&*()_=`~;:'\"[]{}|,<>?")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        errorLabel.text = ""
+        
+        if animalName.text == "" {
+            doneButton.isEnabled = false
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -54,6 +63,38 @@ class AddAnimalNewClientViewController: UIViewController {
     
     func createAnimal() -> Animal {
         return Animal(name: animalName.text!, type: animalType.titleForSegment(at: animalType.selectedSegmentIndex)!, sex: animalSex.titleForSegment(at: animalSex.selectedSegmentIndex)!, breed: animalBreed.text!, social: socialSwitch.isOn, reservation: Reservation(dateIn: dateIn, dateOut: dateOut, checkedIn: checkedInSwitch.isOn), notes: animalNotes.text!)
+    }
+    
+    @IBAction func checkNameField(_ sender: UITextField) {
+        if animalName.text != "" {
+            if ((animalName.text?.rangeOfCharacter(from: bannedChars)) != nil) {
+                errorLabel.text = "Numbers or symbols not allowed in name field"
+                animalName.textColor = UIColor.red
+                doneButton.isEnabled = false
+            } else {
+                animalName.textColor = UIColor.black
+                errorLabel.text = ""
+                doneButton.isEnabled = true
+            }
+        } else {
+            errorLabel.text = "Animal name required"
+            animalName.textColor = UIColor.red
+            doneButton.isEnabled = false
+        }
+        
+    }
+    
+    @IBAction func checkBreedField(_ sender: UITextField) {
+        if ((animalBreed.text?.rangeOfCharacter(from: bannedChars)) != nil) {
+            errorLabel.text = "Numbers or symbols not allowed in breed field"
+            animalBreed.textColor = UIColor.red
+            doneButton.isEnabled = false
+        } else {
+            animalBreed.textColor = UIColor.black
+            errorLabel.text = ""
+            doneButton.isEnabled = true
+        }
+        
     }
     
     // MARK: - Navigation

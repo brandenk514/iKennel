@@ -17,6 +17,13 @@ class EditClientViewController: UIViewController {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var addressTF: UITextField!
 
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    let bannedChars = CharacterSet(charactersIn: "0123456789./*+!@#$%^&*()_=`~;:'\"[]{}|,<>?")
+    let bannedAddressChars = CharacterSet(charactersIn: "./*+!@#$%^&*()_=`~;:'\"[]{}|,<>?")
+    let bannedPhoneChars = CharacterSet.letters
+    
     var cur_client = Client(fName: "", lName: "", address: "", email: "", cellNum: "", animals: [Animal]())
 
     var selected_animal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
@@ -36,6 +43,12 @@ class EditClientViewController: UIViewController {
         addressTF.text = cur_client.address
         emailTF.text = cur_client.email
         cellNumTF.text = cur_client.cellNum
+        
+        errorLabel.text = ""
+        
+        if lastNameTF.text == "" || firstNameTF.text == "" || cellNumTF.text == "" {
+            saveButton.isEnabled = false
+        }
 
     }
 
@@ -72,6 +85,87 @@ class EditClientViewController: UIViewController {
         if addressTF.text! != cur_client.address {
             cur_client.address = addressTF.text!
         }
+    }
+    
+    @IBAction func checkfirstNameField(_ sender: UITextField) {
+        if firstNameTF.text != "" {
+            if ((firstNameTF.text?.rangeOfCharacter(from: bannedChars)) != nil) {
+                errorLabel.text = "Numbers and symbols are not allowed in firstname field"
+                firstNameTF.textColor = UIColor.red
+                saveButton.isEnabled = false
+            } else {
+                firstNameTF.textColor = UIColor.black
+                errorLabel.text = ""
+                saveButton.isEnabled = true
+            }
+        } else {
+            errorLabel.text = "A firstname is required"
+            saveButton.isEnabled = false
+        }
+    }
+    
+    @IBAction func checkLastNameField(_ sender: UITextField) {
+        if lastNameTF.text != "" {
+            if ((lastNameTF.text?.rangeOfCharacter(from: bannedChars)) != nil) {
+                errorLabel.text = "Numbers and symbols are not allowed in lastname field"
+                lastNameTF.textColor = UIColor.red
+                saveButton.isEnabled = false
+            } else {
+                errorLabel.text = "^"
+                saveButton.isEnabled = true
+                lastNameTF.textColor = UIColor.black
+            }
+        } else {
+            errorLabel.text = "A lastname is required"
+            saveButton.isEnabled = false
+        }
+    }
+    
+    @IBAction func checkCellNumField(_ sender: UITextField) {
+        if cellNumTF.text != "" {
+            if ((cellNumTF.text?.rangeOfCharacter(from: bannedPhoneChars)) != nil) {
+                errorLabel.text = "Letters not allowed in Cell Number field"
+                saveButton.isEnabled = false
+                cellNumTF.textColor = UIColor.red
+            } else {
+                errorLabel.text = ""
+                saveButton.isEnabled = true
+                cellNumTF.textColor = UIColor.black
+            }
+        } else {
+            errorLabel.text = "A cell number is required"
+            saveButton.isEnabled = false
+        }
+    }
+    
+    @IBAction func checkEmailField(_ sender: UITextField) {
+        if !isValidEmail(email: emailTF.text!) {
+            errorLabel.text = "Email is not valid"
+            saveButton.isEnabled = false
+            emailTF.textColor = UIColor.red
+        } else {
+            errorLabel.text = ""
+            saveButton.isEnabled = true
+            emailTF.textColor = UIColor.black
+        }
+    }
+    
+    @IBAction func checkAddressField(_ sender: UITextField) {
+        if ((addressTF.text?.rangeOfCharacter(from: bannedAddressChars)) != nil) {
+            errorLabel.text = "Symbols are not allowed in address field"
+            saveButton.isEnabled = false
+            addressTF.textColor = UIColor.red
+        } else {
+            errorLabel.text = ""
+            saveButton.isEnabled = true
+            addressTF.textColor = UIColor.black
+        }
+    }
+    
+    func isValidEmail(email:String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailCheck = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailCheck.evaluate(with: email)
     }
 
     // MARK: - Navigation

@@ -40,6 +40,9 @@ class NewClientViewController: UIViewController {
         cellnum.delegate = self as? UITextFieldDelegate
         
         errorLabel.text = ""
+        if lastname.text == "" || firstname.text == "" || cellnum.text == "" {
+            saveButton.isEnabled = false
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -67,38 +70,53 @@ class NewClientViewController: UIViewController {
     
     
     @IBAction func checkfirstNameField(_ sender: UITextField) {
-        if ((firstname.text?.rangeOfCharacter(from: bannedChars)) != nil) {
-            errorLabel.text = "Numbers not allowed in firstname field"
-            firstname.textColor = UIColor.red
-            saveButton.isEnabled = false
+        if firstname.text != "" {
+            if ((firstname.text?.rangeOfCharacter(from: bannedChars)) != nil) {
+                errorLabel.text = "Numbers not allowed in firstname field"
+                firstname.textColor = UIColor.red
+                saveButton.isEnabled = false
+            } else {
+                firstname.textColor = UIColor.black
+                errorLabel.text = ""
+                saveButton.isEnabled = true
+            }
         } else {
-            firstname.textColor = UIColor.black
-            errorLabel.text = ""
-            saveButton.isEnabled = true
+            errorLabel.text = "A firstname is required"
+            saveButton.isEnabled = false
         }
     }
     
     @IBAction func checkLastNameField(_ sender: UITextField) {
-        if ((lastname.text?.rangeOfCharacter(from: bannedChars)) != nil) {
-            errorLabel.text = "Numbers not allowed in lastname field"
-            lastname.textColor = UIColor.red
-            saveButton.isEnabled = false
+        if lastname.text != "" {
+            if ((lastname.text?.rangeOfCharacter(from: bannedChars)) != nil) {
+                errorLabel.text = "Numbers not allowed in lastname field"
+                lastname.textColor = UIColor.red
+                saveButton.isEnabled = false
+            } else {
+                errorLabel.text = ""
+                saveButton.isEnabled = true
+                lastname.textColor = UIColor.black
+            }
         } else {
-            errorLabel.text = ""
-            saveButton.isEnabled = true
-            lastname.textColor = UIColor.black
+            errorLabel.text = "A lastname is required"
+            saveButton.isEnabled = false
         }
     }
     
     @IBAction func checkCellNumField(_ sender: UITextField) {
-        if ((cellnum.text?.rangeOfCharacter(from: bannedPhoneChars)) != nil) {
-            errorLabel.text = "Letters not allowed in Cell Number field"
-            saveButton.isEnabled = false
-            cellnum.textColor = UIColor.red
+        if cellnum.text != "" {
+            if ((cellnum.text?.rangeOfCharacter(from: bannedPhoneChars)) != nil) {
+                errorLabel.text = "Letters not allowed in Cell Number field"
+                saveButton.isEnabled = false
+                cellnum.textColor = UIColor.red
+            } else {
+                errorLabel.text = ""
+                saveButton.isEnabled = true
+                cellnum.textColor = UIColor.black
+            }
         } else {
-            errorLabel.text = ""
-            saveButton.isEnabled = true
-            cellnum.textColor = UIColor.black
+            errorLabel.text = "A cell number is required"
+            saveButton.isEnabled = false
         }
     }
     
