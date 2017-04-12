@@ -107,11 +107,10 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
                     animals.append(a)
                     var reserv = ReservationContact(date: a.getDMY(d: a.getReservation().dateIn), animals: [a])
                     for animal in clientAnimals {
-                        var tempReserv = ReservationContact(date: a.getDMY(d: a.getReservation().dateIn), animals: [a])
                         if animal.date == a.getDMY(d: a.getReservation().dateIn) {
-                            tempReserv.add(animal: a)
+                            reserv.add(animal: a)
                         }
-                        reserv = tempReserv
+                        
                     }
                     clientAnimals.append(reserv)
                 }

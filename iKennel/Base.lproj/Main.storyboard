@@ -292,130 +292,146 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="EFv-2m-9Uq" userLabel="Full Stack View">
-                                <rect key="frame" x="10" y="75" width="355" height="392"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uHs-MX-4bc" userLabel="Client Stack View">
+                                <rect key="frame" x="10" y="70" width="355" height="577"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uHs-MX-4bc" userLabel="Client Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="392"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Firstname" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yl5-zO-8Ga">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="59.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                        <connections>
+                                            <action selector="checkfirstNameField:" destination="FXb-Fi-nAv" eventType="editingDidEnd" id="Ric-a4-tU9"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lastname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7fD-mO-Mc8">
+                                        <rect key="frame" x="0.0" y="64.5" width="355" height="60"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                        <connections>
+                                            <action selector="checkLastNameField:" destination="FXb-Fi-nAv" eventType="editingDidEnd" id="Vup-gm-J0P"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cell Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6AB-oH-KTQ">
+                                        <rect key="frame" x="0.0" y="129.5" width="355" height="59.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <action selector="checkCellNumField:" destination="FXb-Fi-nAv" eventType="editingDidEnd" id="KtQ-3z-Eyl"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lxj-tR-3GT">
+                                        <rect key="frame" x="0.0" y="194" width="355" height="59.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress"/>
+                                        <connections>
+                                            <action selector="checkEmailField:" destination="FXb-Fi-nAv" eventType="editingDidEnd" id="yPX-mP-pcN"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yxj-5H-hTP">
+                                        <rect key="frame" x="0.0" y="258.5" width="355" height="60"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <action selector="checkAddressField:" destination="FXb-Fi-nAv" eventType="editingDidEnd" id="LMW-zc-smj"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animals" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lih-3b-dcT">
+                                        <rect key="frame" x="0.0" y="323.5" width="355" height="59.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" tag="1" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MOP-1w-s3O" userLabel="Animal Stack View">
+                                        <rect key="frame" x="0.0" y="388" width="355" height="59.5"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Firstname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yl5-zO-8Ga">
-                                                <rect key="frame" x="0.0" y="0.0" width="355" height="39"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                                            </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lastname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7fD-mO-Mc8">
-                                                <rect key="frame" x="0.0" y="49" width="355" height="39.5"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                                            </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yxj-5H-hTP">
-                                                <rect key="frame" x="0.0" y="98.5" width="355" height="39"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lxj-tR-3GT">
-                                                <rect key="frame" x="0.0" y="147.5" width="355" height="39"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cell Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6AB-oH-KTQ">
-                                                <rect key="frame" x="0.0" y="196.5" width="355" height="39"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animals" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lih-3b-dcT">
-                                                <rect key="frame" x="0.0" y="245.5" width="355" height="27"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" tag="1" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MOP-1w-s3O" userLabel="Animal Stack View">
-                                                <rect key="frame" x="0.0" y="282.5" width="355" height="39"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEJ-bi-1dZ">
-                                                        <rect key="frame" x="0.0" y="4.5" width="60" height="30"/>
-                                                        <state key="normal" title="+ Animal"/>
-                                                        <connections>
-                                                            <segue destination="Y9d-ld-i9u" kind="presentation" identifier="addAnimal" modalTransitionStyle="crossDissolve" id="2gQ-jO-LCo"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grx-MN-Y7G">
-                                                        <rect key="frame" x="74" y="4.5" width="60" height="30"/>
-                                                        <state key="normal" title="+ Animal"/>
-                                                        <connections>
-                                                            <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="1bH-rO-AVL"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNE-gV-nCC">
-                                                        <rect key="frame" x="147.5" y="4.5" width="60" height="30"/>
-                                                        <state key="normal" title="+ Animal"/>
-                                                        <connections>
-                                                            <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="7zc-Af-LLC"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NnH-aI-RYl">
-                                                        <rect key="frame" x="221.5" y="4.5" width="60" height="30"/>
-                                                        <state key="normal" title="+ Animal"/>
-                                                        <connections>
-                                                            <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="mJQ-MZ-IKO"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8A-mp-FKn">
-                                                        <rect key="frame" x="295" y="4.5" width="60" height="30"/>
-                                                        <state key="normal" title="+ Animal"/>
-                                                        <connections>
-                                                            <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="CTW-di-Ds7"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" tag="1" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3iD-l5-isL" userLabel="Animal2 Stack View">
-                                                <rect key="frame" x="0.0" y="331.5" width="355" height="60.5"/>
-                                                <subviews>
-                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUa-Ki-MMs">
-                                                        <rect key="frame" x="0.0" y="15.5" width="60" height="30"/>
-                                                        <state key="normal" title="+ Animal"/>
-                                                        <connections>
-                                                            <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="y18-ox-fTT"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ano-dV-Ecf">
-                                                        <rect key="frame" x="74" y="15.5" width="60" height="30"/>
-                                                        <state key="normal" title="+ Animal"/>
-                                                        <connections>
-                                                            <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="UFF-CX-4H3"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Za9-Mf-6Hy">
-                                                        <rect key="frame" x="147.5" y="15.5" width="60" height="30"/>
-                                                        <state key="normal" title="+ Animal"/>
-                                                        <connections>
-                                                            <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="98G-7W-DHQ"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whi-uO-ucn">
-                                                        <rect key="frame" x="221.5" y="15.5" width="60" height="30"/>
-                                                        <state key="normal" title="+ Animal"/>
-                                                        <connections>
-                                                            <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="ilb-oV-6X4"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dui-0B-BUw">
-                                                        <rect key="frame" x="295" y="15.5" width="60" height="30"/>
-                                                        <state key="normal" title="+ Animal"/>
-                                                        <connections>
-                                                            <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="Yvf-vd-lpv"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEJ-bi-1dZ">
+                                                <rect key="frame" x="0.0" y="15" width="60" height="30"/>
+                                                <state key="normal" title="+ Animal"/>
+                                                <connections>
+                                                    <segue destination="Y9d-ld-i9u" kind="presentation" identifier="addAnimal" modalTransitionStyle="crossDissolve" id="2gQ-jO-LCo"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grx-MN-Y7G">
+                                                <rect key="frame" x="74" y="15" width="60" height="30"/>
+                                                <state key="normal" title="+ Animal"/>
+                                                <connections>
+                                                    <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="1bH-rO-AVL"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNE-gV-nCC">
+                                                <rect key="frame" x="147.5" y="15" width="60" height="30"/>
+                                                <state key="normal" title="+ Animal"/>
+                                                <connections>
+                                                    <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="7zc-Af-LLC"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NnH-aI-RYl">
+                                                <rect key="frame" x="221.5" y="15" width="60" height="30"/>
+                                                <state key="normal" title="+ Animal"/>
+                                                <connections>
+                                                    <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="mJQ-MZ-IKO"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8A-mp-FKn">
+                                                <rect key="frame" x="295" y="15" width="60" height="30"/>
+                                                <state key="normal" title="+ Animal"/>
+                                                <connections>
+                                                    <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="CTW-di-Ds7"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" tag="1" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3iD-l5-isL" userLabel="Animal2 Stack View">
+                                        <rect key="frame" x="0.0" y="452.5" width="355" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUa-Ki-MMs">
+                                                <rect key="frame" x="0.0" y="15" width="60" height="30"/>
+                                                <state key="normal" title="+ Animal"/>
+                                                <connections>
+                                                    <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="y18-ox-fTT"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ano-dV-Ecf">
+                                                <rect key="frame" x="74" y="15" width="60" height="30"/>
+                                                <state key="normal" title="+ Animal"/>
+                                                <connections>
+                                                    <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="UFF-CX-4H3"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Za9-Mf-6Hy">
+                                                <rect key="frame" x="147.5" y="15" width="60" height="30"/>
+                                                <state key="normal" title="+ Animal"/>
+                                                <connections>
+                                                    <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="98G-7W-DHQ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whi-uO-ucn">
+                                                <rect key="frame" x="221.5" y="15" width="60" height="30"/>
+                                                <state key="normal" title="+ Animal"/>
+                                                <connections>
+                                                    <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="ilb-oV-6X4"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dui-0B-BUw">
+                                                <rect key="frame" x="295" y="15" width="60" height="30"/>
+                                                <state key="normal" title="+ Animal"/>
+                                                <connections>
+                                                    <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="Yvf-vd-lpv"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wci-mH-ptq">
+                                        <rect key="frame" x="0.0" y="517.5" width="355" height="59.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" red="0.98008292910000006" green="0.27416455750000002" blue="0.19885051249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0lt-ZV-lRp">
@@ -439,28 +455,30 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="EFv-2m-9Uq" secondAttribute="trailing" constant="10" id="6qu-a1-lrZ"/>
-                            <constraint firstItem="EFv-2m-9Uq" firstAttribute="top" secondItem="sJp-J1-QmU" secondAttribute="topMargin" constant="75" id="D8x-qd-9Rd"/>
-                            <constraint firstItem="EFv-2m-9Uq" firstAttribute="leading" secondItem="sJp-J1-QmU" secondAttribute="leading" constant="10" id="K11-dt-s2m"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="EFv-2m-9Uq" secondAttribute="bottom" constant="200" id="utj-in-MuH"/>
+                            <constraint firstItem="uHs-MX-4bc" firstAttribute="top" secondItem="sJp-J1-QmU" secondAttribute="topMargin" constant="70" id="47a-Bl-haJ"/>
+                            <constraint firstItem="uHs-MX-4bc" firstAttribute="leading" secondItem="sJp-J1-QmU" secondAttribute="leading" constant="10" id="HFd-cm-pwg"/>
+                            <constraint firstAttribute="trailing" secondItem="uHs-MX-4bc" secondAttribute="trailing" constant="10" id="OuG-Hl-Nsd"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="uHs-MX-4bc" secondAttribute="bottom" constant="20" id="QPR-aE-tOn"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="address" destination="yxj-5H-hTP" id="FuZ-o8-ykI"/>
                         <outlet property="cellnum" destination="6AB-oH-KTQ" id="LLR-FD-D36"/>
                         <outlet property="email" destination="lxj-tR-3GT" id="0ig-X6-Jqp"/>
+                        <outlet property="errorLabel" destination="Wci-mH-ptq" id="dXC-XW-zLI"/>
                         <outlet property="firstname" destination="yl5-zO-8Ga" id="5ZJ-6m-5uD"/>
                         <outlet property="lastname" destination="7fD-mO-Mc8" id="rBY-Re-B16"/>
-                        <outletCollection property="addAnimalButtons" destination="GEJ-bi-1dZ" collectionClass="NSMutableArray" id="vrL-tu-aQg"/>
-                        <outletCollection property="addAnimalButtons" destination="grx-MN-Y7G" collectionClass="NSMutableArray" id="u6K-7Y-att"/>
-                        <outletCollection property="addAnimalButtons" destination="KNE-gV-nCC" collectionClass="NSMutableArray" id="0Uj-on-8h8"/>
+                        <outlet property="saveButton" destination="u5x-8u-jBL" id="dW9-tr-uvM"/>
                         <outletCollection property="addAnimalButtons" destination="NnH-aI-RYl" collectionClass="NSMutableArray" id="gSv-FM-CzK"/>
-                        <outletCollection property="addAnimalButtons" destination="S8A-mp-FKn" collectionClass="NSMutableArray" id="Ucr-c0-YFc"/>
-                        <outletCollection property="addAnimalButtons" destination="jUa-Ki-MMs" collectionClass="NSMutableArray" id="U5C-ne-sK9"/>
-                        <outletCollection property="addAnimalButtons" destination="Ano-dV-Ecf" collectionClass="NSMutableArray" id="uYE-aW-V13"/>
-                        <outletCollection property="addAnimalButtons" destination="Za9-Mf-6Hy" collectionClass="NSMutableArray" id="aSy-By-hsb"/>
                         <outletCollection property="addAnimalButtons" destination="whi-uO-ucn" collectionClass="NSMutableArray" id="GkE-3f-Rg1"/>
+                        <outletCollection property="addAnimalButtons" destination="GEJ-bi-1dZ" collectionClass="NSMutableArray" id="vrL-tu-aQg"/>
                         <outletCollection property="addAnimalButtons" destination="Dui-0B-BUw" collectionClass="NSMutableArray" id="DBE-Pe-fHy"/>
+                        <outletCollection property="addAnimalButtons" destination="jUa-Ki-MMs" collectionClass="NSMutableArray" id="U5C-ne-sK9"/>
+                        <outletCollection property="addAnimalButtons" destination="KNE-gV-nCC" collectionClass="NSMutableArray" id="0Uj-on-8h8"/>
+                        <outletCollection property="addAnimalButtons" destination="grx-MN-Y7G" collectionClass="NSMutableArray" id="u6K-7Y-att"/>
+                        <outletCollection property="addAnimalButtons" destination="Za9-Mf-6Hy" collectionClass="NSMutableArray" id="aSy-By-hsb"/>
+                        <outletCollection property="addAnimalButtons" destination="Ano-dV-Ecf" collectionClass="NSMutableArray" id="uYE-aW-V13"/>
+                        <outletCollection property="addAnimalButtons" destination="S8A-mp-FKn" collectionClass="NSMutableArray" id="Ucr-c0-YFc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dej-Uo-iWW" userLabel="First Responder" sceneMemberID="firstResponder"/>

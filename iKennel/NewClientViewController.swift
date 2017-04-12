@@ -16,6 +16,8 @@ class NewClientViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var cellnum: UITextField!
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet var addAnimalButtons: [UIButton]!
     
     var newAnimal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
@@ -24,9 +26,20 @@ class NewClientViewController: UIViewController {
 
     var animalArray = [Animal]()
     
+    let bannedChars = CharacterSet(charactersIn: "0123456789./*+!@#$%^&*()_=`~;:'\"[]{}|,<>?")
+    let bannedAddressChars = CharacterSet(charactersIn: "./*+!@#$%^&*()_=`~;:'\"[]{}|,<>?")
+    let bannedPhoneChars = CharacterSet.letters
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        firstname.delegate = self as? UITextFieldDelegate
+        lastname.delegate = self as? UITextFieldDelegate
+        address.delegate = self as? UITextFieldDelegate
+        email.delegate = self as? UITextFieldDelegate
+        cellnum.delegate = self as? UITextFieldDelegate
+        
+        errorLabel.text = ""
         // Do any additional setup after loading the view.
     }
     
@@ -51,7 +64,74 @@ class NewClientViewController: UIViewController {
         performSegue(withIdentifier: "addAnimal", sender: sender)
         animalTag = sender.tag
     }
-
+    
+    
+    @IBAction func checkfirstNameField(_ sender: UITextField) {
+        if ((firstname.text?.rangeOfCharacter(from: bannedChars)) != nil) {
+            errorLabel.text = "Numbers not allowed in firstname field"
+            firstname.textColor = UIColor.red
+            saveButton.isEnabled = false
+        } else {
+            firstname.textColor = UIColor.black
+            errorLabel.text = ""
+            saveButton.isEnabled = true
+        }
+    }
+    
+    @IBAction func checkLastNameField(_ sender: UITextField) {
+        if ((lastname.text?.rangeOfCharacter(from: bannedChars)) != nil) {
+            errorLabel.text = "Numbers not allowed in lastname field"
+            lastname.textColor = UIColor.red
+            saveButton.isEnabled = false
+        } else {
+            errorLabel.text = ""
+            saveButton.isEnabled = true
+            lastname.textColor = UIColor.black
+        }
+    }
+    
+    @IBAction func checkCellNumField(_ sender: UITextField) {
+        if ((cellnum.text?.rangeOfCharacter(from: bannedPhoneChars)) != nil) {
+            errorLabel.text = "Letters not allowed in Cell Number field"
+            saveButton.isEnabled = false
+            cellnum.textColor = UIColor.red
+        } else {
+            errorLabel.text = ""
+            saveButton.isEnabled = true
+            cellnum.textColor = UIColor.black
+        }
+    }
+    
+    @IBAction func checkEmailField(_ sender: UITextField) {
+        if !isValidEmail(email: email.text!) {
+            errorLabel.text = "Email is not valid"
+            saveButton.isEnabled = false
+            email.textColor = UIColor.red
+        } else {
+            errorLabel.text = ""
+            saveButton.isEnabled = true
+            email.textColor = UIColor.black
+        }
+    }
+    
+    @IBAction func checkAddressField(_ sender: UITextField) {
+        if ((address.text?.rangeOfCharacter(from: bannedAddressChars)) != nil) {
+            errorLabel.text = "Symbols are not allowed in address field"
+            saveButton.isEnabled = false
+            address.textColor = UIColor.red
+        } else {
+            errorLabel.text = ""
+            saveButton.isEnabled = true
+            address.textColor = UIColor.black
+        }
+    }
+    
+    func isValidEmail(email:String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailCheck = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailCheck.evaluate(with: email)
+    }
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
