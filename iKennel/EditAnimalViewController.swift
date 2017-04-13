@@ -10,7 +10,7 @@ import UIKit
 
 class EditAnimalViewController: UIViewController {
 
-    var sel_animal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
+    var sel_animal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: nil, notes: "")
 
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var typeSelector: UISegmentedControl!
@@ -32,7 +32,6 @@ class EditAnimalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         nameField.delegate = self as? UITextFieldDelegate
         breedField.delegate = self as? UITextFieldDelegate
         notesField.delegate = self as? UITextFieldDelegate
@@ -41,12 +40,11 @@ class EditAnimalViewController: UIViewController {
         if nameField.text!.isEmpty { nameField.placeholder = "Name" }
         
         typeSelector.selectedSegmentIndex = sel_animal.setTypeSelectorIndex()
-        
         breedField.text = sel_animal.breed
+        
         if breedField.text!.isEmpty { breedField.placeholder = "Breed" }
         
         sexSelector.selectedSegmentIndex = sel_animal.setSexSelectorIndex()
-        
         socialSwitch.isOn = sel_animal.social
         
         notesField.text = sel_animal.notes
@@ -54,10 +52,9 @@ class EditAnimalViewController: UIViewController {
         
         dateInButton.setTitle(sel_animal.getDMY_time(d: sel_animal.getReservation().dateIn), for: .normal)
         dateOutButton.setTitle(sel_animal.getDMY_time(d: sel_animal.getReservation().dateOut), for: .normal)
-        sel_animal.reservation?.dateIn = dateIn
-        sel_animal.reservation?.dateOut = dateOut
-        
-        checkedInSwitch.isOn = sel_animal.getReservation().checkedIn
+        checkedInSwitch.isOn = sel_animal.getReservation().checkedIn        
+        dateIn = (sel_animal.reservation?.dateIn)!
+        dateOut = (sel_animal.reservation?.dateOut)!
     }
 
     override func didReceiveMemoryWarning() {
@@ -118,7 +115,7 @@ class EditAnimalViewController: UIViewController {
         if dateTag == 1 {
             sel_animal.reservation?.dateIn = dateIn
             dateInButton.setTitle(dateIn_string, for: .normal)
-        } else {
+        } else if dateTag == 2 {
            sel_animal.reservation?.dateOut = dateOut
            dateOutButton.setTitle(dateOut_string, for: .normal)
         }
@@ -130,17 +127,19 @@ class EditAnimalViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         switch(segue.identifier ?? "") {
-            case "unwindToShowAnimal":
-                guard let currentAnimalVC = segue.destination as? CurrentAnimalViewController else {
-                    fatalError("Unexpected destination: \(segue.destination)")
-                }
-                currentAnimalVC.selected_animal = sel_animal
-            case "cancelEditAnimal": break
-            case "editDatePicker":
-                guard let editDatePickerVC = segue.destination as? EditAnimalDatePickerViewController else {
-                    fatalError("Unexpected destination: \(segue.destination)")
-                }
-                editDatePickerVC.dateTag = dateTag
+        case "cancelEditAnimal": break
+        case "editDatePicker":
+            guard let editDatePickerVC = segue.destination as? EditAnimalDatePickerViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            editDatePickerVC.dateTag = dateTag
+            editDatePickerVC.editDatePickerdateIn = dateIn
+            editDatePickerVC.editDatePickerdateOut = dateOut
+        case "unwindToShowAnimal":
+            guard let currentAnimalVC = segue.destination as? CurrentAnimalViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            currentAnimalVC.selected_animal = sel_animal
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "Empty")")
             

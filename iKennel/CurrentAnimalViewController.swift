@@ -22,8 +22,6 @@ class CurrentAnimalViewController: UIViewController {
     
     var selected_animal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
     
-    var current_client = Client(fName: "", lName: "", address: "", email: "", cellNum: "", animals: [Animal]())
-    
     var animalTag = 0
 
     override func viewDidLoad() {

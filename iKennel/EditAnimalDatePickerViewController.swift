@@ -11,12 +11,13 @@ import UIKit
 class EditAnimalDatePickerViewController: UIViewController {
     
     var dateTag = 0
+    var editDatePickerdateIn = Date()
+    var editDatePickerdateOut = Date()
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,6 +32,13 @@ class EditAnimalDatePickerViewController: UIViewController {
         return dateFormatter.string(from: cDate)
     }
     
+    func chooseDate() {
+        if dateTag == 1 {
+            editDatePickerdateIn = datePicker.date
+        } else if dateTag == 2  {
+            editDatePickerdateOut = datePicker.date
+        }
+    }
     
     // MARK: - Navigation
 
@@ -41,15 +49,11 @@ class EditAnimalDatePickerViewController: UIViewController {
             guard let editAnimalVC = segue.destination as? EditAnimalViewController else {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
-            if dateTag == 1 {
-                editAnimalVC.dateIn = datePicker.date
-                editAnimalVC.dateIn_string = formatDateToString(cDate: datePicker.date)
-            } else if dateTag == 2 {
-                editAnimalVC.dateOut = datePicker.date
-                editAnimalVC.dateOut_string = formatDateToString(cDate: datePicker.date)
-            } else {
-                print("No date selected")
-            }
+            chooseDate()
+            editAnimalVC.dateIn = editDatePickerdateIn
+            editAnimalVC.dateIn_string = formatDateToString(cDate: editDatePickerdateIn)
+            editAnimalVC.dateOut = editDatePickerdateOut
+            editAnimalVC.dateOut_string = formatDateToString(cDate: editDatePickerdateOut)
         case "unwindToEditAnimal": break
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "Empty")")

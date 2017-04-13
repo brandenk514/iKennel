@@ -1032,7 +1032,6 @@
                                                 <state key="normal" title="Date In"/>
                                                 <connections>
                                                     <action selector="dateButtonPressed:" destination="9xV-Iu-Svg" eventType="touchUpInside" id="bq6-Ec-byB"/>
-                                                    <action selector="didDateInChange:" destination="9xV-Iu-Svg" eventType="valueChanged" id="vOf-IY-7uR"/>
                                                     <segue destination="Zpc-za-8Pd" kind="presentation" identifier="editDatePicker" id="JDe-Mx-3Jp"/>
                                                 </connections>
                                             </button>
@@ -1052,7 +1051,6 @@
                                                 <state key="normal" title="Date Out"/>
                                                 <connections>
                                                     <action selector="dateButtonPressed:" destination="9xV-Iu-Svg" eventType="touchUpInside" id="PJL-b2-ohe"/>
-                                                    <action selector="didDateOutChange:" destination="9xV-Iu-Svg" eventType="valueChanged" id="sBA-w3-afk"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1159,7 +1157,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="OK"/>
                                         <connections>
-                                            <segue destination="jZK-jZ-npF" kind="unwind" identifier="unwindSaveToEditAnimal" unwindAction="addEditAnimalDatePickerWithSegue:" id="f6t-d8-XIM"/>
+                                            <segue destination="jZK-jZ-npF" kind="unwind" identifier="unwindSaveToEditAnimal" unwindAction="addEditAnimalDatePickerWithSegue:" id="mXO-IQ-Gj7"/>
                                         </connections>
                                     </button>
                                 </subviews>

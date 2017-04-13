@@ -40,8 +40,6 @@ class AddAnimalNewClientViewController: UIViewController {
         if animalName.text == "" {
             doneButton.isEnabled = false
         }
-        
-        // Do any additional setup after loading the view.
     }
     
     override func didReceiveMemoryWarning() {
