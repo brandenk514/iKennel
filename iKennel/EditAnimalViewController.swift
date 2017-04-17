@@ -21,6 +21,8 @@ class EditAnimalViewController: UIViewController {
     @IBOutlet weak var dateInButton: UIButton!
     @IBOutlet weak var dateOutButton: UIButton!
     @IBOutlet weak var checkedInSwitch: UISwitch!
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var dateIn = Date()
     var dateOut = Date()
@@ -29,6 +31,8 @@ class EditAnimalViewController: UIViewController {
     
     var dateIn_string = "Date In"
     var dateOut_string = "Date Out"
+    
+    let bannedChars = CharacterSet(charactersIn: "0123456789./*+!@#$%^&*()_=`~;:'\"[]{}|,<>?")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +59,13 @@ class EditAnimalViewController: UIViewController {
         checkedInSwitch.isOn = sel_animal.getReservation().checkedIn        
         dateIn = (sel_animal.reservation?.dateIn)!
         dateOut = (sel_animal.reservation?.dateOut)!
+        
+        errorLabel.text = ""
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkDates()
     }
 
     override func didReceiveMemoryWarning() {
@@ -121,6 +132,35 @@ class EditAnimalViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func checkNameField(_ sender: UITextField) {
+        if sender.text != "" {
+            if ((sender.text?.rangeOfCharacter(from: bannedChars)) != nil) {
+                errorLabel.text = "Numbers or symbols not allowed in field"
+                sender.textColor = UIColor.red
+                saveButton.isEnabled = false
+            } else {
+                sender.textColor = UIColor.black
+                errorLabel.text = ""
+                saveButton.isEnabled = true
+            }
+        } else {
+            errorLabel.text = "Field required"
+            sender.textColor = UIColor.red
+            saveButton.isEnabled = false
+        }
+    }
+    
+    func checkDates() {
+        if dateIn >= dateOut {
+            errorLabel.text = "The 'Date in' can not be after the 'Date out'"
+            saveButton.isEnabled = false
+        } else {
+            errorLabel.text = ""
+            saveButton.isEnabled = true
+        }
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -145,6 +185,4 @@ class EditAnimalViewController: UIViewController {
             
         }
     }
-    
-
 }

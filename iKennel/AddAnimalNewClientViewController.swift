@@ -42,6 +42,11 @@ class AddAnimalNewClientViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkDates()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -63,36 +68,33 @@ class AddAnimalNewClientViewController: UIViewController {
         return Animal(name: animalName.text!, type: animalType.titleForSegment(at: animalType.selectedSegmentIndex)!, sex: animalSex.titleForSegment(at: animalSex.selectedSegmentIndex)!, breed: animalBreed.text!, social: socialSwitch.isOn, reservation: Reservation(dateIn: dateIn, dateOut: dateOut, checkedIn: checkedInSwitch.isOn), notes: animalNotes.text!)
     }
     
-    @IBAction func checkNameField(_ sender: UITextField) {
-        if animalName.text != "" {
-            if ((animalName.text?.rangeOfCharacter(from: bannedChars)) != nil) {
-                errorLabel.text = "Numbers or symbols not allowed in name field"
-                animalName.textColor = UIColor.red
+    @IBAction func checkField(_ sender: UITextField) {
+        if sender.text != "" {
+            if ((sender.text?.rangeOfCharacter(from: bannedChars)) != nil) {
+                errorLabel.text = "Numbers or symbols not allowed in field"
+                sender.textColor = UIColor.red
                 doneButton.isEnabled = false
             } else {
-                animalName.textColor = UIColor.black
+                sender.textColor = UIColor.black
                 errorLabel.text = ""
                 doneButton.isEnabled = true
             }
         } else {
-            errorLabel.text = "Animal name required"
-            animalName.textColor = UIColor.red
+            errorLabel.text = "Field required"
+            sender.textColor = UIColor.red
             doneButton.isEnabled = false
         }
         
     }
     
-    @IBAction func checkBreedField(_ sender: UITextField) {
-        if ((animalBreed.text?.rangeOfCharacter(from: bannedChars)) != nil) {
-            errorLabel.text = "Numbers or symbols not allowed in breed field"
-            animalBreed.textColor = UIColor.red
+    func checkDates() {
+        if dateIn >= dateOut {
+            errorLabel.text = "The 'Date in' can not be after the 'Date out'"
             doneButton.isEnabled = false
         } else {
-            animalBreed.textColor = UIColor.black
             errorLabel.text = ""
             doneButton.isEnabled = true
         }
-        
     }
     
     // MARK: - Navigation
@@ -112,17 +114,5 @@ class AddAnimalNewClientViewController: UIViewController {
             fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "Empty")")
         }
     }
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

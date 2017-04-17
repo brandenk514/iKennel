@@ -22,10 +22,16 @@ class EditReservationViewController: UIViewController {
     @IBOutlet weak var animal_DateIn: UIButton!
     @IBOutlet weak var animal_DateOut: UIButton!
     @IBOutlet weak var animal_checkedIn: UISwitch!
+    @IBOutlet weak var dateInLabel: UILabel!
     
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        dateIn = (current_animal.reservation?.dateIn)!
+        dateOut = (current_animal.reservation?.dateOut)!
         
         dateIn_string = current_animal.getDMY_time(d: current_animal.getReservation().dateIn)
         dateOut_string = current_animal.getDMY_time(d: current_animal.getReservation().dateOut)
@@ -35,7 +41,12 @@ class EditReservationViewController: UIViewController {
         animal_DateOut.setTitle(dateOut_string, for: .normal)
         animal_checkedIn.isOn = current_animal.getReservation().checkedIn
 
-        // Do any additional setup after loading the view.
+        errorLabel.text = ""
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkDates()
     }
     
     @IBAction func addNewDate(_ sender: UIButton) {
@@ -66,6 +77,18 @@ class EditReservationViewController: UIViewController {
         }
         
         
+    }
+    
+    func checkDates() {
+        if dateIn >= dateOut {
+            errorLabel.text = "The 'Date in' can not be after the 'Date out'"
+            dateInLabel.textColor = UIColor.red
+            saveButton.isEnabled = false
+        } else {
+            errorLabel.text = ""
+            dateInLabel.textColor = UIColor.black
+            saveButton.isEnabled = true
+        }
     }
 
     @IBAction func didCheckInChange(_ sender: UISwitch) {

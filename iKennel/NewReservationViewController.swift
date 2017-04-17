@@ -21,7 +21,11 @@ class NewReservationViewController: UIViewController, UIPickerViewDelegate {
     @IBOutlet weak var dateInPicker: UIDatePicker!
     @IBOutlet weak var dateOutPicker: UIDatePicker!
     @IBOutlet weak var checkedInSwitch: UISwitch!
+    @IBOutlet weak var dateInLabel: UILabel!
 
+    @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.animalPicker.dataSource = self as? UIPickerViewDataSource;
@@ -35,12 +39,21 @@ class NewReservationViewController: UIViewController, UIPickerViewDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if selectedClient.lName != "" {
             selectClientButton.setTitle(selectedClient.lName + ", " + selectedClient.fName, for: .normal)
+            errorLabel.text = ""
+        } else {
+            errorLabel.text = "No client selected"
+            saveButton.isEnabled = false
         }
         loadAnimalsFromClient()
         if animalList.count != 0 {
             selectedAnimal = animalList[0]
+            saveButton.isEnabled = true
+            errorLabel.text = ""
+        } else {
+            errorLabel.text = "No animal selected"
         }
         animalPicker.reloadAllComponents()
     }
@@ -68,6 +81,18 @@ class NewReservationViewController: UIViewController, UIPickerViewDelegate {
     
     @IBAction func unwindSaveToNewReserv(segue: UIStoryboardSegue) {
         
+    }
+    
+    @IBAction func checkDates(_ sender: UIDatePicker) {
+        if dateInPicker.date >= dateOutPicker.date {
+            errorLabel.text = "The 'Date in' can not be after the 'Date out'"
+            dateInLabel.textColor = UIColor.red
+            saveButton.isEnabled = false
+        } else {
+            errorLabel.text = ""
+            dateInLabel.textColor = UIColor.black
+            saveButton.isEnabled = true
+        }
     }
     
     func loadAnimalsFromClient() {

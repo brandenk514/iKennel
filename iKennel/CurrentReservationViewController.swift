@@ -43,6 +43,8 @@ class CurrentReservationViewController: UIViewController {
     
     @IBAction func edittingCurrentReservation(segue:UIStoryboardSegue) { }
     
+    @IBAction func cancelEdittingCurrentReservation(segue: UIStoryboardSegue) { }
+    
     
     // MARK: - Navigation
 
@@ -60,6 +62,7 @@ class CurrentReservationViewController: UIViewController {
                 fatalError("Unexpected destination: \(segue.destination)")
             }
             reservationTableVC.editReservation = cur_animal
+        case "cancelEditReserv": break
         default:
             fatalError("Unexpected Segue Identifier; \(segue.identifier ?? "Empty")")
         }

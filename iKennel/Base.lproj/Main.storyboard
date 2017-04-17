@@ -507,7 +507,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="checkNameField:" destination="Y9d-ld-i9u" eventType="editingDidEnd" id="rPu-T0-AdU"/>
+                                            <action selector="checkField:" destination="Y9d-ld-i9u" eventType="editingDidEnd" id="Kkt-Jn-4vQ"/>
                                         </connections>
                                     </textField>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hqM-oX-ehz">
@@ -523,7 +523,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="checkBreedField:" destination="Y9d-ld-i9u" eventType="editingDidEnd" id="jyo-HU-YVB"/>
+                                            <action selector="checkField:" destination="Y9d-ld-i9u" eventType="editingDidEnd" id="OPl-mg-wg2"/>
                                         </connections>
                                     </textField>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="udA-7H-g43">
@@ -960,11 +960,12 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
+                                            <action selector="checkNameField:" destination="9xV-Iu-Svg" eventType="editingDidEnd" id="aqY-rO-Q68"/>
                                             <action selector="didNameChange:" destination="9xV-Iu-Svg" eventType="editingChanged" id="fnk-No-HKL"/>
                                         </connections>
                                     </textField>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8MP-IL-XIj">
-                                        <rect key="frame" x="0.0" y="46" width="355" height="29"/>
+                                        <rect key="frame" x="0.0" y="42" width="355" height="29"/>
                                         <segments>
                                             <segment title="Dog"/>
                                             <segment title="Cat"/>
@@ -974,16 +975,17 @@
                                         </connections>
                                     </segmentedControl>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Breed" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zhw-IX-rls">
-                                        <rect key="frame" x="0.0" y="90.5" width="355" height="30"/>
+                                        <rect key="frame" x="0.0" y="82.5" width="355" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
+                                            <action selector="checkNameField:" destination="9xV-Iu-Svg" eventType="editingDidEnd" id="d8n-G8-Aha"/>
                                             <action selector="didBreedChange:" destination="9xV-Iu-Svg" eventType="editingChanged" id="38j-gY-6VW"/>
                                         </connections>
                                     </textField>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eI8-Sg-Gsq">
-                                        <rect key="frame" x="0.0" y="136.5" width="355" height="29"/>
+                                        <rect key="frame" x="0.0" y="124.5" width="355" height="29"/>
                                         <segments>
                                             <segment title="Male"/>
                                             <segment title="Female"/>
@@ -993,7 +995,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="l3Y-0C-AL8">
-                                        <rect key="frame" x="0.0" y="180.5" width="355" height="31"/>
+                                        <rect key="frame" x="0.0" y="164" width="355" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Social" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8h-SK-vJU">
                                                 <rect key="frame" x="0.0" y="0.0" width="46" height="31"/>
@@ -1010,7 +1012,7 @@
                                         </subviews>
                                     </stackView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Notes" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YNN-83-CFp">
-                                        <rect key="frame" x="0.0" y="226" width="355" height="30"/>
+                                        <rect key="frame" x="0.0" y="205.5" width="355" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -1019,7 +1021,7 @@
                                         </connections>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="khb-fp-44Q">
-                                        <rect key="frame" x="0.0" y="271" width="355" height="30"/>
+                                        <rect key="frame" x="0.0" y="247" width="355" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1u4-PV-02Q">
                                                 <rect key="frame" x="0.0" y="0.0" width="54.5" height="30"/>
@@ -1038,7 +1040,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="8ET-0q-XcZ">
-                                        <rect key="frame" x="0.0" y="316.5" width="355" height="30"/>
+                                        <rect key="frame" x="0.0" y="288" width="355" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4KK-Wm-IqJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="68.5" height="30"/>
@@ -1056,7 +1058,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oLN-MD-qjk">
-                                        <rect key="frame" x="0.0" y="361" width="355" height="31"/>
+                                        <rect key="frame" x="0.0" y="328.5" width="355" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checked In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afI-Zk-tYa">
                                                 <rect key="frame" x="0.0" y="5.5" width="86" height="20.5"/>
@@ -1072,6 +1074,12 @@
                                             </switch>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVA-mi-Gw6">
+                                        <rect key="frame" x="0.0" y="378.5" width="355" height="13.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" red="0.98008292910000006" green="0.27416455750000002" blue="0.19885051249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rui-SD-d0Y">
@@ -1106,8 +1114,10 @@
                         <outlet property="checkedInSwitch" destination="jhn-bF-Klf" id="aGi-EQ-bcE"/>
                         <outlet property="dateInButton" destination="svg-Ul-df2" id="8EE-45-Srx"/>
                         <outlet property="dateOutButton" destination="h8Y-lv-shc" id="MfT-5v-6kC"/>
+                        <outlet property="errorLabel" destination="YVA-mi-Gw6" id="pbV-T5-24e"/>
                         <outlet property="nameField" destination="d3q-fO-Tfb" id="hz9-bY-TkJ"/>
                         <outlet property="notesField" destination="YNN-83-CFp" id="G7V-fc-WBL"/>
+                        <outlet property="saveButton" destination="vYA-pg-h1A" id="MQ4-hA-Spm"/>
                         <outlet property="sexSelector" destination="eI8-Sg-Gsq" id="shE-rm-Msr"/>
                         <outlet property="socialSwitch" destination="QHC-l1-iEl" id="Tnx-Dc-U6b"/>
                         <outlet property="typeSelector" destination="8MP-IL-XIj" id="BTL-Ts-aHL"/>
@@ -1339,35 +1349,41 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="checkField:" destination="1UK-da-Ao5" eventType="editingDidEnd" id="VMT-2A-4L4"/>
+                                        </connections>
                                     </textField>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="M4u-lY-Hpb">
-                                        <rect key="frame" x="0.0" y="46" width="355" height="29"/>
+                                        <rect key="frame" x="0.0" y="42" width="355" height="29"/>
                                         <segments>
                                             <segment title="Dog"/>
                                             <segment title="Cat"/>
                                         </segments>
                                     </segmentedControl>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Breed" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eU1-v6-v9x">
-                                        <rect key="frame" x="0.0" y="90.5" width="355" height="30"/>
+                                        <rect key="frame" x="0.0" y="82.5" width="355" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="checkField:" destination="1UK-da-Ao5" eventType="editingDidEnd" id="Qj5-U5-d68"/>
+                                        </connections>
                                     </textField>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pUj-br-0LE">
-                                        <rect key="frame" x="0.0" y="136.5" width="355" height="29"/>
+                                        <rect key="frame" x="0.0" y="124.5" width="355" height="29"/>
                                         <segments>
                                             <segment title="Male"/>
                                             <segment title="Female"/>
                                         </segments>
                                     </segmentedControl>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Notes" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EKf-Vp-yGZ">
-                                        <rect key="frame" x="0.0" y="181" width="355" height="30"/>
+                                        <rect key="frame" x="0.0" y="164.5" width="355" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="O5U-Et-xW0" userLabel="Scoial Stack View">
-                                        <rect key="frame" x="0.0" y="225.5" width="355" height="31"/>
+                                        <rect key="frame" x="0.0" y="205" width="355" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Social" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DfI-16-fTE">
                                                 <rect key="frame" x="0.0" y="0.0" width="46" height="31"/>
@@ -1381,7 +1397,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="Gpn-op-tuK" userLabel="DateIn Stack View">
-                                        <rect key="frame" x="0.0" y="271" width="355" height="30"/>
+                                        <rect key="frame" x="0.0" y="247" width="355" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuS-VQ-5nv">
                                                 <rect key="frame" x="0.0" y="0.0" width="54.5" height="30"/>
@@ -1401,7 +1417,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="l0E-kO-Xbr" userLabel="DateOut Stack View">
-                                        <rect key="frame" x="0.0" y="316.5" width="355" height="30"/>
+                                        <rect key="frame" x="0.0" y="288" width="355" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rd0-np-Ngi">
                                                 <rect key="frame" x="0.0" y="0.0" width="68.5" height="30"/>
@@ -1420,7 +1436,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="O1v-Dt-9AM" userLabel="Checked Stack View">
-                                        <rect key="frame" x="0.0" y="361" width="355" height="31"/>
+                                        <rect key="frame" x="0.0" y="328.5" width="355" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checked In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sH2-Nm-yP8">
                                                 <rect key="frame" x="0.0" y="0.0" width="86" height="31"/>
@@ -1433,6 +1449,12 @@
                                             </switch>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paW-0I-FZe">
+                                        <rect key="frame" x="0.0" y="378.5" width="355" height="13.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" red="0.98008292910000006" green="0.27416455750000002" blue="0.19885051249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -1453,6 +1475,8 @@
                         <outlet property="checkedInSwitch" destination="w5t-Dy-i40" id="jtA-xh-RMc"/>
                         <outlet property="dateInButton" destination="2WE-mn-8Bs" id="JLn-Aa-77L"/>
                         <outlet property="dateOutButton" destination="vWa-EZ-nGz" id="Zhb-WR-7YT"/>
+                        <outlet property="errorLabel" destination="paW-0I-FZe" id="JgW-7f-Jal"/>
+                        <outlet property="saveButton" destination="Ll2-Ng-We5" id="fge-86-IDG"/>
                         <outlet property="socialSwitch" destination="poW-gI-YBL" id="9eX-Xb-IkF"/>
                     </connections>
                 </viewController>
@@ -1633,58 +1657,70 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="QHQ-UC-LlF">
-                                        <rect key="frame" x="0.0" y="27" width="355" height="163.5"/>
+                                        <rect key="frame" x="0.0" y="27" width="355" height="160.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select an Animal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIW-oU-q8K">
-                                                <rect key="frame" x="0.0" y="0.0" width="177.5" height="163.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="177.5" height="160.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gow-wZ-g3A">
-                                                <rect key="frame" x="177.5" y="0.0" width="177.5" height="163.5"/>
+                                                <rect key="frame" x="177.5" y="0.0" width="177.5" height="160.5"/>
                                             </pickerView>
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeO-e2-lWh">
-                                        <rect key="frame" x="0.0" y="190.5" width="355" height="18"/>
+                                        <rect key="frame" x="0.0" y="187.5" width="355" height="17.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="B6P-yK-KRg">
-                                        <rect key="frame" x="0.0" y="208.5" width="355" height="163.5"/>
+                                        <rect key="frame" x="0.0" y="205" width="355" height="160.5"/>
                                         <date key="date" timeIntervalSinceReferenceDate="507688432.42458397">
                                             <!--2017-02-02 00:33:52 +0000-->
                                         </date>
+                                        <connections>
+                                            <action selector="checkDates:" destination="USf-H1-HBI" eventType="valueChanged" id="aZe-3T-j3n"/>
+                                        </connections>
                                     </datePicker>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Osn-sn-beu">
-                                        <rect key="frame" x="0.0" y="372" width="355" height="18"/>
+                                        <rect key="frame" x="0.0" y="365.5" width="355" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="SwK-he-HAm">
-                                        <rect key="frame" x="0.0" y="390" width="355" height="163.5"/>
+                                        <rect key="frame" x="0.0" y="383.5" width="355" height="160.5"/>
                                         <date key="date" timeIntervalSinceReferenceDate="507688510.60955602">
                                             <!--2017-02-02 00:35:10 +0000-->
                                         </date>
+                                        <connections>
+                                            <action selector="checkDates:" destination="USf-H1-HBI" eventType="valueChanged" id="a0H-gH-1ds"/>
+                                        </connections>
                                     </datePicker>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u4U-58-V72">
-                                        <rect key="frame" x="0.0" y="553.5" width="355" height="23.5"/>
+                                        <rect key="frame" x="0.0" y="544" width="355" height="23"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checked in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJc-av-9t0">
-                                                <rect key="frame" x="0.0" y="0.0" width="306" height="23.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="306" height="23"/>
                                                 <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" translatesAutoresizingMaskIntoConstraints="NO" id="fln-tF-8XQ">
-                                                <rect key="frame" x="306" y="0.0" width="51" height="23.5"/>
+                                                <rect key="frame" x="306" y="0.0" width="51" height="23"/>
                                             </switch>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tb0-nF-p6N">
+                                        <rect key="frame" x="0.0" y="567" width="355" height="10"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" red="0.98008292910000006" green="0.27416455750000002" blue="0.19885051249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -1699,8 +1735,11 @@
                     <connections>
                         <outlet property="animalPicker" destination="Gow-wZ-g3A" id="7u6-GA-3zs"/>
                         <outlet property="checkedInSwitch" destination="fln-tF-8XQ" id="gx3-v7-lAm"/>
+                        <outlet property="dateInLabel" destination="WeO-e2-lWh" id="8fS-Tz-RfF"/>
                         <outlet property="dateInPicker" destination="B6P-yK-KRg" id="uoO-7w-tjG"/>
                         <outlet property="dateOutPicker" destination="SwK-he-HAm" id="pqw-1v-NKS"/>
+                        <outlet property="errorLabel" destination="Tb0-nF-p6N" id="2Z6-8D-aet"/>
+                        <outlet property="saveButton" destination="pJt-u2-qkn" id="I98-Po-9eX"/>
                         <outlet property="selectClientButton" destination="fQs-Nn-9Gx" id="K1P-NF-ang"/>
                     </connections>
                 </viewController>
@@ -1922,7 +1961,7 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="twV-uC-IUR" userLabel="Vertical Stack View">
-                                <rect key="frame" x="10" y="75" width="355" height="204"/>
+                                <rect key="frame" x="10" y="75" width="355" height="242"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animal Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3A-og-ZQo">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="27.5"/>
@@ -1931,7 +1970,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="xw7-Bg-jpR">
-                                        <rect key="frame" x="0.0" y="57" width="355" height="30"/>
+                                        <rect key="frame" x="0.0" y="54" width="355" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date In:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAV-Sg-Ktx">
                                                 <rect key="frame" x="0.0" y="0.0" width="59" height="30"/>
@@ -1950,7 +1989,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="miz-Ei-zcy">
-                                        <rect key="frame" x="0.0" y="115.5" width="355" height="30"/>
+                                        <rect key="frame" x="0.0" y="109.5" width="355" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date Out:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqe-ZL-NRI">
                                                 <rect key="frame" x="0.0" y="0.0" width="73.5" height="30"/>
@@ -1968,7 +2007,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7P-lj-hpv">
-                                        <rect key="frame" x="0.0" y="173" width="355" height="31"/>
+                                        <rect key="frame" x="0.0" y="164.5" width="355" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checked In:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eY1-qw-SLK">
                                                 <rect key="frame" x="0.0" y="0.0" width="306" height="31"/>
@@ -1984,12 +2023,18 @@
                                             </switch>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdV-qd-nSK">
+                                        <rect key="frame" x="0.0" y="228.5" width="355" height="13.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" red="0.98008292910000006" green="0.27416455750000002" blue="0.19885051249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="twV-uC-IUR" secondAttribute="bottom" constant="388" id="Koi-4E-3pf"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="twV-uC-IUR" secondAttribute="bottom" constant="350" id="Koi-4E-3pf"/>
                             <constraint firstItem="twV-uC-IUR" firstAttribute="top" secondItem="CZB-yj-zfp" secondAttribute="topMargin" constant="75" id="blJ-ER-1dH"/>
                             <constraint firstAttribute="trailing" secondItem="twV-uC-IUR" secondAttribute="trailing" constant="10" id="cut-Xk-a5p"/>
                             <constraint firstItem="twV-uC-IUR" firstAttribute="leading" secondItem="CZB-yj-zfp" secondAttribute="leading" constant="10" id="kmc-B1-fhg"/>
@@ -2000,6 +2045,9 @@
                         <outlet property="animal_DateOut" destination="chc-ZE-OO3" id="0em-pe-fem"/>
                         <outlet property="animal_checkedIn" destination="icc-66-LWe" id="jCP-Yo-HN6"/>
                         <outlet property="animal_nameLabel" destination="c3A-og-ZQo" id="lFw-i7-JDX"/>
+                        <outlet property="dateInLabel" destination="YAV-Sg-Ktx" id="7Jg-9z-QRM"/>
+                        <outlet property="errorLabel" destination="vdV-qd-nSK" id="3gj-El-Omy"/>
+                        <outlet property="saveButton" destination="ecH-St-ioG" id="MiQ-L8-KPy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ttc-kd-2u9" userLabel="First Responder" sceneMemberID="firstResponder"/>
