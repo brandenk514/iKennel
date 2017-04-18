@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1kf-Rk-kbh">
-                                <rect key="frame" x="46" y="323" width="283" height="66"/>
+                                <rect key="frame" x="46" y="300" width="283" height="66"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to iKennel" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxm-Og-klc" userLabel="Welcome to iKennel">
                                         <rect key="frame" x="49" y="0.0" width="185" height="25"/>
@@ -47,11 +47,11 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.9800829291343689" green="0.27416455745697021" blue="0.19885051250457764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.58039215686274503" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="1kf-Rk-kbh" secondAttribute="bottom" constant="278" id="9S2-9m-C3Y"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="1kf-Rk-kbh" secondAttribute="bottom" constant="301" id="9S2-9m-C3Y"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1kf-Rk-kbh" secondAttribute="trailing" constant="30" id="O0J-te-omR"/>
-                            <constraint firstItem="1kf-Rk-kbh" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="303" id="ac7-kv-ObU"/>
+                            <constraint firstItem="1kf-Rk-kbh" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="280" id="ac7-kv-ObU"/>
                             <constraint firstItem="1kf-Rk-kbh" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="30" id="hIy-jX-0Zz"/>
                         </constraints>
                     </view>
