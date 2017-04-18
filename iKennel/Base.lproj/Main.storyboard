@@ -292,93 +292,118 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="uHs-MX-4bc" userLabel="Client Stack View">
-                                <rect key="frame" x="10" y="70" width="355" height="577"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="uHs-MX-4bc" userLabel="Client Stack View">
+                                <rect key="frame" x="10" y="75" width="355" height="492"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Firstname" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yl5-zO-8Ga">
-                                        <rect key="frame" x="0.0" y="0.0" width="355" height="59.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                         <connections>
-                                            <action selector="checkfirstNameField:" destination="FXb-Fi-nAv" eventType="editingDidEnd" id="Ric-a4-tU9"/>
+                                            <action selector="checkNameField:" destination="FXb-Fi-nAv" eventType="editingDidEnd" id="JDY-qo-HkG"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lastname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7fD-mO-Mc8">
-                                        <rect key="frame" x="0.0" y="64.5" width="355" height="60"/>
+                                        <rect key="frame" x="0.0" y="54" width="355" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES"/>
                                         <connections>
-                                            <action selector="checkLastNameField:" destination="FXb-Fi-nAv" eventType="editingDidEnd" id="Vup-gm-J0P"/>
+                                            <action selector="checkNameField:" destination="FXb-Fi-nAv" eventType="editingDidEnd" id="tsM-Mo-CNu"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cell Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6AB-oH-KTQ">
-                                        <rect key="frame" x="0.0" y="129.5" width="355" height="59.5"/>
+                                        <rect key="frame" x="0.0" y="108.5" width="355" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
                                         <connections>
-                                            <action selector="checkCellNumField:" destination="FXb-Fi-nAv" eventType="editingDidEnd" id="KtQ-3z-Eyl"/>
+                                            <action selector="checkCellNumField:" destination="FXb-Fi-nAv" eventType="editingDidEnd" id="vee-MW-gaq"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lxj-tR-3GT">
-                                        <rect key="frame" x="0.0" y="194" width="355" height="59.5"/>
+                                        <rect key="frame" x="0.0" y="162.5" width="355" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress"/>
+                                        <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
                                         <connections>
-                                            <action selector="checkEmailField:" destination="FXb-Fi-nAv" eventType="editingDidEnd" id="yPX-mP-pcN"/>
+                                            <action selector="checkEmailField:" destination="FXb-Fi-nAv" eventType="editingDidEnd" id="aFt-YF-2mv"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yxj-5H-hTP">
-                                        <rect key="frame" x="0.0" y="258.5" width="355" height="60"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <connections>
-                                            <action selector="checkAddressField:" destination="FXb-Fi-nAv" eventType="editingDidEnd" id="LMW-zc-smj"/>
-                                        </connections>
-                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="O1f-hZ-hLW" userLabel="Address1 Stack View">
+                                        <rect key="frame" x="0.0" y="217" width="355" height="30"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Street" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yxj-5H-hTP">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lk0-d4-9Wz">
+                                                <rect key="frame" x="200" y="0.0" width="155" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aGk-d5-dOx" userLabel="Address2 Stack View">
+                                        <rect key="frame" x="0.0" y="271" width="355" height="30"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="State" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MsS-ZP-UV7">
+                                                <rect key="frame" x="0.0" y="0.0" width="177.5" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip code" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8GW-En-cVD">
+                                                <rect key="frame" x="177.5" y="0.0" width="177.5" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animals" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lih-3b-dcT">
-                                        <rect key="frame" x="0.0" y="323.5" width="355" height="59.5"/>
+                                        <rect key="frame" x="0.0" y="325.5" width="355" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" tag="1" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MOP-1w-s3O" userLabel="Animal Stack View">
-                                        <rect key="frame" x="0.0" y="388" width="355" height="59.5"/>
+                                        <rect key="frame" x="0.0" y="370" width="355" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEJ-bi-1dZ">
-                                                <rect key="frame" x="0.0" y="15" width="60" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
                                                 <state key="normal" title="+ Animal"/>
                                                 <connections>
                                                     <segue destination="Y9d-ld-i9u" kind="presentation" identifier="addAnimal" modalTransitionStyle="crossDissolve" id="2gQ-jO-LCo"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grx-MN-Y7G">
-                                                <rect key="frame" x="74" y="15" width="60" height="30"/>
+                                                <rect key="frame" x="74" y="0.0" width="60" height="30"/>
                                                 <state key="normal" title="+ Animal"/>
                                                 <connections>
                                                     <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="1bH-rO-AVL"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNE-gV-nCC">
-                                                <rect key="frame" x="147.5" y="15" width="60" height="30"/>
+                                                <rect key="frame" x="147.5" y="0.0" width="60" height="30"/>
                                                 <state key="normal" title="+ Animal"/>
                                                 <connections>
                                                     <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="7zc-Af-LLC"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NnH-aI-RYl">
-                                                <rect key="frame" x="221.5" y="15" width="60" height="30"/>
+                                                <rect key="frame" x="221.5" y="0.0" width="60" height="30"/>
                                                 <state key="normal" title="+ Animal"/>
                                                 <connections>
                                                     <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="mJQ-MZ-IKO"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8A-mp-FKn">
-                                                <rect key="frame" x="295" y="15" width="60" height="30"/>
+                                                <rect key="frame" x="295" y="0.0" width="60" height="30"/>
                                                 <state key="normal" title="+ Animal"/>
                                                 <connections>
                                                     <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="CTW-di-Ds7"/>
@@ -387,38 +412,38 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" tag="1" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3iD-l5-isL" userLabel="Animal2 Stack View">
-                                        <rect key="frame" x="0.0" y="452.5" width="355" height="60"/>
+                                        <rect key="frame" x="0.0" y="424.5" width="355" height="30"/>
                                         <subviews>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUa-Ki-MMs">
-                                                <rect key="frame" x="0.0" y="15" width="60" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
                                                 <state key="normal" title="+ Animal"/>
                                                 <connections>
                                                     <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="y18-ox-fTT"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ano-dV-Ecf">
-                                                <rect key="frame" x="74" y="15" width="60" height="30"/>
+                                                <rect key="frame" x="74" y="0.0" width="60" height="30"/>
                                                 <state key="normal" title="+ Animal"/>
                                                 <connections>
                                                     <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="UFF-CX-4H3"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Za9-Mf-6Hy">
-                                                <rect key="frame" x="147.5" y="15" width="60" height="30"/>
+                                                <rect key="frame" x="147.5" y="0.0" width="60" height="30"/>
                                                 <state key="normal" title="+ Animal"/>
                                                 <connections>
                                                     <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="98G-7W-DHQ"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whi-uO-ucn">
-                                                <rect key="frame" x="221.5" y="15" width="60" height="30"/>
+                                                <rect key="frame" x="221.5" y="0.0" width="60" height="30"/>
                                                 <state key="normal" title="+ Animal"/>
                                                 <connections>
                                                     <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="ilb-oV-6X4"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dui-0B-BUw">
-                                                <rect key="frame" x="295" y="15" width="60" height="30"/>
+                                                <rect key="frame" x="295" y="0.0" width="60" height="30"/>
                                                 <state key="normal" title="+ Animal"/>
                                                 <connections>
                                                     <action selector="addAnimalPressed:" destination="FXb-Fi-nAv" eventType="touchUpInside" id="Yvf-vd-lpv"/>
@@ -427,7 +452,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wci-mH-ptq">
-                                        <rect key="frame" x="0.0" y="517.5" width="355" height="59.5"/>
+                                        <rect key="frame" x="0.0" y="478.5" width="355" height="13.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" red="0.98008292910000006" green="0.27416455750000002" blue="0.19885051249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -455,20 +480,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uHs-MX-4bc" firstAttribute="top" secondItem="sJp-J1-QmU" secondAttribute="topMargin" constant="70" id="47a-Bl-haJ"/>
+                            <constraint firstItem="uHs-MX-4bc" firstAttribute="top" secondItem="sJp-J1-QmU" secondAttribute="topMargin" constant="75" id="47a-Bl-haJ"/>
                             <constraint firstItem="uHs-MX-4bc" firstAttribute="leading" secondItem="sJp-J1-QmU" secondAttribute="leading" constant="10" id="HFd-cm-pwg"/>
                             <constraint firstAttribute="trailing" secondItem="uHs-MX-4bc" secondAttribute="trailing" constant="10" id="OuG-Hl-Nsd"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="uHs-MX-4bc" secondAttribute="bottom" constant="20" id="QPR-aE-tOn"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="uHs-MX-4bc" secondAttribute="bottom" constant="100" id="QPR-aE-tOn"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="address" destination="yxj-5H-hTP" id="FuZ-o8-ykI"/>
                         <outlet property="cellnum" destination="6AB-oH-KTQ" id="LLR-FD-D36"/>
+                        <outlet property="cityField" destination="Lk0-d4-9Wz" id="UOu-RJ-3Hd"/>
                         <outlet property="email" destination="lxj-tR-3GT" id="0ig-X6-Jqp"/>
                         <outlet property="errorLabel" destination="Wci-mH-ptq" id="dXC-XW-zLI"/>
                         <outlet property="firstname" destination="yl5-zO-8Ga" id="5ZJ-6m-5uD"/>
                         <outlet property="lastname" destination="7fD-mO-Mc8" id="rBY-Re-B16"/>
                         <outlet property="saveButton" destination="u5x-8u-jBL" id="dW9-tr-uvM"/>
+                        <outlet property="stateField" destination="MsS-ZP-UV7" id="PKx-h2-JcT"/>
+                        <outlet property="streetField" destination="yxj-5H-hTP" id="W4d-t8-Vet"/>
+                        <outlet property="zipCodeField" destination="8GW-En-cVD" id="ZEG-ug-SHU"/>
                         <outletCollection property="addAnimalButtons" destination="NnH-aI-RYl" collectionClass="NSMutableArray" id="gSv-FM-CzK"/>
                         <outletCollection property="addAnimalButtons" destination="whi-uO-ucn" collectionClass="NSMutableArray" id="GkE-3f-Rg1"/>
                         <outletCollection property="addAnimalButtons" destination="GEJ-bi-1dZ" collectionClass="NSMutableArray" id="vrL-tu-aQg"/>
@@ -2274,10 +2302,10 @@
             </objects>
             <point key="canvasLocation" x="5073" y="1334"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Kennel Tab Bar View Controller-->
         <scene sceneID="ade-hZ-Ve7">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="YT5-98-5Qe" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="YT5-98-5Qe" customClass="iKennelTabBarViewController" customModule="iKennel" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="D7V-E2-q27">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -2285,8 +2313,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="tpc-wg-V0E" kind="relationship" relationship="viewControllers" id="beb-t3-TtR"/>
                         <segue destination="FKz-Eg-nnw" kind="relationship" relationship="viewControllers" id="j81-1l-1j3"/>
+                        <segue destination="tpc-wg-V0E" kind="relationship" relationship="viewControllers" id="beb-t3-TtR"/>
                         <segue destination="nqQ-2Z-s2H" kind="relationship" relationship="viewControllers" id="Ckp-Ja-vFq"/>
                     </connections>
                 </tabBarController>

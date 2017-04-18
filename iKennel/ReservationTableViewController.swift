@@ -10,7 +10,7 @@ import UIKit
 
 class ReservationTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
     
-    var clients = Client.loadAllClients()
+    var clients = [Contact]()
     var clientAnimals = [ReservationContact]()
     var animals = [Animal]()
     var dates: [String] = []
@@ -21,10 +21,18 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
     var shouldShowSearchResults = false
     var searchController : UISearchController!
     
+    var tabBarcontroller = iKennelTabBarViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        clients = tabBarcontroller.clients
         indexReservations()
         configureSearchController()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarcontroller.clients = clients
     }
     
     override func didReceiveMemoryWarning() {
@@ -104,18 +112,12 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
         for contact in clients {
             for client in contact.clients {
                 for a in client.getAnimals() {
-                    animals.append(a)
-                    var reserv = ReservationContact(date: a.getDMY(d: a.getReservation().dateIn), animals: [a])
-                    for animal in clientAnimals {
-                        if animal.date == a.getDMY(d: a.getReservation().dateIn) {
-                            reserv.add(animal: a)
-                        }
-                        
-                    }
-                    clientAnimals.append(reserv)
+                    clientAnimals.append(ReservationContact(date: a.getDMY(d: a.getReservation().dateIn), animals: [a]))
                 }
             }
         }
+        
+        
         dates = {
             return clientAnimals.map { $0.date }
         }()

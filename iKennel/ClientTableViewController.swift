@@ -10,7 +10,7 @@ import UIKit
 
 class ClientTableViewController: UITableViewController, UISearchResultsUpdating, UISearchBarDelegate {
     
-    var contacts = Client.loadAllClients()
+    var contacts = [Contact]()
     var letters = [String]()
     var filteredClients = [Client]()
     var animalArray = [Animal]()
@@ -23,12 +23,13 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
 
     var shouldShowSearchResults = false
     var searchController : UISearchController!
+    var tabBarcontroller = iKennelTabBarViewController()
     
     var editedClient = Client(fName: "", lName: "", address: "", email: "", cellNum: "", animals: [Animal]())
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        contacts = tabBarcontroller.clients
         indexClients()
         configureSearchController()
 
@@ -37,6 +38,11 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        indexClients()
     }
 
     override func didReceiveMemoryWarning() {
