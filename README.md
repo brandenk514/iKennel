@@ -57,3 +57,7 @@ Clients are composed of an array of animal objects. Each animal object is compos
 * Date In: Date
 * Date Out: Date
 * CheckedIn: Bool -> If animal is present at the kennel
+
+
+### Disclaimer
+I do not take credit for any designs in the app icon. This is a college project and it not intended to be sold in any way
