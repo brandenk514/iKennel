@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditClientViewController: UIViewController {
+class EditClientViewController: UIViewController, UITextFieldDelegate {
 
     
     @IBOutlet weak var firstNameTF: UITextField!
@@ -30,12 +30,6 @@ class EditClientViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        firstNameTF.delegate = self as? UITextFieldDelegate
-        lastNameTF.delegate = self as? UITextFieldDelegate
-        addressTF.delegate = self as? UITextFieldDelegate
-        emailTF.delegate = self as? UITextFieldDelegate
-        cellNumTF.delegate = self as? UITextFieldDelegate
         
         // Do any additional setup after loading the view.
         firstNameTF.text = cur_client.fName
@@ -166,6 +160,21 @@ class EditClientViewController: UIViewController {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailCheck = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailCheck.evaluate(with: email)
+    }
+    
+    /**
+     * Called when 'return' key pressed. return NO to ignore.
+     */
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    /**
+     * Called when the user click on the view (outside the UITextField).
+     */
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 
     // MARK: - Navigation

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditAnimalViewController: UIViewController {
+class EditAnimalViewController: UIViewController, UITextFieldDelegate {
 
     var sel_animal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: nil, notes: "")
 
@@ -36,9 +36,6 @@ class EditAnimalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameField.delegate = self as? UITextFieldDelegate
-        breedField.delegate = self as? UITextFieldDelegate
-        notesField.delegate = self as? UITextFieldDelegate
 
         nameField.text = sel_animal.name
         if nameField.text!.isEmpty { nameField.placeholder = "Name" }
@@ -159,6 +156,21 @@ class EditAnimalViewController: UIViewController {
             errorLabel.text = ""
             saveButton.isEnabled = true
         }
+    }
+    
+    /**
+     * Called when 'return' key pressed. return NO to ignore.
+     */
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    /**
+     * Called when the user click on the view (outside the UITextField).
+     */
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     // MARK: - Navigation

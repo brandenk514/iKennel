@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddAnimalViewController: UIViewController {
+class AddAnimalViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var animalName: UITextField!
     @IBOutlet weak var animalType: UISegmentedControl!
@@ -90,6 +90,21 @@ class AddAnimalViewController: UIViewController {
             errorLabel.text = ""
             saveButton.isEnabled = true
         }
+    }
+    
+    /**
+     * Called when 'return' key pressed. return NO to ignore.
+     */
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    /**
+     * Called when the user click on the view (outside the UITextField).
+     */
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     // MARK: - Navigation

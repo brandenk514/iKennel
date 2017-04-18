@@ -114,13 +114,14 @@ class ClientTableViewController: UITableViewController, UISearchResultsUpdating,
     @IBAction func addNewClient(segue:UIStoryboardSegue) {
         let newClient = Client(fName: cFirst, lName: cLast, address: cAddress, email: cEmail, cellNum: cCellNum, animals: animalArray)
         let firstLetter = newClient.getFirstLetter(s: cLast).capitalized
+        print(firstLetter)
         for contact in contacts {
             if firstLetter == contact.letter {
                 contact.add(client: newClient)
             } else {
                 contacts.append(Contact(letter: firstLetter, clients: [newClient]))
-                break
             }
+            break
         }
         indexClients()
         self.tableView.reloadData()

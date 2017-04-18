@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddAnimalNewClientViewController: UIViewController {
+class AddAnimalNewClientViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var animalName: UITextField!
     @IBOutlet weak var animalType: UISegmentedControl!
@@ -35,6 +35,7 @@ class AddAnimalNewClientViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         errorLabel.text = ""
         
         if animalName.text == "" {
@@ -95,6 +96,21 @@ class AddAnimalNewClientViewController: UIViewController {
             errorLabel.text = ""
             doneButton.isEnabled = true
         }
+    }
+    
+    /**
+     * Called when 'return' key pressed. return NO to ignore.
+     */
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    /**
+     * Called when the user click on the view (outside the UITextField).
+     */
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     // MARK: - Navigation
