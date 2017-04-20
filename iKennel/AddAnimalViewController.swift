@@ -76,6 +76,7 @@ class AddAnimalViewController: UIViewController, UITextFieldDelegate {
             sender.textColor = UIColor.red
             saveButton.isEnabled = false
         }
+        sender.isEnabled = true
     }
     
     func createAnimal() -> Animal {

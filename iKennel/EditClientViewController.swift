@@ -30,8 +30,6 @@ class EditClientViewController: UIViewController, UITextFieldDelegate {
     var cur_client = Client(fName: "", lName: "", address: "", email: "", cellNum: "", animals: [Animal]())
 
     var selected_animal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
-    
-    let limitLenght = 5
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,14 +103,14 @@ class EditClientViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func checkfirstNameField(_ sender: UITextField) {
-        if firstNameTF.text != "" {
-            if ((firstNameTF.text?.rangeOfCharacter(from: bannedChars)) != nil) {
+    @IBAction func checkNameField(_ sender: UITextField) {
+        if sender.text != "" {
+            if ((sender.text?.rangeOfCharacter(from: bannedChars)) != nil) {
                 errorLabel.text = "Numbers and symbols are not allowed in firstname field"
-                firstNameTF.textColor = UIColor.red
+                sender.textColor = UIColor.red
                 saveButton.isEnabled = false
             } else {
-                firstNameTF.textColor = UIColor.black
+                sender.textColor = UIColor.black
                 errorLabel.text = ""
                 saveButton.isEnabled = true
             }
@@ -120,23 +118,7 @@ class EditClientViewController: UIViewController, UITextFieldDelegate {
             errorLabel.text = "A firstname is required"
             saveButton.isEnabled = false
         }
-    }
-    
-    @IBAction func checkLastNameField(_ sender: UITextField) {
-        if lastNameTF.text != "" {
-            if ((lastNameTF.text?.rangeOfCharacter(from: bannedChars)) != nil) {
-                errorLabel.text = "Numbers and symbols are not allowed in lastname field"
-                lastNameTF.textColor = UIColor.red
-                saveButton.isEnabled = false
-            } else {
-                errorLabel.text = "^"
-                saveButton.isEnabled = true
-                lastNameTF.textColor = UIColor.black
-            }
-        } else {
-            errorLabel.text = "A lastname is required"
-            saveButton.isEnabled = false
-        }
+        sender.isEnabled = true
     }
     
     @IBAction func checkCellNumField(_ sender: UITextField) {
@@ -154,6 +136,8 @@ class EditClientViewController: UIViewController, UITextFieldDelegate {
             errorLabel.text = "A cell number is required"
             saveButton.isEnabled = false
         }
+        checkTextFieldLenght(textField: sender, maxLength: 10)
+        sender.isEnabled = true
     }
     
     @IBAction func checkEmailField(_ sender: UITextField) {
@@ -171,7 +155,7 @@ class EditClientViewController: UIViewController, UITextFieldDelegate {
             errorLabel.text = "An email is required"
             saveButton.isEnabled = false
         }
-        
+        sender.isEnabled = true
     }
     
     @IBAction func checkAddressField(_ sender: UITextField) {
@@ -184,12 +168,11 @@ class EditClientViewController: UIViewController, UITextFieldDelegate {
             saveButton.isEnabled = true
             sender.textColor = UIColor.black
         }
+        sender.isEnabled = true
     }
     
     @IBAction func checkZip(_ sender: UITextField) {
-        if (sender.text!.characters.count > limitLenght) {
-            sender.deleteBackward()
-        }
+        checkTextFieldLenght(textField: sender, maxLength: 5)
     }
     
     func isValidEmail(email:String) -> Bool {
@@ -237,6 +220,12 @@ class EditClientViewController: UIViewController, UITextFieldDelegate {
         let cityAddress = streetTF.text! + ", " + cityTF.text! + ", "
         let stateAddress =  cityAddress + stateTF.text! + " "
         return stateAddress + zipCodeTF.text!
+    }
+    
+    func checkTextFieldLenght(textField: UITextField, maxLength: Int) {
+        if (textField.text!.characters.count > maxLength) {
+            textField.deleteBackward()
+        }
     }
     
     // MARK: - Navigation

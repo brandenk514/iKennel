@@ -109,6 +109,7 @@ class NewClientViewController: UIViewController{
             errorLabel.text = "A cell number is required"
             saveButton.isEnabled = false
         }
+        checkTextFieldLenght(textField: sender, maxLength: 10)
         sender.isEnabled = true
     }
     
@@ -139,8 +140,12 @@ class NewClientViewController: UIViewController{
     }
     
     @IBAction func checkZip(_ sender: UITextField) {
-        if (sender.text!.characters.count > limitLenght) {
-            sender.deleteBackward()
+        checkTextFieldLenght(textField: sender, maxLength: 5)
+    }
+    
+    func checkTextFieldLenght(textField: UITextField, maxLength: Int) {
+        if (textField.text!.characters.count > maxLength) {
+            textField.deleteBackward()
         }
     }
     

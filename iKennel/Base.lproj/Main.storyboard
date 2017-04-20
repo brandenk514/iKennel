@@ -64,7 +64,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hAJ-nw-Atd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3644" y="-1078"/>
+            <point key="canvasLocation" x="3575" y="-1510"/>
         </scene>
         <!--Current Client-->
         <scene sceneID="awQ-KM-r0c">
@@ -290,7 +290,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p69-PH-SVk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="tqY-AM-nBH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4514" y="-1509"/>
+            <point key="canvasLocation" x="4473" y="-1511"/>
         </scene>
         <!--New Client-->
         <scene sceneID="9Gu-xI-9yS">
@@ -325,15 +325,20 @@
                                             <action selector="checkNameField:" destination="FXb-Fi-nAv" eventType="editingChanged" id="2kD-R7-5vw"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cell Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6AB-oH-KTQ">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3ZX-pz-ilF">
                                         <rect key="frame" x="0.0" y="108.5" width="355" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
-                                        <connections>
-                                            <action selector="checkCellNumField:" destination="FXb-Fi-nAv" eventType="editingChanged" id="o0h-4C-xPR"/>
-                                        </connections>
-                                    </textField>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cell Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6AB-oH-KTQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="355" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" enablesReturnKeyAutomatically="YES"/>
+                                                <connections>
+                                                    <action selector="checkCellNumField:" destination="FXb-Fi-nAv" eventType="editingChanged" id="o0h-4C-xPR"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lxj-tR-3GT">
                                         <rect key="frame" x="0.0" y="162.5" width="355" height="30"/>
                                         <nil key="textColor"/>
@@ -708,7 +713,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="331-oH-WWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="qFX-fM-NPJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5073" y="-2409"/>
+            <point key="canvasLocation" x="4583" y="-2409"/>
         </scene>
         <!--Date Picker View Controller-->
         <scene sceneID="Our-XN-ZCP">
@@ -770,7 +775,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nj0-Vd-Mh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zxT-UW-oY2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5945" y="-2409"/>
+            <point key="canvasLocation" x="5455" y="-2409"/>
         </scene>
         <!--Animal Information-->
         <scene sceneID="BCm-nf-cMj">
@@ -1263,7 +1268,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="checkfirstNameField:" destination="rKI-C8-QjK" eventType="editingDidEnd" id="I0N-fh-s8J"/>
+                                            <action selector="checkNameField:" destination="rKI-C8-QjK" eventType="editingChanged" id="aux-uX-TCf"/>
                                             <action selector="firstNameDidChange:" destination="rKI-C8-QjK" eventType="editingChanged" id="Qoq-oT-ito"/>
                                         </connections>
                                     </textField>
@@ -1273,7 +1278,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="checkLastNameField:" destination="rKI-C8-QjK" eventType="editingDidEnd" id="hvo-DY-fpC"/>
+                                            <action selector="checkNameField:" destination="rKI-C8-QjK" eventType="editingChanged" id="hpp-ZO-kFX"/>
                                             <action selector="lastNameDidChange:" destination="rKI-C8-QjK" eventType="editingChanged" id="KHI-hj-dAI"/>
                                         </connections>
                                     </textField>
@@ -1284,7 +1289,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <action selector="cellNumDidChange:" destination="rKI-C8-QjK" eventType="editingChanged" id="YQg-Wq-bLW"/>
-                                            <action selector="checkCellNumField:" destination="rKI-C8-QjK" eventType="editingDidEnd" id="Em0-iH-LCH"/>
+                                            <action selector="checkCellNumField:" destination="rKI-C8-QjK" eventType="editingChanged" id="Bwy-YG-d3h"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="email" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KHr-Nx-aSV">
@@ -1293,7 +1298,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="checkEmailField:" destination="rKI-C8-QjK" eventType="editingDidEnd" id="dHh-FO-fs5"/>
+                                            <action selector="checkEmailField:" destination="rKI-C8-QjK" eventType="editingChanged" id="aut-YT-uOr"/>
                                             <action selector="emailDidChange:" destination="rKI-C8-QjK" eventType="editingChanged" id="eu4-5l-6d3"/>
                                         </connections>
                                     </textField>
@@ -1306,7 +1311,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                 <connections>
-                                                    <action selector="checkAddressField:" destination="rKI-C8-QjK" eventType="editingDidEnd" id="4Py-8b-TXz"/>
+                                                    <action selector="checkAddressField:" destination="rKI-C8-QjK" eventType="editingChanged" id="RN9-4c-2Cd"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="coE-Xf-jK3">
@@ -1315,7 +1320,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                 <connections>
-                                                    <action selector="checkAddressField:" destination="rKI-C8-QjK" eventType="editingDidEnd" id="Oko-MT-wMh"/>
+                                                    <action selector="checkAddressField:" destination="rKI-C8-QjK" eventType="editingChanged" id="jrl-jJ-fDq"/>
                                                 </connections>
                                             </textField>
                                         </subviews>
@@ -1329,7 +1334,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                 <connections>
-                                                    <action selector="checkAddressField:" destination="rKI-C8-QjK" eventType="editingDidEnd" id="Lpd-ta-ZNz"/>
+                                                    <action selector="checkAddressField:" destination="rKI-C8-QjK" eventType="editingChanged" id="Upm-aH-TeU"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip code" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u7S-a5-4gG">
@@ -1400,7 +1405,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xuG-rk-xe3" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="z7k-jy-8OF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5593" y="-1510"/>
+            <point key="canvasLocation" x="5454" y="-1511"/>
         </scene>
         <!--New Animal-->
         <scene sceneID="2nl-Pv-8Ke">
