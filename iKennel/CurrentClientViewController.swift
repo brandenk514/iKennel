@@ -12,7 +12,9 @@ class CurrentClientViewController: UIViewController {
     
     @IBOutlet weak var clientName: UILabel!
     @IBOutlet weak var clientPhone: UILabel!
-    @IBOutlet weak var clientAddress: UILabel!
+    @IBOutlet weak var streetCity: UILabel!
+    @IBOutlet weak var stateZip: UILabel!
+
     @IBOutlet weak var clientEmail: UILabel!
     @IBOutlet var animalButtons: [UIButton]!
     
@@ -31,7 +33,9 @@ class CurrentClientViewController: UIViewController {
         clientName.text = cur_client.fName + " " + cur_client.lName
         clientPhone.text = cur_client.cellNum
         clientEmail.text = cur_client.email
-        clientAddress.text = cur_client.address
+        
+        streetCity.text = splitAddress(address: cur_client.address)[0] + ", " + splitAddress(address: cur_client.address)[1]
+        stateZip.text = getState(stateAndZip: splitAddress(address: cur_client.address)[2]) + getZipCode(stateAndZip: splitAddress(address: cur_client.address)[2])
         setAnimalButtons()
         
     }
@@ -40,7 +44,8 @@ class CurrentClientViewController: UIViewController {
         clientName.text = cur_client.fName + " " + cur_client.lName
         clientPhone.text = cur_client.cellNum
         clientEmail.text = cur_client.email
-        clientAddress.text = cur_client.address
+        streetCity.text = splitAddress(address: cur_client.address)[0] + ", " + splitAddress(address: cur_client.address)[1]
+        stateZip.text = getState(stateAndZip: splitAddress(address: cur_client.address)[2]) + getZipCode(stateAndZip: splitAddress(address: cur_client.address)[2])
         setAnimalButtons()
     }
     
@@ -91,6 +96,21 @@ class CurrentClientViewController: UIViewController {
                 b.isEnabled = false
             }
         }
+    }
+    
+    func splitAddress(address: String) -> [String] {
+        return address.components(separatedBy: ", ")
+    }
+    
+    func getState(stateAndZip: String) -> String {
+        let zipcodeArray = stateAndZip.components(separatedBy: CharacterSet.decimalDigits)
+        return zipcodeArray[0]
+    }
+    
+    func getZipCode(stateAndZip: String) -> String {
+        let zipcodeArray = stateAndZip.components(separatedBy: CharacterSet.letters)
+        let zipcode = zipcodeArray[zipcodeArray.count - 1].components(separatedBy: " ")
+        return zipcode[zipcode.count - 1]
     }
     
     // MARK: - Navigation

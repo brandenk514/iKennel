@@ -85,7 +85,7 @@ class AddAnimalNewClientViewController: UIViewController, UITextFieldDelegate {
             sender.textColor = UIColor.red
             doneButton.isEnabled = false
         }
-        
+        sender.isEnabled = true
     }
     
     func checkDates() {

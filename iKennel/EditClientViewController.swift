@@ -15,7 +15,10 @@ class EditClientViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var lastNameTF: UITextField!
     @IBOutlet weak var cellNumTF: UITextField!
     @IBOutlet weak var emailTF: UITextField!
-    @IBOutlet weak var addressTF: UITextField!
+    @IBOutlet weak var streetTF: UITextField!
+    @IBOutlet weak var cityTF: UITextField!
+    @IBOutlet weak var stateTF: UITextField!
+    @IBOutlet weak var zipCodeTF: UITextField!
 
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -27,23 +30,50 @@ class EditClientViewController: UIViewController, UITextFieldDelegate {
     var cur_client = Client(fName: "", lName: "", address: "", email: "", cellNum: "", animals: [Animal]())
 
     var selected_animal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
+    
+    let limitLenght = 5
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        firstNameTF.delegate = self
+        lastNameTF.delegate = self
+        cellNumTF.delegate = self
+        emailTF.delegate = self
+        streetTF.delegate = self
+        cityTF.delegate = self
+        stateTF.delegate = self
+        zipCodeTF.delegate = self
+        
         // Do any additional setup after loading the view.
         firstNameTF.text = cur_client.fName
         lastNameTF.text = cur_client.lName
-        addressTF.text = cur_client.address
+        streetTF.text = cur_client.address
         emailTF.text = cur_client.email
         cellNumTF.text = cur_client.cellNum
+    
+        streetTF.text = splitAddress(address: cur_client.address)[0]
+        cityTF.text = splitAddress(address: cur_client.address)[1]
+        stateTF.text = getState(stateAndZip: splitAddress(address: cur_client.address)[2])
+        zipCodeTF.text = getZipCode(stateAndZip: splitAddress(address: cur_client.address)[2])
+        if (streetTF.text?.isEmpty)! {
+            streetTF.placeholder = "Street"
+        }
+        if (cityTF.text?.isEmpty)! {
+            cityTF.placeholder = "City"
+        }
+        if (stateTF.text?.isEmpty)! {
+            stateTF.placeholder = "State"
+        }
+        if (zipCodeTF.text?.isEmpty)! {
+            zipCodeTF.placeholder = "Zip Code"
+        }
         
         errorLabel.text = ""
         
         if lastNameTF.text == "" || firstNameTF.text == "" || cellNumTF.text == "" {
             saveButton.isEnabled = false
         }
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,12 +102,6 @@ class EditClientViewController: UIViewController, UITextFieldDelegate {
     @IBAction func emailDidChange(_ sender: UITextField) {
         if emailTF.text! != cur_client.email {
             cur_client.email = emailTF.text!
-        }
-    }
-    
-    @IBAction func addressDidChange(_ sender: UITextField) {
-        if addressTF.text! != cur_client.address {
-            cur_client.address = addressTF.text!
         }
     }
     
@@ -133,26 +157,38 @@ class EditClientViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func checkEmailField(_ sender: UITextField) {
-        if !isValidEmail(email: emailTF.text!) {
-            errorLabel.text = "Email is not valid"
-            saveButton.isEnabled = false
-            emailTF.textColor = UIColor.red
+        if (emailTF.text != "") {
+            if !isValidEmail(email: emailTF.text!) {
+                errorLabel.text = "Email is not valid"
+                saveButton.isEnabled = false
+                emailTF.textColor = UIColor.red
+            } else {
+                errorLabel.text = ""
+                saveButton.isEnabled = true
+                emailTF.textColor = UIColor.black
+            }
         } else {
-            errorLabel.text = ""
-            saveButton.isEnabled = true
-            emailTF.textColor = UIColor.black
+            errorLabel.text = "An email is required"
+            saveButton.isEnabled = false
         }
+        
     }
     
     @IBAction func checkAddressField(_ sender: UITextField) {
-        if ((addressTF.text?.rangeOfCharacter(from: bannedAddressChars)) != nil) {
+        if ((sender.text?.rangeOfCharacter(from: bannedAddressChars)) != nil) {
             errorLabel.text = "Symbols are not allowed in address field"
             saveButton.isEnabled = false
-            addressTF.textColor = UIColor.red
+            sender.textColor = UIColor.red
         } else {
             errorLabel.text = ""
             saveButton.isEnabled = true
-            addressTF.textColor = UIColor.black
+            sender.textColor = UIColor.black
+        }
+    }
+    
+    @IBAction func checkZip(_ sender: UITextField) {
+        if (sender.text!.characters.count > limitLenght) {
+            sender.deleteBackward()
         }
     }
     
@@ -177,6 +213,32 @@ class EditClientViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
 
+    func splitAddress(address: String) -> [String] {
+        return address.components(separatedBy: ", ")
+    }
+    
+    func getState(stateAndZip: String) -> String {
+        let zipcodeArray = stateAndZip.components(separatedBy: CharacterSet.decimalDigits)
+        let state = zipcodeArray[0].components(separatedBy: " ")
+        if state[1].isEmpty {
+            return state[0]
+        } else {
+           return state[0] + " " + state[1]
+        }
+    }
+    
+    func getZipCode(stateAndZip: String) -> String {
+        let zipcodeArray = stateAndZip.components(separatedBy: CharacterSet.letters)
+        let zipcode = zipcodeArray[zipcodeArray.count - 1].components(separatedBy: " ")
+        return zipcode[zipcode.count - 1]
+    }
+    
+    func makeAddress() -> String  {
+        let cityAddress = streetTF.text! + ", " + cityTF.text! + ", "
+        let stateAddress =  cityAddress + stateTF.text! + " "
+        return stateAddress + zipCodeTF.text!
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -187,6 +249,7 @@ class EditClientViewController: UIViewController, UITextFieldDelegate {
             
         } else if segue.identifier == "saveEdit" {
             let curClientVC = segue.destination as! CurrentClientViewController
+            cur_client.address = makeAddress()
             curClientVC.cur_client = cur_client
         }
     }

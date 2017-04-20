@@ -78,9 +78,9 @@ extension Client {
         let animal3 = Animal(name: "Sol", type: "Cat", sex: "female", breed: "German Shepard", social: true, reservation: reserve3, notes: "")
         m2animals.append(animal3)
 
-        let client0 = Client(fName: "Mark", lName: "Sanchez", address: "123 Wall Street", email: "ms@gmail.com", cellNum: "201-233-1222", animals: mAnimals)
-        let client1 = Client(fName: "Samantha", lName: "Smith", address: "234 Wall Street", email: "ss@gmail.com", cellNum: "210-453-2211", animals: sAnimals)
-        let client2 = Client(fName: "Mary", lName: "Doe", address: "775 Saint Lane", email: "md@gmail.com", cellNum: "122-345-6677", animals: m2animals)
+        let client0 = Client(fName: "Mark", lName: "Sanchez", address: "123 Wall Street, New York City, New York 24518", email: "ms@gmail.com", cellNum: "201-233-1222", animals: mAnimals)
+        let client1 = Client(fName: "Samantha", lName: "Smith", address: "234 Wall Street, New York City, New York 24518", email: "ss@gmail.com", cellNum: "210-453-2211", animals: sAnimals)
+        let client2 = Client(fName: "Mary", lName: "Doe", address: "775 Saint Lane, Austin, Texas 28334", email: "md@gmail.com", cellNum: "122-345-6677", animals: m2animals)
         
         let contact0 = Contact(letter: client0.getFirstLetter(s: client0.lName), clients: [client0])
         contact0.add(client: client1)

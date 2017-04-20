@@ -26,6 +26,8 @@ class NewClientViewController: UIViewController{
     var newAnimal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
     
     var animalTag = 0
+    
+    let limitLenght = 5
 
     var animalArray = [Animal]()
     
@@ -89,6 +91,7 @@ class NewClientViewController: UIViewController{
             errorLabel.text = "A firstname is required"
             saveButton.isEnabled = false
         }
+        sender.isEnabled = true
     }
     
     @IBAction func checkCellNumField(_ sender: UITextField) {
@@ -106,6 +109,7 @@ class NewClientViewController: UIViewController{
             errorLabel.text = "A cell number is required"
             saveButton.isEnabled = false
         }
+        sender.isEnabled = true
     }
     
     @IBAction func checkEmailField(_ sender: UITextField) {
@@ -118,6 +122,7 @@ class NewClientViewController: UIViewController{
             saveButton.isEnabled = true
             email.textColor = UIColor.black
         }
+        sender.isEnabled = true
     }
     
     @IBAction func checkAddressField(_ sender: UITextField) {
@@ -129,6 +134,13 @@ class NewClientViewController: UIViewController{
             errorLabel.text = ""
             saveButton.isEnabled = true
             sender.textColor = UIColor.black
+        }
+        sender.isEnabled = true
+    }
+    
+    @IBAction func checkZip(_ sender: UITextField) {
+        if (sender.text!.characters.count > limitLenght) {
+            sender.deleteBackward()
         }
     }
     
