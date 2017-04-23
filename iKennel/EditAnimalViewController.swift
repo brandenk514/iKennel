@@ -59,11 +59,6 @@ class EditAnimalViewController: UIViewController, UITextFieldDelegate {
         
         errorLabel.text = ""
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        checkDates()
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -127,6 +122,7 @@ class EditAnimalViewController: UIViewController, UITextFieldDelegate {
            sel_animal.reservation?.dateOut = dateOut
            dateOutButton.setTitle(dateOut_string, for: .normal)
         }
+        checkDates()
     }
     
     

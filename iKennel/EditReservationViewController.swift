@@ -44,11 +44,6 @@ class EditReservationViewController: UIViewController {
         errorLabel.text = ""
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        checkDates()
-    }
-    
     @IBAction func addNewDate(_ sender: UIButton) {
         dateTag = sender.tag
         performSegue(withIdentifier: "reservDatePicker", sender: sender)
@@ -75,8 +70,7 @@ class EditReservationViewController: UIViewController {
             current_animal.reservation?.dateOut = dateOut
             animal_DateOut.setTitle(dateOut_string, for: .normal)
         }
-        
-        
+        checkDates()
     }
     
     func checkDates() {
