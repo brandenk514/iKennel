@@ -26,8 +26,6 @@ class NewClientViewController: UIViewController{
     var newAnimal = Animal(name: "", type: "", sex: "", breed: "", social: false, reservation: Reservation(dateIn: Date(), dateOut: Date(), checkedIn: false), notes: "")
     
     var animalTag = 0
-    
-    let limitLenght = 5
 
     var animalArray = [Animal]()
     

@@ -43,11 +43,6 @@ class AddAnimalNewClientViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        checkDates()
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -58,6 +53,7 @@ class AddAnimalNewClientViewController: UIViewController, UITextFieldDelegate {
     @IBAction func addDatePicker(segue:UIStoryboardSegue) {
         dateInButton.setTitle(dateIn_string, for: .normal)
         dateOutButton.setTitle(dateOut_string, for: .normal)
+        checkDates()
     }
     
     @IBAction func dateButtonPressed(_ sender: UIButton) {
