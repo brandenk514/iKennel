@@ -2337,45 +2337,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="MIr-Wp-oSB">
-                                <rect key="frame" x="36" y="75" width="309.5" height="292"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="MIr-Wp-oSB">
+                                <rect key="frame" x="20" y="75" width="335" height="392"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for choosing iKennel." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjv-m4-DLS">
-                                        <rect key="frame" x="0.0" y="0.0" width="309.5" height="22.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for choosing iKennel." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjv-m4-DLS">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="65.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Clients must be added before reservation can be made for their animals" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBO-M8-LS2">
-                                        <rect key="frame" x="0.0" y="22.5" width="309.5" height="69.5"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="- Clients must be added before reservation can be made for their animals" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBO-M8-LS2">
+                                        <rect key="frame" x="0.0" y="65.5" width="335" height="65"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="- To add a client or reservation, press the &quot;+&quot; button in the right-hand corner of the client or reservation screen" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zD9-zw-Tv2">
-                                        <rect key="frame" x="0.0" y="92" width="309.5" height="81"/>
+                                        <rect key="frame" x="0.0" y="130.5" width="335" height="65.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <dataDetectorType key="dataDetectorTypes" lookupSuggestion="YES"/>
                                     </textView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="- To remove a client or reservation, swipe to the left and press delete" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNo-6I-ECZ">
-                                        <rect key="frame" x="0.0" y="173" width="309.5" height="74"/>
+                                        <rect key="frame" x="0.0" y="196" width="335" height="65.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed by BK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MkV-Gf-da9">
-                                        <rect key="frame" x="0.0" y="247" width="309.5" height="22.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developed by BK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MkV-Gf-da9">
+                                        <rect key="frame" x="0.0" y="261.5" width="335" height="65"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://github.com/brandenk514/iKennel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhS-1A-I74">
-                                        <rect key="frame" x="0.0" y="269.5" width="309.5" height="22.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://github.com/brandenk514/iKennel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhS-1A-I74">
+                                        <rect key="frame" x="0.0" y="326.5" width="335" height="65.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -2385,9 +2382,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="MIr-Wp-oSB" secondAttribute="bottom" constant="300" id="UL6-AS-m7t"/>
-                            <constraint firstAttribute="trailing" secondItem="MIr-Wp-oSB" secondAttribute="trailing" constant="29.5" id="VRp-Kv-9Y9"/>
-                            <constraint firstItem="MIr-Wp-oSB" firstAttribute="leading" secondItem="45v-dz-V2Z" secondAttribute="leading" constant="36" id="qfr-Na-9xn"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="MIr-Wp-oSB" secondAttribute="bottom" constant="200" id="UL6-AS-m7t"/>
+                            <constraint firstAttribute="trailing" secondItem="MIr-Wp-oSB" secondAttribute="trailing" constant="20" id="VRp-Kv-9Y9"/>
+                            <constraint firstItem="MIr-Wp-oSB" firstAttribute="leading" secondItem="45v-dz-V2Z" secondAttribute="leading" constant="20" id="qfr-Na-9xn"/>
                             <constraint firstItem="MIr-Wp-oSB" firstAttribute="top" secondItem="45v-dz-V2Z" secondAttribute="topMargin" constant="75" id="toO-xH-DB5"/>
                         </constraints>
                     </view>
