@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="ipad9_7" orientation="portrait">
+    <device id="ipad12_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,17 +18,17 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" horizontalHuggingPriority="251" text="Welcome to iKennel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxm-Og-klc" userLabel="Welcome to iKennel">
-                                <rect key="frame" x="295" y="500" width="177" height="24"/>
+                                <rect key="frame" x="423.5" y="671" width="177" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Getting everything ready... " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMu-rK-U07">
-                                <rect key="frame" x="281.5" y="542" width="206.5" height="20.5"/>
+                                <rect key="frame" x="409" y="713" width="206.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -36,11 +36,35 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.58039215686274503" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="vxm-Og-klc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4Qc-1w-vyE"/>
-                            <constraint firstItem="vxm-Og-klc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="gC8-xS-pfF"/>
-                            <constraint firstItem="dMu-rK-U07" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="pbI-iG-YlZ"/>
-                            <constraint firstItem="dMu-rK-U07" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="40" id="uek-ew-5cT"/>
+                            <constraint firstItem="vxm-Og-klc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="6ev-ip-NI5"/>
+                            <constraint firstItem="dMu-rK-U07" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="40" id="Ebv-Ig-MFG"/>
+                            <constraint firstItem="dMu-rK-U07" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Vpj-K4-FIl"/>
+                            <constraint firstItem="vxm-Og-klc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="W9Q-kh-4HZ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6ev-ip-NI5"/>
+                                <exclude reference="W9Q-kh-4HZ"/>
+                                <exclude reference="Ebv-Ig-MFG"/>
+                                <exclude reference="Vpj-K4-FIl"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="6ev-ip-NI5"/>
+                                <include reference="W9Q-kh-4HZ"/>
+                                <include reference="Ebv-Ig-MFG"/>
+                                <include reference="Vpj-K4-FIl"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="6ev-ip-NI5"/>
+                                <include reference="W9Q-kh-4HZ"/>
+                                <include reference="Ebv-Ig-MFG"/>
+                                <include reference="Vpj-K4-FIl"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
