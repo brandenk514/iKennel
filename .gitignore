@@ -67,4 +67,3 @@ fastlane/test_output
 ## Appcode Files
 .idea/*
 *.png
-*.xcuserstate
