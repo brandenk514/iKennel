@@ -84,6 +84,8 @@ class AddAnimalNewClientViewController: UIViewController, UITextFieldDelegate {
         sender.isEnabled = true
     }
     
+    
+    
     func checkDates() {
         if dateIn >= dateOut {
             errorLabel.text = "The 'Date in' can not be after the 'Date out'"

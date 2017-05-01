@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewClientViewController: UIViewController{
+class NewClientViewController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var firstname: UITextField!
     @IBOutlet weak var lastname: UITextField!
@@ -36,14 +36,14 @@ class NewClientViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        firstname.delegate = self as? UITextFieldDelegate
-        lastname.delegate = self as? UITextFieldDelegate
-        email.delegate = self as? UITextFieldDelegate
-        cellnum.delegate = self as? UITextFieldDelegate
-        streetField.delegate = self as? UITextFieldDelegate
-        cityField.delegate = self as? UITextFieldDelegate
-        stateField.delegate = self as? UITextFieldDelegate
-        zipCodeField.delegate = self as? UITextFieldDelegate
+        firstname.delegate = self
+        lastname.delegate = self
+        email.delegate = self
+        cellnum.delegate = self
+        streetField.delegate = self
+        cityField.delegate = self
+        stateField.delegate = self
+        zipCodeField.delegate = self
         
         errorLabel.text = ""
         if lastname.text == "" || firstname.text == "" || cellnum.text == "" {
@@ -150,7 +150,7 @@ class NewClientViewController: UIViewController{
     /**
      * Called when 'return' key pressed. return NO to ignore.
      */
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
