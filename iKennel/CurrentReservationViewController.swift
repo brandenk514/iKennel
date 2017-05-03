@@ -39,6 +39,7 @@ class CurrentReservationViewController: UIViewController {
         animalDateInLabel.text = cur_animal.getDMY_time(d: cur_animal.getReservation().dateIn)
         animalDateOutLabel.text = cur_animal.getDMY_time(d: cur_animal.getReservation().dateOut)
         animalCheckedInLabel.text = cur_animal.checkedInToText()
+        print(cur_animal.getReservation().checkedIn)
     }
     
     @IBAction func edittingCurrentReservation(segue:UIStoryboardSegue) { }

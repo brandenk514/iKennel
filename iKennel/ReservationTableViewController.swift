@@ -65,11 +65,11 @@ class ReservationTableViewController: UITableViewController, UISearchResultsUpda
         if shouldShowSearchResults {
             let selected = filteredAnimals[indexPath.row]
             cell.clientName.text = selected.name
-            cell.animalNames.text = selected.socialToText()
+            cell.animalNames.text = selected.checkedInToText()
         } else {
             let selected = clientAnimals[indexPath.section].animals[indexPath.row]
             cell.clientName.text = selected.name
-            cell.animalNames.text = "Checked In: " + selected.socialToText()
+            cell.animalNames.text = "Checked In: " + selected.checkedInToText()
         }
         
         return cell
