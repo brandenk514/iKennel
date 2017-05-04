@@ -36,6 +36,10 @@ class EditAnimalViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.nameField.delegate = self
+        self.breedField.delegate = self
+        self.notesField.delegate = self
 
         nameField.text = sel_animal.name
         if nameField.text!.isEmpty { nameField.placeholder = "Name" }

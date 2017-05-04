@@ -13,7 +13,7 @@ class AddAnimalViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var animalName: UITextField!
     @IBOutlet weak var animalType: UISegmentedControl!
     @IBOutlet weak var animalBreed: UITextField!
-    @IBOutlet weak var animalNotes: UITextView!
+    @IBOutlet weak var animalNotes: UITextField!
     @IBOutlet weak var animalSex: UISegmentedControl!
     @IBOutlet weak var socialSwitch: UISwitch!
     @IBOutlet weak var checkedInSwitch: UISwitch!
@@ -36,6 +36,9 @@ class AddAnimalViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         errorLabel.text = ""
+        self.animalName.delegate = self
+        self.animalBreed.delegate = self
+        self.animalNotes.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
